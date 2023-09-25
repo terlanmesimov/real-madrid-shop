@@ -1,0 +1,30 @@
+.annoncement_bar {
+  background: rgb(16, 35, 65);
+  width: 100%;
+  &:hover {
+    background: rgb(16, 35, 65, 0.9);
+  }
+  .annoncement_bar_link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    text-underline-offset: 0.3rem;
+    .annoncement_bar_message {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.1rem;
+      .annoncement_bar_icon {
+        max-width: 25px;
+        height: 1.3rem;
+        margin: 0 0 0.2rem 1rem;
+        pointer-events: none;
+        vertical-align: middle;
+      }
+    }
+  }
+}
