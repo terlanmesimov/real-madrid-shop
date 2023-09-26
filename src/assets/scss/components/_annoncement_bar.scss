@@ -3,6 +3,9 @@
   width: 100%;
   &:hover {
     background: rgb(16, 35, 65, 0.9);
+    .annoncement_bar_icon {
+      transform: translateX(5px);
+    }
   }
   .annoncement_bar_link {
     display: block;
@@ -24,6 +27,7 @@
         margin: 0 0 0.2rem 1rem;
         pointer-events: none;
         vertical-align: middle;
+        transition: 0.3s ease;
       }
     }
   }

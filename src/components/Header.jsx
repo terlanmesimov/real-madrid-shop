@@ -4,6 +4,7 @@ import headingImage from "../assets/images/RealMadrid_Official_Online_Store_COLO
 // Components
 import SearchBar from "./SearchBar";
 import UserSelectorOptions from "./UserSelectorOptions";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
@@ -19,7 +20,7 @@ const Header = () => {
           <UserSelectorOptions />
         </div>
       </div>
-      <nav className="navbar"></nav>
+      <Navbar />
     </header>
   );
 };

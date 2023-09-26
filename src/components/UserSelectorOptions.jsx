@@ -2,93 +2,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const UserSelectorOptions = () => {
-  const [arrowSideForLang, setArrowSideForLang] = useState(false);
-  const [arrowSideForRegion, setArrowSideForRegion] = useState(false);
-  const [options, setOptions] = useState([
-    { value: "en", label: "EN", hidden: true },
-    { value: "es", label: "ES", hidden: false },
-    { value: "DE", label: "DE", hidden: false },
-    { value: "PT", label: "PT", hidden: false },
-    { value: "FR", label: "FR", hidden: false },
-  ]);
-
-  const handleChangeLang = (e) => {
-    const updatedOptions = options.map((option) => {
-      if (e.target.value === option.value) {
-        option.hidden = true;
-        return option;
-      } else {
-        option.hidden = false;
-        return option;
-      }
-    });
-    setOptions(updatedOptions);
-  };
+  // const [arrowSideForLang, setArrowSideForLang] = useState(false);
 
   return (
     <div className="selector_and_options">
       <div className="language_and_region">
         <div className="language_selector">
           <span className="title">IDIOMA</span>
-          <select
-            name="languages"
-            className="languages"
-            onChange={handleChangeLang}
-            onClick={(e) => {
-              setArrowSideForLang(!arrowSideForLang);
-            }}
-          >
-            {options.map((option) => {
-              return (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  className="language"
-                  hidden={option.hidden}
-                >
-                  {option.label}
-                </option>
-              );
-            })}
-          </select>
-          <span
-            className={arrowSideForLang ? "arrow_down open" : "arrow_down"}
-          ></span>
         </div>
         <div className="region_selector">
           <span className="title">REGIÓN</span>
-          <select
-            name="regions"
-            className="regions"
-            onClick={() => {
-              setArrowSideForRegion(!arrowSideForRegion);
-            }}
-          >
-            <option className="region" value="eu" defaultValue="eu">
-              EU
-            </option>
-            <option className="region" value="uk">
-              UK
-            </option>
-            <option className="region" value="us">
-              US
-            </option>
-            <option className="region" value="au">
-              AU
-            </option>
-            <option className="region" value="cn">
-              CN
-            </option>
-            <option className="region" value="jp">
-              JP
-            </option>
-            <option className="region" value="kr">
-              KR
-            </option>
-          </select>
-          <span
-            className={arrowSideForRegion ? "arrow_down open" : "arrow_down"}
-          ></span>
         </div>
       </div>
       <div className="cart_and_user">
