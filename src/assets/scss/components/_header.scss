@@ -139,7 +139,13 @@ $--color-foreground: rgba(16, 35, 65);
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       .nav_item {
+        &:hover{
+          .sub_menu{
+            display: block;
+          }
+        }
         .nav_link {
           font-family: "Assistant", sans-serif;
           display: block;
@@ -150,6 +156,15 @@ $--color-foreground: rgba(16, 35, 65);
           &:hover {
             color: #004996;
           }
+        }
+        .sub_menu {
+          position: absolute;
+          display: none;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          padding: 20px 0;
+          border: 1px solid rgba(16, 35, 65, 0.2);
         }
       }
     }
