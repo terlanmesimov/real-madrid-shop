@@ -158,6 +158,7 @@ $--color-foreground: rgba(16, 35, 65);
           }
         }
         .sub_menu {
+          font-family: "Assistant", sans-serif;
           position: absolute;
           display: none;
           top: 100%;
@@ -165,16 +166,47 @@ $--color-foreground: rgba(16, 35, 65);
           width: 100%;
           padding: 20px 0;
           border: 1px solid rgba(16, 35, 65, 0.2);
+        }
+        .kits {
           .sub_menu_cards {
             display: flex;
-            align-items: center;
             justify-content: center;
             .sub_menu_card {
               display: flex;
               flex-direction: column;
-              
+              margin: 0 15px;
+              width: 150px;
+              .sub_card_image {
+                width: 100%;
+                height: 150px;
+              }
+              .sub_card_title {
+                line-height: 1;
+                font-weight: 650;
+                letter-spacing: 1px;
+                margin: 10px 0 4px;
+                font-size: 18px;
+                color: #102341;
+                &:hover {
+                  color: #004996;
+                }
+              }
+              .sub_card_item {
+                letter-spacing: 1px;
+                line-height: 1;
+                font-weight: 700;
+                margin: 4px 0;
+                font-size: 13px;
+                color: #102341;
+                &:hover {
+                  color: #004996;
+                }
+              }
             }
           }
+        }
+        .shop_by_player{
+          
         }
       }
     }
