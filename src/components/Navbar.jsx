@@ -220,19 +220,337 @@ const Navbar = () => {
           <NavLink className="nav_link" to="*e">
             TRAINING
           </NavLink>
-          <div className="sub_menu"></div>
+          <div className="sub_menu training_sub">
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">MENS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Tracksuit</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jackets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Polos</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">See All</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">WOMENS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Tracksuit</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jackets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">See All</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">YOUTH</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Tracksuit</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jackets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">See All</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">COLLECTIONS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Culture Wear</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Training</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Travel</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Champhions League</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Lfstr Collection</Link>
+              </li>
+            </ul>
+            <div className="sub_info_part">
+              <img
+                className="info_part_image"
+                src={training}
+                alt="info_part_img"
+              />
+              <h3>CHAMPIONS LEAGUE COLLECTION 23/24</h3>
+              <h5>
+                <Link>SHOP NOW</Link>
+              </h5>
+            </div>
+          </div>
         </li>
         <li className="nav_item fashion">
           <NavLink className="nav_link" to="*">
             FASHION
           </NavLink>
-          <div className="sub_menu"></div>
+          <div className="sub_menu fashion_sub">
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">MENS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Hooded Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Tracksuit</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Polos</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Caps-Hats</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Pajamas & Underwear</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">WOMENS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Hooded Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jackets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Pajamas & Underwear</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">YOUTH</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">T-shirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Hooded Sweatshirts</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jackets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Tracksuit</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Bottoms</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Caps-Hats</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Pajamas & Underwear</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Baby Clothing</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">COLLECTIONS</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Lifestyle</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Urban Gold</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Signature</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sakura</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Summer Exxentials</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Exxentials</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Sportswear</Link>
+              </li>
+            </ul>
+            <div className="sub_info_part">
+              <img
+                className="info_part_image"
+                src={fashion}
+                alt="info_part_img"
+              />
+              <h3>NEW SAKURA COLLECTION!</h3>
+              <h5>
+                <Link>SHOP NOW</Link>
+              </h5>
+            </div>
+          </div>
         </li>
         <li className="nav_item accessories">
           <NavLink className="nav_link" to="*">
             ACCESSORIES
           </NavLink>
-          <div className="sub_menu"></div>
+          <div className="sub_menu accessories_sub">
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">ACCESSORIES FOR FASHION</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Face Masks</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Caps</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Beanies</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Socks and Gloves</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Jewellery</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Wathces</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Wallets</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Backpacks</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">HOMEWARE</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Home and Office</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Glassware and Cups</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Electronics</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Games and Toys</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Pets</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">FAN WORLD</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Scarves</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Flags</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Key Rings</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Souvenirs</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Corporate Gifts</Link>
+              </li>
+            </ul>
+            <ul className="items">
+              <li className="list_title">
+                <Link to="*">ACCESSORIES FOR FOOTBALL</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Footballs</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Baggs and Luggage</Link>
+              </li>
+              <li className="list_item">
+                <Link to="*">Gloves and Shin Guards</Link>
+              </li>
+            </ul>
+            <div className="sub_info_part">
+              <img
+                className="info_part_image"
+                src={accessories}
+                alt="info_part_img"
+              />
+              <h3>NEW TRAINING ACCESSORIES</h3>
+              <h5>
+                <Link>SHOP NOW</Link>
+              </h5>
+            </div>
+          </div>
         </li>
         <li className="nav_item sale">
           <NavLink className="nav_link" to="*">

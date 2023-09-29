@@ -154,6 +154,27 @@ $--color-foreground: rgba(16, 35, 65);
           }
         }
       }
+      .training {
+        &:hover {
+          .training_sub {
+            display: flex;
+          }
+        }
+      }
+      .fashion {
+        &:hover {
+          .fashion_sub {
+            display: flex;
+          }
+        }
+      }
+      .accessories {
+        &:hover {
+          .accessories_sub {
+            display: flex;
+          }
+        }
+      }
       .nav_item {
         .nav_link {
           font-family: "Assistant", sans-serif;
@@ -215,15 +236,17 @@ $--color-foreground: rgba(16, 35, 65);
           }
         }
         .shop_by_player_sub {
+          padding: 20px 0 20px 180px;
           display: none;
           .players_list {
             text-transform: uppercase;
+            margin: 0 20px 0 0;
             .list_title {
               a {
+                margin: 4px 20px 4px 0;
                 line-height: 1;
                 font-weight: 650;
                 letter-spacing: 1px;
-                margin: 10px 0 4px;
                 font-size: 18px;
                 color: #102341;
                 text-transform: uppercase;
@@ -234,6 +257,7 @@ $--color-foreground: rgba(16, 35, 65);
             }
             .player {
               a {
+                margin: 4px 20px;
                 letter-spacing: 1px;
                 line-height: 1;
                 font-weight: 700;
@@ -260,6 +284,63 @@ $--color-foreground: rgba(16, 35, 65);
               a {
                 color: #102341;
                 font-size: 13px;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .fashion_sub,
+        .accessories_sub,
+        .training_sub {
+          padding: 20px 0 20px 180px;
+          display: none;
+          .items {
+            text-transform: uppercase;
+            margin: 0 20px 0 0;
+            .list_title {
+              a {
+                margin: 4px 20px 4px 0;
+                line-height: 1;
+                font-weight: 650;
+                letter-spacing: 1px;
+                font-size: 18px;
+                color: #102341;
+                text-transform: uppercase;
+                &:hover {
+                  color: #004996;
+                }
+              }
+            }
+            .list_item {
+              a {
+                margin: 4px 20px;
+                letter-spacing: 1px;
+                line-height: 1;
+                font-weight: 700;
+                margin: 4px 0;
+                font-size: 13px;
+                color: #102341;
+                &:hover {
+                  color: #004996;
+                }
+              }
+            }
+          }
+          .sub_info_part {
+            .info_part_image {
+              width: 333px;
+            }
+            h3 {
+              color: #102341;
+              font-size: 18px;
+              margin: 18px 0 5px;
+              font-weight: 400;
+            }
+            h5 {
+              a {
+                color: #102341;
+                font-size: 13px;
+                text-decoration: underline;
               }
             }
           }
