@@ -11,17 +11,17 @@ import basketballKit from "../assets/images/navegation_image-baloncesto_150x150.
 import shopbyplayer from "../assets/images/shop_by_player.jpeg";
 import training from "../assets/images/training.jpeg";
 import fashion from "../assets/images/fashion.jpeg";
-import accessories from "../assets/images/accesorioes.jpeg"
+import accessories from "../assets/images/accesorioes.jpeg";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <ul className="nav_list">
-        <li className="nav_item">
+        <li className="nav_item kits">
           <NavLink className="nav_link" to="*">
             KITS
           </NavLink>
-          <div className="sub_menu kits">
+          <div className="sub_menu kits_sub">
             <ul className="sub_menu_cards">
               <li className="sub_menu_card">
                 <img className="sub_card_image" src={homeKit} alt="kit" />
@@ -119,11 +119,11 @@ const Navbar = () => {
             </ul>
           </div>
         </li>
-        <li className="nav_item">
+        <li className="nav_item shop_by_player">
           <NavLink className="nav_link" to="*">
             SHOP BY PLAYER
           </NavLink>
-          <div className="sub_menu shop_by_player">
+          <div className="sub_menu shop_by_player_sub">
             <ul className="players_list">
               <li className="list_title">
                 <Link to="*">MENS TEAM</Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
                 <Link to="*">Rodrygo</Link>
               </li>
             </ul>
-            <ul className="player_list">
+            <ul className="players_list">
               <li className="list_title">
                 <Link to="*">WOMENS TEAM</Link>
               </li>
@@ -204,29 +204,37 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="sub_info_part">
-              <img src={shopbyplayer} alt="image" />
+              <img
+                className="info_part_image"
+                src={shopbyplayer}
+                alt="info_part_img"
+              />
+              <h3>KİTS 23/24</h3>
+              <h5>
+                <Link>SHOP NOW</Link>
+              </h5>
             </div>
           </div>
         </li>
-        <li className="nav_item">
+        <li className="nav_item training">
           <NavLink className="nav_link" to="*e">
             TRAINING
           </NavLink>
           <div className="sub_menu"></div>
         </li>
-        <li className="nav_item">
+        <li className="nav_item fashion">
           <NavLink className="nav_link" to="*">
             FASHION
           </NavLink>
           <div className="sub_menu"></div>
         </li>
-        <li className="nav_item">
+        <li className="nav_item accessories">
           <NavLink className="nav_link" to="*">
             ACCESSORIES
           </NavLink>
           <div className="sub_menu"></div>
         </li>
-        <li className="nav_item">
+        <li className="nav_item sale">
           <NavLink className="nav_link" to="*">
             SALE
           </NavLink>

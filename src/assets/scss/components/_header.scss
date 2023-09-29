@@ -140,12 +140,21 @@ $--color-foreground: rgba(16, 35, 65);
       justify-content: center;
       align-items: center;
       position: relative;
-      .nav_item {
+      .kits {
         &:hover {
-          .sub_menu {
+          .kits_sub {
             display: block;
           }
         }
+      }
+      .shop_by_player {
+        &:hover {
+          .shop_by_player_sub {
+            display: flex;
+          }
+        }
+      }
+      .nav_item {
         .nav_link {
           font-family: "Assistant", sans-serif;
           display: block;
@@ -167,7 +176,7 @@ $--color-foreground: rgba(16, 35, 65);
           padding: 20px 0;
           border: 1px solid rgba(16, 35, 65, 0.2);
         }
-        .kits {
+        .kits_sub {
           .sub_menu_cards {
             display: flex;
             justify-content: center;
@@ -205,8 +214,55 @@ $--color-foreground: rgba(16, 35, 65);
             }
           }
         }
-        .shop_by_player{
-          
+        .shop_by_player_sub {
+          display: none;
+          .players_list {
+            text-transform: uppercase;
+            .list_title {
+              a {
+                line-height: 1;
+                font-weight: 650;
+                letter-spacing: 1px;
+                margin: 10px 0 4px;
+                font-size: 18px;
+                color: #102341;
+                text-transform: uppercase;
+                &:hover {
+                  color: #004996;
+                }
+              }
+            }
+            .player {
+              a {
+                letter-spacing: 1px;
+                line-height: 1;
+                font-weight: 700;
+                margin: 4px 0;
+                font-size: 13px;
+                color: #102341;
+                &:hover {
+                  color: #004996;
+                }
+              }
+            }
+          }
+          .sub_info_part {
+            .info_part_image {
+              width: 333px;
+            }
+            h3 {
+              color: #102341;
+              font-size: 18px;
+              margin: 18px 0 5px;
+              font-weight: 400;
+            }
+            h5 {
+              a {
+                color: #102341;
+                font-size: 13px;
+              }
+            }
+          }
         }
       }
     }
