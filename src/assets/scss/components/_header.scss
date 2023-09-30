@@ -132,7 +132,7 @@ $--color-foreground: rgba(16, 35, 65);
     }
   }
   .navbar {
-    width: 100vw;
+    width: 100%;
     border-bottom: 1px solid #eff0f2;
     .nav_list {
       width: 100%;
@@ -191,6 +191,7 @@ $--color-foreground: rgba(16, 35, 65);
           background: #fff;
           font-family: "Assistant", sans-serif;
           position: absolute;
+          z-index: 1;
           display: none;
           top: 100%;
           left: 0;

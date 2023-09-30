@@ -1,11 +1,11 @@
 .hero {
-  background: url(../../images/hero_bg.jpeg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
   position: relative;
+  .hero_bg {
+    img {
+      max-height: 720px;
+      width: 100%;
+    }
+  }
   .content {
     position: absolute;
     bottom: 0;
