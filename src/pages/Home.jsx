@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <section className="hero">
         <div className="hero_bg">
-          <img src={heroBg} alt="" />
+          <img src={heroBg} alt="hero bg" />
         </div>
         <div className="content">
           <h1 className="hero_heading">WE'RE PLAYING AWAY!</h1>

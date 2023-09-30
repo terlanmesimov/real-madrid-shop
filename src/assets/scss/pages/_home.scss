@@ -4,6 +4,7 @@
     img {
       max-height: 720px;
       width: 100%;
+      contain: content;
     }
   }
   .content {
@@ -17,19 +18,35 @@
     align-items: center;
     flex-direction: column;
     h1 {
-      text-align: center;
       color: #fff;
       font-size: 49px;
       white-space: nowrap;
+      font-weight: 400;
+      font-style: normal;
+      text-align: center;
     }
     h2 {
       text-align: center;
+      font-size: 30px;
       color: #fff;
+      font-weight: lighter;
+      font-style: normal;
     }
     .hero_btn {
+      margin: 20px 0 0 0;
       a {
+        display: block;
+        padding: 5px 30px;
         text-align: center;
         color: #fff;
+        font-size: 15px;
+        font-weight: bolder;
+        border: 2px solid #fff;
+        line-height: 1.8;
+        transition: 100ms ease;
+        &:hover{
+          background: #004996;
+        }
       }
     }
   }
