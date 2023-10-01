@@ -191,23 +191,6 @@ $--color-foreground: rgba(16, 35, 65);
         .cart_and_user {
           display: flex;
           height: 90px;
-          .cart {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 44px;
-            &:hover {
-              transform: scale(1.07);
-            }
-            .cart_icon {
-              height: 44px;
-              width: 44px;
-              fill: none;
-              vertical-align: middle;
-              color: #636467;
-            }
-          }
           .user {
             display: flex;
             align-items: center;
