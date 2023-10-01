@@ -12,6 +12,7 @@ const UserSelectorOptions = () => {
   const [regionList, setRegionList] = useState([]);
   const [currentRegion, setCurrentRegion] = useState("eu");
 
+
   useEffect(() => {
     const languages = ["en", "es", "de", "pt", "fr"];
     const updatedLangList = languages.filter((lang) => lang !== currentLang);

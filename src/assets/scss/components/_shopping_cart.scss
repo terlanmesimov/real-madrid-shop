@@ -1,0 +1,115 @@
+.selector_and_options {
+  .cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 44px;
+    position: relative;
+    &:hover {
+      .cart_icon {
+        transform: scale(1.07);
+      }
+    }
+    .cart_icon {
+      height: 44px;
+      width: 44px;
+      fill: none;
+      vertical-align: middle;
+      color: #636467;
+    }
+    .product_count {
+      position: absolute;
+      padding: 2px;
+      bottom: 30px;
+      right: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #636467;
+      height: 15px;
+      min-width: 15px;
+      border-radius: 10px;
+      span {
+        display: block;
+        line-height: 1.1;
+        font-size: 9px;
+        color: white;
+      }
+    }
+  }
+}
+
+
+.selector_and_options {
+  .context {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    .menu {
+      width: 400px;
+      height: 100%;
+      float: right;
+      padding: 12px;
+      background: #fff;
+      position: relative;
+      .menu_close {
+        user-select: none;
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        right: 27px;
+        font-size: 26px;
+        line-height: 1;
+      }
+      .menu_title {
+        font-size: 20px;
+        color: #102341;
+        letter-spacing: 0.06rem;
+        line-height: 2.5;
+      }
+      .totals {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        h3 {
+          align-self: flex-end;
+          .sub_total {
+            margin: 0 20px 0 0;
+            font-size: 16px;
+            color: #102341;
+            font-weight: 600;
+          }
+          .total_price {
+            font-size: 18px;
+            font-weight: 300;
+          }
+        }
+        .tax_note {
+          text-align: center;
+          margin: 22px 0;
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: 300;
+        }
+        .cart_checkout {
+          cursor: pointer;
+          margin: 10px 0 0;
+          padding: 5px 30px;
+          background: #102341;
+          color: #fff;
+          font-size: 15px;
+          letter-spacing: 0.1rem;
+          font-weight: bolder;
+          line-height: 1.5;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}

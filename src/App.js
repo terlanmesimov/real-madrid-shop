@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AnnoncementBar from "./components/AnnoncementBar";
+import ShoppingCartMenu from "./components/ShoppingCartMenu";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };
