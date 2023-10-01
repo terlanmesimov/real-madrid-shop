@@ -20,6 +20,9 @@ const Header = () => {
           <UserSelectorOptions />
         </div>
       </div>
+      <div className="header_bottom">
+        <SearchBar />
+      </div>
       <Navbar />
     </header>
   );

@@ -2,7 +2,9 @@
   position: relative;
   .hero_bg {
     img {
-      max-height: 720px;
+      object-fit: cover;
+      object-position: center center;
+      min-height: 720px;
       width: 100%;
       contain: content;
     }
@@ -44,9 +46,50 @@
         border: 2px solid #fff;
         line-height: 1.8;
         transition: 100ms ease;
-        &:hover{
+        &:hover {
           background: #004996;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .hero {
+    .content {
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .hero {
+    .hero_bg {
+      img {
+        min-height: 390px;
+      }
+    }
+    .content {
+      padding: 50px 10px;
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 326px) {
+  .hero {
+    .content {
+      padding: 10px;
+      h1 {
+        white-space: wrap;
+      }
+      h2 {
+        white-space: wrap;
       }
     }
   }

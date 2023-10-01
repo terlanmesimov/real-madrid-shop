@@ -225,6 +225,25 @@ $--color-foreground: rgba(16, 35, 65);
               color: #636467;
             }
           }
+          .hamburger {
+            user-select: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 44px;
+            &:hover {
+              transform: scale(1.07);
+            }
+            .hamburger_icon {
+              height: 20px;
+              width: 20px;
+              fill: none;
+              vertical-align: middle;
+              color: #636467;
+            }
+          }
         }
       }
     }
@@ -442,6 +461,99 @@ $--color-foreground: rgba(16, 35, 65);
                 font-size: 13px;
                 text-decoration: underline;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+  .header_bottom {
+    .search_bar {
+      display: none;
+      .search {
+        position: relative;
+        .search_input {
+          height: 2.5em;
+          width: 100%;
+          padding: 15px 50px 15px 15px;
+          text-align: left;
+          font-size: 1rem;
+          border: none;
+          color: $--color-foreground;
+          box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.35);
+          outline: none;
+          line-height: 1.5;
+          &:focus {
+            box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.55);
+            height: 2.6em;
+          }
+        }
+        .search_btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          background: transparent;
+          border: none;
+          outline: none;
+          .search_icon {
+            font-size: 14px;
+            color: #102341;
+            height: 18px;
+            width: 18px;
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .header {
+    .navbar {
+      display: none;
+    }
+    .header_top {
+      .row {
+        grid-template-columns: 1fr 1fr;
+        .heading_logo {
+          padding-left: 2em;
+        }
+        .search_bar {
+          display: none;
+        }
+        .selector_and_options {
+          .language_and_region {
+            display: none;
+          }
+          .cart_and_user {
+            margin-right: 0;
+            .hamburger {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+    .header_bottom {
+      .search_bar {
+        display: block;
+        padding: 0.75em 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 326px) {
+  .header {
+    .header_top {
+      .row {
+        .heading_logo {
+          a{
+            img{
+              width: 100%;
+              height: auto;
             }
           }
         }
