@@ -4,6 +4,8 @@ import App from "./App";
 
 // SCSS
 import "../src/assets/scss/index.scss";
+// Animation CSS
+import "animate.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

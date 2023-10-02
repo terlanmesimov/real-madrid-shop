@@ -1,8 +1,24 @@
-const ShoppingCartMenu = ({ openCart, setOpenCart }) => {
+import { Link } from "react-router-dom";
+
+const ShoppingCartMenu = ({ openCart, setOpenCart, animate, setAnimate }) => {
   return (
-    <div className="context">
-      <div className="menu">
-        <span onClick={() => setOpenCart(!openCart)} class="menu_close">
+    <div className={animate ? "context open" : "context close"}>
+      <div
+        className={
+          animate
+            ? "menu animate__animated animate__fadeInRight animate__faster"
+            : "menu animate__animated animate__fadeOutRight animate__faster"
+        }
+      >
+        <span
+          onClick={() => {
+            setAnimate(!animate);
+            setTimeout(() => {
+              setOpenCart(!openCart);
+            }, 500);
+          }}
+          class="menu_close"
+        >
           ✕
         </span>
         <h2 className="menu_title">Your shopping cart (17)</h2>
@@ -21,6 +37,30 @@ const ShoppingCartMenu = ({ openCart, setOpenCart }) => {
           <li className="product"></li>
           <li className="product"></li>
         </ul>
+      </div>
+      <div
+        className={
+          animate
+            ? "empty_menu animate__animated animate__fadeInRight animate__faster"
+            : "empty_menu animate__animated animate__fadeOutRight animate__faster"
+        }
+      >
+        <span
+          onClick={() => {
+            setAnimate(!animate);
+            setTimeout(() => {
+              setOpenCart(!openCart);
+            }, 500);
+          }}
+          class="menu_close"
+        >
+          ✕
+        </span>
+        <h2 className="menu_title">Your Cart</h2>
+        <div className="menu_info">
+          <h2 className="empty_message">Your shopping cart is empty</h2>
+          <Link to="/">Continue Shopping</Link>
+        </div>
       </div>
     </div>
   );

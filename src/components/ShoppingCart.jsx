@@ -7,12 +7,14 @@ import ShoppingCartMenu from "./ShoppingCartMenu";
 
 const ShoppingCart = () => {
   const [openCart, setOpenCart] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   return (
     <>
       <Link
         onClick={() => {
           setOpenCart(!openCart);
+          setAnimate(!animate);
         }}
         className="cart"
         to="/"
@@ -39,7 +41,12 @@ const ShoppingCart = () => {
         </div>
       </Link>
       {openCart && (
-        <ShoppingCartMenu openCart={openCart} setOpenCart={setOpenCart} />
+        <ShoppingCartMenu
+          openCart={openCart}
+          setOpenCart={setOpenCart}
+          animate={animate}
+          setAnimate={setAnimate}
+        />
       )}
     </>
   );
