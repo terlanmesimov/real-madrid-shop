@@ -208,25 +208,6 @@ $--color-foreground: rgba(16, 35, 65);
               color: #636467;
             }
           }
-          .hamburger {
-            user-select: none;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 44px;
-            &:hover {
-              transform: scale(1.07);
-            }
-            .hamburger_icon {
-              height: 20px;
-              width: 20px;
-              fill: none;
-              vertical-align: middle;
-              color: #636467;
-            }
-          }
         }
       }
     }
@@ -512,7 +493,7 @@ $--color-foreground: rgba(16, 35, 65);
           }
           .cart_and_user {
             margin-right: 0;
-            .hamburger {
+            .header_sub_menu {
               display: flex;
             }
           }
@@ -533,8 +514,8 @@ $--color-foreground: rgba(16, 35, 65);
     .header_top {
       .row {
         .heading_logo {
-          a{
-            img{
+          a {
+            img {
               width: 100%;
               height: auto;
             }

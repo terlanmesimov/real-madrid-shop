@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import headingImage from "../assets/images/RealMadrid_Official_Online_Store_COLOR_blacktext_510x_37d3cb70-f682-4b8a-83d4-f819439ba1e9_150x.avif";
 // Components
 import SearchBar from "./SearchBar";
-import UserSelectorOptions from "./UserSelectorOptions";
+import UserSelectorOptions from "./SelectorsAndMenus";
 import Navbar from "./Navbar";
 
 const Header = () => {
