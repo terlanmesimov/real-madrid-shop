@@ -25,6 +25,8 @@
         }
       }
       .sub_menu {
+        overflow-y: auto;
+        height: calc(100vh - 100%);
         position: absolute;
         top: 100%;
         right: 0;

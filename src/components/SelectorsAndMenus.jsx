@@ -6,7 +6,6 @@ import RegionSelector from "./RegionSelector";
 import LanguageSelector from "./LanguageSelector";
 
 const UserSelectorOptions = () => {
-  
   return (
     <div className="selector_and_options">
       <div className="language_and_region">
