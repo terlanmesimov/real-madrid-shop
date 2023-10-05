@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// ANIMATION
-
 // COMPPNENTS
 import ShoppingCartMenu from "./ShoppingCartMenu";
 

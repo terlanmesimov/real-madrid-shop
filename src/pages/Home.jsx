@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-// COMPONENTS
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 // IMAGES
-import heroBg from "../assets/images/hero_bg.jpeg"
+import heroBg from "../assets/images/hero_bg.jpeg";
 
 const Home = () => {
   return (
@@ -18,6 +15,11 @@ const Home = () => {
           <div className="hero_btn">
             <Link to="*">SHOP NOW</Link>
           </div>
+        </div>
+      </section>
+      <section className="shopify_section">
+        <div className="container">
+          <div className="row"></div>
         </div>
       </section>
     </>

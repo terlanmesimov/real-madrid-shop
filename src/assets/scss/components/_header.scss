@@ -11,6 +11,14 @@ $--color-foreground: rgba(16, 35, 65);
       column-gap: 1.5rem;
       .heading_logo {
         padding: 0 0 0 12em;
+        @media (max-width: 326px) {
+          a {
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
       }
       .search_bar {
         .search {
@@ -284,15 +292,19 @@ $--color-foreground: rgba(16, 35, 65);
         .kits_sub {
           .sub_menu_cards {
             display: flex;
-            justify-content: center;
+            margin: 0 10%;
             .sub_menu_card {
               display: flex;
               flex-direction: column;
               margin: 0 15px;
-              width: 150px;
+              width: 12.5%;
+              @media (max-width: 1100px) {
+                margin: 0 10px;
+              }
               .sub_card_image {
-                width: 100%;
-                height: 150px;
+                aspect-ratio: 1/1;
+                width: auto;
+                height: auto;
               }
               .sub_card_title {
                 line-height: 1;
@@ -301,6 +313,9 @@ $--color-foreground: rgba(16, 35, 65);
                 margin: 10px 0 4px;
                 font-size: 18px;
                 color: #102341;
+                @media (max-width: 1100px) {
+                  font-size: 12px;
+                }
                 &:hover {
                   color: #004996;
                 }
@@ -312,6 +327,9 @@ $--color-foreground: rgba(16, 35, 65);
                 margin: 4px 0;
                 font-size: 13px;
                 color: #102341;
+                @media (max-width: 1100px) {
+                  font-size: 11px;
+                }
                 &:hover {
                   color: #004996;
                 }
@@ -320,7 +338,7 @@ $--color-foreground: rgba(16, 35, 65);
           }
         }
         .shop_by_player_sub {
-          padding: 20px 0 20px 180px;
+          padding: 20px 10%;
           display: none;
           .players_list {
             text-transform: uppercase;
@@ -376,7 +394,7 @@ $--color-foreground: rgba(16, 35, 65);
         .fashion_sub,
         .accessories_sub,
         .training_sub {
-          padding: 20px 0 20px 180px;
+          padding: 20px 10%;
           display: none;
           .items {
             text-transform: uppercase;
@@ -505,23 +523,6 @@ $--color-foreground: rgba(16, 35, 65);
       .search_bar {
         display: block;
         padding: 0.75em 2em;
-      }
-    }
-  }
-}
-
-@media (max-width: 326px) {
-  .header {
-    .header_top {
-      .row {
-        .heading_logo {
-          a {
-            img {
-              width: 100%;
-              height: auto;
-            }
-          }
-        }
       }
     }
   }

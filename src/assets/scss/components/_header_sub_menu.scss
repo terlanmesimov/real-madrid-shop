@@ -34,6 +34,9 @@
         z-index: 99;
         background: #fff;
         border: 1px solid #eff0f2;
+        @media (max-width: 750px) {
+          width: 90%;
+        }
         .sub_menu_items {
           display: flex;
           flex-direction: column;
@@ -58,10 +61,9 @@
                 letter-spacing: 1px;
               }
               .arrow_icon {
-                position: absolute;
-                left: 100%;
-                width: 23px;
-                height: 23px;
+                margin: 0 -23px 0 auto;
+                min-width: 23px;
+                min-height: 23px;
               }
             }
           }

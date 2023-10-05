@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //* IMAGES
 import kits from "../assets/images/sub_menu_kits.jpeg";
@@ -15,8 +15,23 @@ const HeaderSubMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [animate, setAnimate] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 990) {
+        setOpenMenu(false);
+        setAnimate(false);
+        document.body.style.overflow = "auto";
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleClickSubMenu = () => {
-    if (animate === true) {
+    if (animate) {
       setAnimate(!animate);
       if (animate === true) {
         setTimeout(() => {
@@ -26,7 +41,7 @@ const HeaderSubMenu = () => {
         setOpenMenu(!openMenu);
       }
       document.body.style.overflow = "auto";
-    } else if (animate === false) {
+    } else if (!animate) {
       setAnimate(!animate);
       setOpenMenu(!openMenu);
       document.body.style.overflow = "hidden";
@@ -34,8 +49,8 @@ const HeaderSubMenu = () => {
   };
   return (
     <div className="header_sub_menu">
-      <div className="hamburger_icon">
-        <div className="icon" onClick={handleClickSubMenu}>
+      <div className="hamburger_icon" onClick={handleClickSubMenu}>
+        <div className="icon">
           {animate ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
