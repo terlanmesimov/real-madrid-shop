@@ -55,6 +55,80 @@
   }
 }
 
+.shopify_section {
+  margin: 10px 0;
+  .container {
+    .row {
+      padding: 0 50px;
+      .title {
+        margin: 30px 0 0 0;
+        display: flex;
+        @media (max-width: 990px) {
+          margin: 0;
+        }
+        .title_text {
+          h2 {
+            font-size: 49px;
+            font-weight: 600;
+            color: #102341;
+            white-space: nowrap;
+            @media (max-width: 990px) {
+              font-size: 25px;
+            }
+          }
+        }
+        .diogonal_lines {
+          width: 34%;
+          height: 37px;
+          float: left;
+          position: relative;
+          margin: 0 0 5px 0;
+          overflow: hidden;
+          @media (max-width: 990px) {
+            display: none;
+          }
+          &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border: 20px solid #fff;
+            border-top-color: transparent;
+            border-left-color: transparent;
+          }
+          &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 20px solid #fff;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+          }
+        }
+        .deg45 {
+          background-size: 10px 10px;
+          background: repeating-linear-gradient(
+            -45deg,
+            #ffffff,
+            #ffffff 10px,
+            rgb(16, 35, 65) 10px,
+            rgb(16, 35, 65) 20px
+          );
+          height: 37px;
+          align-self: center;
+          @media (max-width: 990px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 990px) {
   .hero {
     .content {
