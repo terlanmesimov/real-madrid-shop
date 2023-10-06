@@ -31,12 +31,170 @@ const Home = () => {
             <div className="cards">
               <div className="card">
                 <div className="card_image">
-                  <div className="first_image">
-                    <img src={cardFirstImage} alt="first img" />
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
                   </div>
-                  <div className="second_image">
-                    <img src={cardSecondImage} alt="second img" />
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
                   </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
+                </div>
+                <div className="card_features">
+                  <div className="content">
+                    <p className="card_info">
+                      Mens Away Authentic Shirt 23/24 Navy
+                    </p>
+                    <span className="price">A partir de 150.00€</span>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card_image">
+                  <img
+                    className="first_image"
+                    src={cardFirstImage}
+                    alt="first img"
+                  />
+                  <img
+                    className="second_image"
+                    src={cardSecondImage}
+                    alt="second img"
+                  />
                 </div>
                 <div className="card_features">
                   <div className="content">
@@ -51,6 +209,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
     </>
   );
 };
