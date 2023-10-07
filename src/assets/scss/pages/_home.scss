@@ -86,6 +86,9 @@
   &.m-30 {
     margin: 30px 0;
   }
+  &.m-30-0-80 {
+    margin: 30px 0 80px 0;
+  }
   .container {
     @media (max-width: 990px) {
       margin: 0;

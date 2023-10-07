@@ -571,7 +571,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="shopify_section m-30">
+      <section className="shopify_section m-30-0-80">
         <div className="container">
           <div className="row">
             <div className="title">

@@ -11,8 +11,11 @@ const ShoppingCart = () => {
     <>
       <Link
         onClick={() => {
-          setOpenCart(!openCart);
-          setAnimate(!animate);
+          if (document.body.style.overflow !== "hidden") {
+            setOpenCart(!openCart);
+            setAnimate(!animate);
+          }
+          return;
         }}
         className="cart"
         to="/"

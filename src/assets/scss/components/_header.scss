@@ -1,7 +1,22 @@
-$--color-foreground: rgba(16, 35, 65);
-
 .header {
   position: relative;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
+  border-bottom: 2px solid #eff0f2;
+  &.open {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  &.closed {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+  }
   .header_top {
     border-bottom: 1px solid #eff0f2;
     .row {
@@ -30,7 +45,7 @@ $--color-foreground: rgba(16, 35, 65);
             text-align: left;
             font-size: 1rem;
             border: none;
-            color: $--color-foreground;
+            color: #102341;
             box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.35);
             outline: none;
             line-height: 1.5;
@@ -76,7 +91,7 @@ $--color-foreground: rgba(16, 35, 65);
             .title {
               margin: 12px 0;
               font-size: 12px;
-              color: $--color-foreground;
+              color: #102341;
               font-weight: 400;
               letter-spacing: 0.06rem;
               line-height: 1.3;
@@ -141,7 +156,7 @@ $--color-foreground: rgba(16, 35, 65);
             .title {
               margin: 12px 0;
               font-size: 12px;
-              color: $--color-foreground;
+              color: #102341;
               font-weight: 400;
               letter-spacing: 0.06rem;
               line-height: 1.3;
@@ -462,7 +477,7 @@ $--color-foreground: rgba(16, 35, 65);
           text-align: left;
           font-size: 1rem;
           border: none;
-          color: $--color-foreground;
+          color: #102341;
           box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.35);
           outline: none;
           line-height: 1.5;
