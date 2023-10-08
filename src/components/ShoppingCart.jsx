@@ -4,15 +4,28 @@ import { Link } from "react-router-dom";
 import { HeaderContext } from "../utils/HeaderContext";
 
 const ShoppingCart = () => {
-  const { openCart, setOpenCart, animate, setAnimate } =
-    useContext(HeaderContext);
+  const {
+    openCart,
+    setOpenCart,
+    animateCartMenu,
+    setAnimateCartMenu,
+    openMenu,
+    setOpenMenu,
+    animateSubMenu,
+    setAnimateSubMenu,
+  } = useContext(HeaderContext);
   return (
     <>
       <Link
         onClick={() => {
-          if (document.body.style.overflow !== "hidden") {
+          if (openMenu === false) {
             setOpenCart(!openCart);
-            setAnimate(!animate);
+            setAnimateCartMenu(!animateCartMenu);
+          } else if (openMenu === true) {
+            setAnimateSubMenu(!animateSubMenu);
+            setOpenMenu(!openMenu);
+            setOpenCart(!openCart);
+            setAnimateCartMenu(!animateCartMenu);
           }
           return;
         }}

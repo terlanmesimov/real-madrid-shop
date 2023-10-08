@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 //* IMAGES
 import kits from "../assets/images/sub_menu_kits.jpeg";
@@ -10,16 +10,18 @@ import sale from "../assets/images/sub_menu_sale.jpeg";
 // COMPONENTS
 import LanguageSelector from "./LanguageSelector";
 import RegionSelector from "./RegionSelector";
+// CONTEXT
+import { HeaderContext } from "../utils/HeaderContext";
 
 const HeaderSubMenu = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const [animate, setAnimate] = useState(false);
+  const { openMenu, setOpenMenu, animateSubMenu, setAnimateSubMenu } =
+    useContext(HeaderContext);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 990) {
         setOpenMenu(false);
-        setAnimate(false);
+        setAnimateSubMenu(false);
         document.body.style.overflow = "auto";
       }
     };
@@ -31,9 +33,9 @@ const HeaderSubMenu = () => {
   }, []);
 
   const handleClickSubMenu = () => {
-    if (animate) {
-      setAnimate(!animate);
-      if (animate === true) {
+    if (animateSubMenu) {
+      setAnimateSubMenu(!animateSubMenu);
+      if (animateSubMenu === true) {
         setTimeout(() => {
           setOpenMenu(!openMenu);
         }, 500);
@@ -41,8 +43,8 @@ const HeaderSubMenu = () => {
         setOpenMenu(!openMenu);
       }
       document.body.style.overflow = "auto";
-    } else if (!animate) {
-      setAnimate(!animate);
+    } else if (!animateSubMenu) {
+      setAnimateSubMenu(!animateSubMenu);
       setOpenMenu(!openMenu);
       document.body.style.overflow = "hidden";
     }
@@ -51,7 +53,7 @@ const HeaderSubMenu = () => {
     <div className="header_sub_menu">
       <div className="hamburger_icon" onClick={handleClickSubMenu}>
         <div className="icon">
-          {animate ? (
+          {animateSubMenu ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -91,7 +93,7 @@ const HeaderSubMenu = () => {
       {openMenu && (
         <div
           className={
-            animate
+            animateSubMenu
               ? "sub_menu animate__animated animate__fadeInRightBig animate__faster"
               : "sub_menu animate__animated animate__fadeOutRightBig animate__faster"
           }

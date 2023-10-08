@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { HeaderContext } from "../utils/HeaderContext";
 
 const ShoppingCartMenu = () => {
-  const { openCart, setOpenCart, animate, setAnimate } =
+  const { openCart, setOpenCart, animateCartMenu, setAnimateCartMenu } =
     useContext(HeaderContext);
 
   return (
-    <div className={`cart_context ${animate ? "open" : "close"}`}>
+    <div className={`cart_context ${animateCartMenu ? "open" : "close"}`}>
       <div
         className={`menu animate__animated animate__faster ${
-          animate ? "animate__fadeInRight" : "animate__fadeOutRight"
+          animateCartMenu ? "animate__fadeInRight" : "animate__fadeOutRight"
         }`}
       >
         <span
           onClick={() => {
-            setAnimate(!animate);
+            setAnimateCartMenu(!animateCartMenu);
             setTimeout(() => {
               setOpenCart(!openCart);
             }, 500);
@@ -43,14 +43,14 @@ const ShoppingCartMenu = () => {
       </div>
       <div
         className={
-          animate
+          animateCartMenu
             ? "empty_menu animate__animated animate__fadeInRight animate__faster"
             : "empty_menu animate__animated animate__fadeOutRight animate__faster"
         }
       >
         <span
           onClick={() => {
-            setAnimate(!animate);
+            setAnimateCartMenu(!animateCartMenu);
             setTimeout(() => {
               setOpenCart(!openCart);
             }, 500);

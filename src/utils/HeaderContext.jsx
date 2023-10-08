@@ -1,11 +1,13 @@
 import { createContext, useEffect, useState } from "react";
-
 export const HeaderContext = createContext();
 
 export const HeaderContextProvider = ({ children }) => {
-  // Shopoing Cart Open Close
+  // Shopping Cart Open Close
   const [openCart, setOpenCart] = useState(false);
-  const [animate, setAnimate] = useState(false);
+  const [animateCartMenu, setAnimateCartMenu] = useState(false);
+  // Header Sub Menu Open Close
+  const [openMenu, setOpenMenu] = useState(false);
+  const [animateSubMenu, setAnimateSubMenu] = useState(false);
 
   // Header Animation On Scroll
   const [isHeaderOpen, setIsHeaderOpen] = useState(true);
@@ -29,11 +31,18 @@ export const HeaderContextProvider = ({ children }) => {
     };
   }, [prevScrollPos]);
 
+
+  
+
   const globalStates = {
     openCart,
     setOpenCart,
-    animate,
-    setAnimate,
+    animateCartMenu,
+    setAnimateCartMenu,
+    openMenu,
+    setOpenMenu,
+    animateSubMenu,
+    setAnimateSubMenu,
     isHeaderOpen,
   };
   return (
