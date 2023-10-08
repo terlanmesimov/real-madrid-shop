@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HeaderContext } from "../utils/HeaderContext";
 
@@ -6,6 +6,12 @@ const ShoppingCartMenu = () => {
   const { openCart, setOpenCart, animateCartMenu, setAnimateCartMenu } =
     useContext(HeaderContext);
 
+  useEffect(() => {
+    if (openCart === true) {
+      document.body.style.overflow = "auto";
+    }
+  }, [openCart]);
+  
   return (
     <div className={`cart_context ${animateCartMenu ? "open" : "close"}`}>
       <div

@@ -31,9 +31,6 @@ export const HeaderContextProvider = ({ children }) => {
     };
   }, [prevScrollPos]);
 
-
-  
-
   const globalStates = {
     openCart,
     setOpenCart,
