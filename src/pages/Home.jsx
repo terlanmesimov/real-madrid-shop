@@ -36,7 +36,7 @@ const Home = () => {
           <h1 className="hero_heading">WE'RE PLAYING AWAY!</h1>
           <h2 className="hero_heading">SUPPORT THE TEAM WHEREVER THEY GO</h2>
           <div className="hero_btn">
-            <Link to="*">SHOP NOW</Link>
+            <Link to="/shop">SHOP NOW</Link>
           </div>
         </div>
       </section>

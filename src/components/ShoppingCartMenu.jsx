@@ -68,7 +68,7 @@ const ShoppingCartMenu = () => {
         <h2 className="menu_title">Your Cart</h2>
         <div className="menu_info">
           <h2 className="empty_message">Your shopping cart is empty</h2>
-          <Link to="/">Continue Shopping</Link>
+          <Link to="/shop">Continue Shopping</Link>
         </div>
       </div>
     </div>

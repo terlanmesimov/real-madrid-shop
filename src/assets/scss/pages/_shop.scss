@@ -1,0 +1,129 @@
+.shop {
+  .container {
+    .row {
+      padding: 0 50px;
+      .title {
+        user-select: none;
+        span {
+          display: block;
+          margin: 7.5px 0;
+          font-size: 10px;
+          color: #102341;
+          line-height: 1.5;
+          a {
+            color: #102341;
+          }
+        }
+        h2 {
+          font-size: 30px;
+          color: #102341;
+          line-height: 1.5;
+          margin: 10px 0;
+          font-weight: 500;
+        }
+        h3 {
+          font-size: 16px;
+          color: #102341;
+          line-height: 1.5;
+          margin: 10px 0;
+          font-weight: 700;
+        }
+      }
+      .products {
+        .filter_bar {
+          display: flex;
+          gap: 5px;
+          margin: 10px 0;
+          .filter {
+            position: relative;
+            padding: 10px 0 10px 10px;
+            border: 1px solid rgba(16, 35, 65, 0.75);
+            transition: box-shadow 100ms ease;
+            width: 20%;
+            &:hover {
+              box-shadow: 0 0 0 1px rgba(16, 35, 65, 0.55);
+            }
+            &.open {
+              box-shadow: 0 0 0 1px rgba(16, 35, 65, 0.55);
+            }
+            .selection {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              cursor: pointer;
+              .name {
+                color: #102341bf;
+                font-size: 14px;
+                line-height: 1.8;
+                font-weight: 700;
+              }
+              .arrow_icon {
+                padding: 0 15px 0;
+                svg {
+                  width: 10px;
+                  height: 10px;
+                }
+              }
+            }
+            .options {
+              position: absolute;
+              top: calc(100% + 5px);
+              left: 0;
+              background: #fff;
+              border: 1px solid rgba(16, 35, 65, 0.2);
+              width: 350px;
+              max-height: 550px;
+              overflow-y: scroll;
+              display: none;
+              &.open {
+                display: block;
+              }
+              .reset {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: #fff;
+                display: flex;
+                justify-content: flex-end;
+                border-bottom: 1px solid rgba(16, 35, 65, 0.2);
+                padding: 15px 20px;
+                span {
+                  display: block;
+                  color: rgba(0, 73, 150, 0.85);
+                  font-size: 15px;
+                  text-decoration: underline;
+                  text-underline-offset: 3px;
+                  text-decoration-thickness: 1px;
+                  transition: text-decoration-thickness ease 100ms;
+                  &:hover {
+                    text-decoration-thickness: 2px;
+                  }
+                }
+              }
+              .options_list {
+                padding: 5px 20px;
+                .option {
+                  padding: 10px 20px 10px 12px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 12px;
+                  input {
+                    border: none;
+                    outline: none;
+                    height: 16px;
+                    width: 16px;
+                  }
+                  label {
+                    font-size: 14px;
+                    color: #102341;
+                    font-weight: 350;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="navbar">
       <ul className="nav_list">
         <li className="nav_item kits">
-          <NavLink className="nav_link" to="/">
+          <NavLink className="nav_link" to="/shop">
             KITS
           </NavLink>
           <div className="sub_menu kits_sub">
@@ -120,7 +120,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav_item shop_by_player">
-          <NavLink className="nav_link" to="/">
+          <NavLink className="nav_link" to="/shop">
             SHOP BY PLAYER
           </NavLink>
           <div className="sub_menu shop_by_player_sub">
@@ -217,7 +217,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav_item training">
-          <NavLink className="nav_link" to="/e">
+          <NavLink className="nav_link" to="/shop">
             TRAINING
           </NavLink>
           <div className="sub_menu training_sub">
@@ -327,7 +327,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav_item fashion">
-          <NavLink className="nav_link" to="/">
+          <NavLink className="nav_link" to="/shop">
             FASHION
           </NavLink>
           <div className="sub_menu fashion_sub">
@@ -452,7 +452,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav_item accessories">
-          <NavLink className="nav_link" to="/">
+          <NavLink className="nav_link" to="/shop">
             ACCESSORIES
           </NavLink>
           <div className="sub_menu accessories_sub">
@@ -553,7 +553,7 @@ const Navbar = () => {
           </div>
         </li>
         <li className="nav_item sale">
-          <NavLink className="nav_link" to="/">
+          <NavLink className="nav_link" to="/shop">
             SALE
           </NavLink>
         </li>
