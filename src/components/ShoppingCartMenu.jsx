@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { HeaderContext } from "../utils/HeaderContext";
 
-const ShoppingCartMenu = ({ openCart, setOpenCart, animate, setAnimate }) => {
+const ShoppingCartMenu = () => {
+  const { openCart, setOpenCart, animate, setAnimate } =
+    useContext(HeaderContext);
+
   return (
-    <div className={animate ? "context open" : "context close"}>
+    <div className={`cart_context ${animate ? "open" : "close"}`}>
       <div
-        className={
-          animate
-            ? "menu animate__animated animate__fadeInRight animate__faster"
-            : "menu animate__animated animate__fadeOutRight animate__faster"
-        }
+        className={`menu animate__animated animate__faster ${
+          animate ? "animate__fadeInRight" : "animate__fadeOutRight"
+        }`}
       >
         <span
           onClick={() => {

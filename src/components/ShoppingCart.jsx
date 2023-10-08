@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 // COMPPNENTS
-import ShoppingCartMenu from "./ShoppingCartMenu";
+import { HeaderContext } from "../utils/HeaderContext";
 
 const ShoppingCart = () => {
-  const [openCart, setOpenCart] = useState(false);
-  const [animate, setAnimate] = useState(false);
-
+  const { openCart, setOpenCart, animate, setAnimate } =
+    useContext(HeaderContext);
   return (
     <>
       <Link
@@ -41,14 +40,6 @@ const ShoppingCart = () => {
           <span>1</span>
         </div>
       </Link>
-      {openCart && (
-        <ShoppingCartMenu
-          openCart={openCart}
-          setOpenCart={setOpenCart}
-          animate={animate}
-          setAnimate={setAnimate}
-        />
-      )}
     </>
   );
 };

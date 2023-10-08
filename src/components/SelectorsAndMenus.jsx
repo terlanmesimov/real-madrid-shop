@@ -5,7 +5,7 @@ import HeaderSubMenu from "./HeaderSubMenu";
 import RegionSelector from "./RegionSelector";
 import LanguageSelector from "./LanguageSelector";
 
-const UserSelectorOptions = () => {
+const SelectorsAndMenus = () => {
   return (
     <div className="selector_and_options">
       <div className="language_and_region">
@@ -13,7 +13,6 @@ const UserSelectorOptions = () => {
         <RegionSelector />
       </div>
       <div className="cart_and_user">
-        {/* User */}
         <Link className="user" to="/">
           <div className="user_icon">
             <svg
@@ -34,7 +33,6 @@ const UserSelectorOptions = () => {
             </svg>
           </div>
         </Link>
-        {/* User */}
         <ShoppingCart />
         <HeaderSubMenu />
       </div>
@@ -42,4 +40,4 @@ const UserSelectorOptions = () => {
   );
 };
 
-export default UserSelectorOptions;
+export default SelectorsAndMenus;
