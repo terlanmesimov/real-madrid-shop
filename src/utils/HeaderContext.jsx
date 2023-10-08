@@ -3,9 +3,11 @@ import { createContext, useEffect, useState } from "react";
 export const HeaderContext = createContext();
 
 export const HeaderContextProvider = ({ children }) => {
+  // Shopoing Cart Open Close
   const [openCart, setOpenCart] = useState(false);
   const [animate, setAnimate] = useState(false);
 
+  // Header Animation On Scroll
   const [isHeaderOpen, setIsHeaderOpen] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   useEffect(() => {

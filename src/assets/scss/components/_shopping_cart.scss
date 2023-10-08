@@ -63,6 +63,9 @@
     padding: 12px;
     background: #fff;
     position: relative;
+    @media (max-width: 400px) {
+      width: auto;
+    }
     .menu_close {
       user-select: none;
       cursor: pointer;
@@ -124,6 +127,9 @@
     padding: 12px;
     background: #fff;
     position: relative;
+    @media (max-width: 400px) {
+      width: auto;
+    }
     .menu_close {
       user-select: none;
       cursor: pointer;
@@ -167,13 +173,3 @@
   }
 }
 
-@media (max-width: 400px) {
-  .context {
-    .menu {
-      width: auto;
-    }
-    .empty_menu {
-      width: auto;
-    }
-  }
-}
