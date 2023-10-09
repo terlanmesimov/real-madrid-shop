@@ -4,10 +4,23 @@ import { filters } from "../utils/filters";
 
 const Shop = () => {
   const [titleText, setTitleText] = useState("READ MORE");
-  const [open, setOpen] = useState(false);
+  const [filtersData, setFiltersData] = useState(filters);
 
   const handleClickFilter = (e) => {
-    console.log(e.target);
+    const updatedFilters = filtersData.map((option) => {
+      if (option.id == e.target.id) {
+        return {
+          ...option,
+          state: option.state === "open" ? "close" : "open",
+        };
+      } else {
+        return {
+          ...option,
+          state: (option.state = "close"),
+        };
+      }
+    });
+    setFiltersData(updatedFilters);
   };
 
   return (
@@ -33,7 +46,7 @@ const Shop = () => {
           </div>
           <div className="products">
             <div className="filter_bar">
-              {filters.map((item) => {
+              {filtersData.map((item) => {
                 return (
                   <div
                     key={item.id}
@@ -42,9 +55,12 @@ const Shop = () => {
                     className="filter"
                   >
                     <div id={item.id} className="selection">
-                      <span className="name">{item.filter}</span>
-                      <span className="arrow_icon">
+                      <span id={item.id} className="name">
+                        {item.filter}
+                      </span>
+                      <span id={item.id} className="arrow_icon">
                         <svg
+                          id={item.id}
                           aria-hidden="true"
                           focusable="false"
                           role="presentation"
@@ -52,6 +68,7 @@ const Shop = () => {
                           viewBox="0 0 10 6"
                         >
                           <path
+                            id={item.id}
                             fill-rule="evenodd"
                             clip-rule="evenodd"
                             d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
@@ -60,7 +77,7 @@ const Shop = () => {
                         </svg>
                       </span>
                     </div>
-                    <div id={item.id} className="options">
+                    <div id={item.id} className={`options ${item.state}`}>
                       <div className="reset">
                         <span>Reset</span>
                       </div>
@@ -78,6 +95,16 @@ const Shop = () => {
                   </div>
                 );
               })}
+              <select className="filter">
+                <option value="sort by">SORT BY</option>
+                <option>BEST SELLERS</option>
+                <option>ALPHABETICALLY , A-Z</option>
+                <option>ALPHABETICALLY , Z-A</option>
+                <option>PRICE: LOWEST TO HIGHEST</option>
+                <option>PRICE: HIGHEST TO LOWEST</option>
+                <option>DATE: OLD TO RECENT</option>
+                <option>DATE: RECENT TO OLD</option>
+              </select>
             </div>
           </div>
         </div>

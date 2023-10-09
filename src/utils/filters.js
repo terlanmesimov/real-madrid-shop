@@ -1,6 +1,7 @@
 export const filters = [
   {
     id: 1,
+    state: "close",
     filter: "SIZE",
     options: [
       "XS",
@@ -32,6 +33,7 @@ export const filters = [
   },
   {
     id: 2,
+    state: "close",
     filter: "COLOR",
     options: [
       "BLUE",
@@ -53,16 +55,19 @@ export const filters = [
   },
   {
     id: 3,
+    state: "close",
     filter: "MATCHWEAR",
     options: ["HOME JERSEY"],
   },
   {
     id: 4,
+    state: "close",
     filter: "GENRE",
     options: ["MALE", "CHILDREN", "FEMALE", "YOUTH", "UNISEX"],
   },
   {
     id: 5,
+    state: "close",
     filter: "PRODUCT TYPE",
     options: [
       "HOME ACCESSORIES",
@@ -122,17 +127,4 @@ export const filters = [
       "TOWELS",
     ],
   },
-  // {
-  //   filter: "DATE: RECENT TO OLD",
-  //   options: [
-  //     "SORT BY",
-  //     "BEST SELLERS",
-  //     "ALPHABETICALLY, A-Z",
-  //     "ALPHABETICALLY, Z-A",
-  //     "PRICE: LOWEST TO HIGHEST",
-  //     "PRICE: HIGHEST TO LOWEST",
-  //     "DATE: OLD TO RECENT",
-  //     "DATE: RECENT TO OLD",
-  //   ],
-  // },
 ];
