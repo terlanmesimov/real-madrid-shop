@@ -27,7 +27,7 @@ import cardSecondImage3 from "../assets/images/card_second_image_3.jpeg";
 
 const Home = () => {
   return (
-    <>
+    <main>
       <section className="hero">
         <div className="hero_bg">
           <img src={heroBg} alt="hero bg" />
@@ -761,7 +761,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 };
 

@@ -177,7 +177,7 @@ const HeaderSubMenu = () => {
             <li className="sub_menu_item">
               <div className="item_components">
                 <img className="item_image" src={sale} alt="sub menu" />
-                <Link to="/">
+                <Link to="/shop">
                   <span className="item_name">SALE</span>
                 </Link>
               </div>

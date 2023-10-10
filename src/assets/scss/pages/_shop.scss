@@ -2,6 +2,9 @@
   .container {
     .row {
       padding: 0 50px;
+      @media (max-width: 750px) {
+        padding: 0 15px;
+      }
       .title {
         user-select: none;
         span {
@@ -30,10 +33,43 @@
         }
       }
       .products {
+        .filter_bar_btn {
+          display: none;
+          justify-content: center;
+          align-items: center;
+          user-select: none;
+          cursor: pointer;
+          @media (max-width: 750px) {
+            display: flex;
+          }
+          border: 1px solid #004996;
+          .content {
+            align-items: center;
+            display: flex;
+            .filter_icon {
+              display: block;
+              width: 20px;
+              height: 41px;
+              svg {
+                color: #004996;
+              }
+            }
+            h5 {
+              color: #004996;
+              margin: 0 0 0 10px;
+              font-size: 15px;
+              letter-spacing: 1px;
+              font-weight: 700;
+            }
+          }
+        }
         .filter_bar {
           display: flex;
           gap: 5px;
           margin: 10px 0;
+          @media (max-width: 750px) {
+            display: none;
+          }
           select {
             outline: none;
           }
@@ -79,6 +115,10 @@
               width: 350px;
               max-height: 550px;
               overflow-y: scroll;
+              z-index: 1;
+              @media (max-width: 990px) {
+                width: 250px;
+              }
               &.open {
                 display: block;
               }
@@ -131,13 +171,27 @@
           }
         }
         .product_list {
+          margin: 50px 0 0;
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
           .card {
             cursor: pointer;
-            width: 23.5%;
+            width: 23.2%;
+            margin: 0 0 30px 0;
             box-shadow: 0 3px 10px #0003;
+            @media (max-width: 990px) {
+              width: 31%;
+            }
+            @media (max-width: 750px) {
+              width: 48%;
+            }
+            @media (max-width: 620px) {
+              width: 47%;
+            }
+            @media (max-width: 455px) {
+              width: 100%;
+            }
             @media (min-width: 990px) {
               &:hover {
                 .card_image {
@@ -216,6 +270,117 @@
                     font-size: 13px;
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+      .submenu_context {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999999;
+        justify-content: flex-end;
+        background: rgba($color: #102341, $alpha: 0.5);
+        @media (max-width: 750px) {
+          display: flex;
+        }
+        .filter_sub_menu {
+          width: 90%;
+          background: #fff;
+          height: 100%;
+          transition: transform 0.3s ease-in-out;
+          &.open {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+          }
+          &.closed {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+          }
+          .heading {
+            position: relative;
+            padding: 10px 25px;
+            border-bottom: 1px solid rgba($color: #102341, $alpha: 0.2);
+            h3 {
+              text-align: center;
+              font-size: 15px;
+            }
+            .close_icon {
+              height: 44px;
+              width: 44px;
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              svg {
+                width: 22px;
+              }
+            }
+          }
+          .filters {
+            margin: 27px 0 0;
+            border-bottom: 1px solid rgba($color: #102341, $alpha: 0.2);
+            .filter {
+              padding: 13px 25px;
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              user-select: none;
+              .filter_name {
+                color: #102341;
+                font-size: 15px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin: 0 30px 0 0;
+              }
+              .arrow_icon {
+                height: 27px;
+                width: 18px;
+                svg {
+                  width: 100%;
+                }
+              }
+            }
+          }
+          .buttons {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            .delete_btn {
+              cursor: pointer;
+              width: 100%;
+              padding: 8px 30px;
+              border: none;
+              outline: none;
+              color: #004996;
+              background: transparent;
+              text-decoration: underline;
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 1px;
+            }
+            .apply_btn {
+              cursor: pointer;
+              width: 100%;
+              padding: 8px 30px;
+              color: #004996;
+              box-shadow: 0 0 0 2px #004996;
+              background: #fff;
+              font-size: 15px;
+              border: none;
+              outline: none;
+              font-weight: 700;
+              letter-spacing: 1px;
+              &:hover {
+                color: #fff;
+                box-shadow: 0 0 0 2px #fff;
+                background-color: #004996;
               }
             }
           }
