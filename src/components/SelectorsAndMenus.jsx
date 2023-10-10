@@ -13,7 +13,7 @@ const SelectorsAndMenus = () => {
         <RegionSelector />
       </div>
       <div className="cart_and_user">
-        <Link className="user" to="/">
+        <Link className="user" to="/login">
           <div className="user_icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"

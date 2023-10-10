@@ -3,25 +3,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // PAGES
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
-// COMPONENTS
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AnnoncementBar from "./components/AnnoncementBar";
-// PROVIDER
-import { HeaderContextProvider } from "./utils/HeaderContext";
+import Login from "./pages/Login";
+import Error from "./pages/Error";
+import Registration from "./pages/Registration";
+
 
 const App = () => {
   return (
     <BrowserRouter>
-      <AnnoncementBar />
-      <HeaderContextProvider>
-        <Header />
-      </HeaderContextProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<Error />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };

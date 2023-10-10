@@ -30,7 +30,6 @@ const ShoppingCart = () => {
           return;
         }}
         className="cart"
-        to="/"
       >
         <div className="cart_icon">
           <svg
