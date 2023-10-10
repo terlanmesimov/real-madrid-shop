@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { filters } from "../utils/filters";
+// COMPONENTS
+import Product from "../components/Product";
 
 const Shop = () => {
   const [titleText, setTitleText] = useState("READ MORE");
@@ -105,6 +107,12 @@ const Shop = () => {
                 <option>DATE: OLD TO RECENT</option>
                 <option>DATE: RECENT TO OLD</option>
               </select>
+            </div>
+            <div className="product_list">
+              <Product />
+              <Product />
+              <Product />
+              <Product />
             </div>
           </div>
         </div>

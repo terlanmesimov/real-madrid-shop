@@ -130,6 +130,97 @@
             }
           }
         }
+        .product_list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          .card {
+            cursor: pointer;
+            // margin: 0 10px 20px;
+            width: 23.5%;
+            box-shadow: 0 3px 10px #0003;
+            @media (min-width: 990px) {
+              &:hover {
+                .card_image {
+                  .first_image {
+                    opacity: 0;
+                    transition: transform 500ms ease;
+                    transform: scale(1.03);
+                  }
+                  .second_image {
+                    opacity: 1;
+                    transition: transform 500ms ease;
+                    transform: scale(1.03);
+                  }
+                }
+                .card_features {
+                  .content {
+                    .card_info {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+            .card_image {
+              position: relative;
+              padding: 0 0 100% 0;
+              width: 100%;
+              overflow: hidden;
+              .first_image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                width: 100%;
+                object-fit: cover;
+                object-position: center center;
+                transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              }
+              .second_image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                width: 100%;
+                object-fit: cover;
+                object-position: center center;
+                transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              }
+            }
+            .card_features {
+              padding: 10px;
+              .content {
+                padding: 10px;
+                border-bottom: 1px solid #7fa4ca;
+                .card_info {
+                  display: -webkit-box;
+                  text-align: center;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  color: #102341;
+                  font-size: 19px;
+                  @media (max-width: 750px) {
+                    font-size: 12px;
+                  }
+                }
+                .price {
+                  text-align: center;
+                  font-size: 16px;
+                  font-weight: 300;
+                  color: #102341;
+                  letter-spacing: 1px;
+                  line-height: 1.5;
+                  display: block;
+                  @media (max-width: 750px) {
+                    font-size: 13px;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
