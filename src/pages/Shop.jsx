@@ -186,156 +186,160 @@ const Shop = () => {
                 <Product />
               </div>
             </div>
-            {openFilterMenu && (
-              <div className="submenu_context">
-                <div
-                  className={`filter_sub_menu ${
-                    openFilterMenu ? "open" : "closed"
-                  }`}
-                >
-                  <div className="heading">
-                    <h3>Filter and sort</h3>
-                    <span
-                      className="close_icon"
-                      onClick={() => {
-                        setOpenFilterMenu(false);
-                        document.body.style.overflow = "auto";
-                      }}
+            <div
+              className={`submenu_context ${
+                openFilterMenu ? "open" : "closed"
+              }`}
+            >
+              <div
+                className={`filter_sub_menu animate__animated${
+                  openFilterMenu
+                    ? "open animate__fadeInRight"
+                    : "closed animate__fadeOutRight"
+                }`}
+              >
+                <div className="heading">
+                  <h3>Filter and sort</h3>
+                  <span
+                    className="close_icon"
+                    onClick={() => {
+                      setOpenFilterMenu(false);
+                      document.body.style.overflow = "auto";
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-close"
+                      fill="none"
+                      viewBox="0 0 18 17"
                     >
+                      <path
+                        d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="miter"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </span>
+                </div>
+                <div className="filters">
+                  <div className="filter">
+                    <span className="filter_name">SIZE</span>
+                    <span className="arrow_icon">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 14 10"
+                        fill="none"
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-close"
-                        fill="none"
-                        viewBox="0 0 18 17"
+                        class="icon icon-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"
-                          stroke="currentColor"
-                          stroke-width="1"
-                          stroke-linecap="round"
-                          stroke-linejoin="miter"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
                       </svg>
                     </span>
                   </div>
-                  <div className="filters">
-                    <div className="filter">
-                      <span className="filter_name">SIZE</span>
-                      <span className="arrow_icon">
-                        <svg
-                          viewBox="0 0 14 10"
-                          fill="none"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="presentation"
-                          class="icon icon-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="filter">
-                      <span className="filter_name">COLOR</span>
-                      <span className="arrow_icon">
-                        <svg
-                          viewBox="0 0 14 10"
-                          fill="none"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="presentation"
-                          class="icon icon-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="filter">
-                      <span className="filter_name">GENDER</span>
-                      <span className="arrow_icon">
-                        <svg
-                          viewBox="0 0 14 10"
-                          fill="none"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="presentation"
-                          class="icon icon-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="filter">
-                      <span className="filter_name">PRODUCT TYPE</span>
-                      <span className="arrow_icon">
-                        <svg
-                          viewBox="0 0 14 10"
-                          fill="none"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="presentation"
-                          class="icon icon-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </span>
-                    </div>
-                    <div className="filter">
-                      <span className="filter_name">SORT BY</span>
-                      <span className="arrow_icon">
-                        <svg
-                          viewBox="0 0 14 10"
-                          fill="none"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="presentation"
-                          class="icon icon-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      </span>
-                    </div>
+                  <div className="filter">
+                    <span className="filter_name">COLOR</span>
+                    <span className="arrow_icon">
+                      <svg
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
                   </div>
-                  <div className="buttons">
-                    <button className="delete_btn">Delete</button>
-                    <button className="apply_btn">Apply</button>
+                  <div className="filter">
+                    <span className="filter_name">GENDER</span>
+                    <span className="arrow_icon">
+                      <svg
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="filter">
+                    <span className="filter_name">PRODUCT TYPE</span>
+                    <span className="arrow_icon">
+                      <svg
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="filter">
+                    <span className="filter_name">SORT BY</span>
+                    <span className="arrow_icon">
+                      <svg
+                        viewBox="0 0 14 10"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
                   </div>
                 </div>
+                <div className="buttons">
+                  <button className="delete_btn">Delete</button>
+                  <button className="apply_btn">Apply</button>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>

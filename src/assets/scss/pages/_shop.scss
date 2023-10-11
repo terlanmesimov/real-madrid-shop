@@ -282,6 +282,12 @@
         z-index: 999999;
         justify-content: flex-end;
         background: rgba($color: #102341, $alpha: 0.5);
+        &.open {
+          display: flex;
+        }
+        &.closed {
+          display: none;
+        }
         @media (max-width: 750px) {
           display: flex;
         }
@@ -289,16 +295,7 @@
           width: 90%;
           background: #fff;
           height: 100%;
-          transition: transform 0.3s ease-in-out;
-          transform: translateX(-100%);
-          &.open {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(0);
-          }
-          &.closed {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(-100%);
-          }
+          animation-duration: 100ms;
           .heading {
             position: relative;
             padding: 10px 25px;
@@ -316,6 +313,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              cursor: pointer;
               svg {
                 width: 22px;
               }
@@ -350,6 +348,9 @@
             padding: 20px;
             display: flex;
             gap: 10px;
+            @media (max-width: 326px) {
+              flex-direction: column;
+            }
             .delete_btn {
               cursor: pointer;
               width: 100%;

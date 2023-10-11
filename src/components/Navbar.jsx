@@ -211,7 +211,7 @@ const Navbar = () => {
               />
               <h3>KİTS 23/24</h3>
               <h5>
-                <Link>SHOP NOW</Link>
+                <Link to="/shop">SHOP NOW</Link>
               </h5>
             </div>
           </div>
@@ -321,7 +321,7 @@ const Navbar = () => {
               />
               <h3>CHAMPIONS LEAGUE COLLECTION 23/24</h3>
               <h5>
-                <Link>SHOP NOW</Link>
+                <Link to="/shop">SHOP NOW</Link>
               </h5>
             </div>
           </div>
@@ -446,7 +446,7 @@ const Navbar = () => {
               />
               <h3>NEW SAKURA COLLECTION!</h3>
               <h5>
-                <Link>SHOP NOW</Link>
+                <Link to="/shop">SHOP NOW</Link>
               </h5>
             </div>
           </div>
@@ -547,7 +547,7 @@ const Navbar = () => {
               />
               <h3>NEW TRAINING ACCESSORIES</h3>
               <h5>
-                <Link>SHOP NOW</Link>
+                <Link to="/shop">SHOP NOW</Link>
               </h5>
             </div>
           </div>
