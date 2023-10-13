@@ -8,7 +8,6 @@ import Error from "./pages/Error";
 import Registration from "./pages/Registration";
 import ProductDetails from "./pages/ProductDetails";
 
-
 const App = () => {
   return (
     <BrowserRouter>

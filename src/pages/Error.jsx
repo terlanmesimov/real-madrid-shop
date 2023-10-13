@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 
 const Error = () => {
-  return (
-    <div>Error</div>
-  )
-}
+  useEffect(() => {
+    document.title = "404 Not found - Real Madrid CF | EU";
+  }, []);
 
-export default Error
+  return <div>Error</div>;
+};
+
+export default Error;

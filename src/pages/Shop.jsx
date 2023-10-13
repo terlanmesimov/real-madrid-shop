@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { filters } from "../utils/filters";
 // COMPONENTS
@@ -13,6 +13,10 @@ const Shop = () => {
   const [titleText, setTitleText] = useState("READ MORE");
   const [filtersData, setFiltersData] = useState(filters);
   const [openFilterMenu, setOpenFilterMenu] = useState(false);
+
+  useEffect(() => {
+    document.title = "All - Real Madrid CF | EU Shop";
+  }, []);
 
   const handleClickFilter = (e) => {
     const updatedFilters = filtersData.map((option) => {

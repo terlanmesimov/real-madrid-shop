@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
+// SWIPER
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 // CONTEXT
 import { HeaderContextProvider } from "../utils/HeaderContext";
 // COMPONENTS
@@ -7,8 +12,8 @@ import AnnoncementBar from "../components/AnnoncementBar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 // IMAGES
-import cardFirstImage from "../assets/images/card_image_first.jpeg";
-import cardSecondImage from "../assets/images/card_image_second.jpeg";
+import slideFirstImage from "../assets/images/card_image_first.jpeg";
+import slideSecondImage from "../assets/images/card_image_second.jpeg";
 
 const ProductDetails = () => {
   // Sizes
@@ -16,6 +21,21 @@ const ProductDetails = () => {
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
   // Quantity
   const [productCount, setProductCount] = useState(1);
+  // Slide-Track
+  const zoom = (e) => {
+    let zoomer = e.currentTarget;
+    let offsetX = e.nativeEvent.offsetX;
+    let offsetY = e.nativeEvent.offsetY;
+    let x, y;
+    if (!offsetX) {
+      const touch = e.touches[0];
+      offsetX = touch.pageX - zoomer.getBoundingClientRect().left;
+      offsetY = touch.pageY - zoomer.getBoundingClientRect().top;
+    }
+    x = (offsetX / zoomer.offsetWidth) * 100;
+    y = (offsetY / zoomer.offsetHeight) * 100;
+    zoomer.style.backgroundPosition = `${x}% ${y}%`;
+  };
   return (
     <>
       <AnnoncementBar />
@@ -32,8 +52,44 @@ const ProductDetails = () => {
             </div>
             <div className="product">
               <div className="media">
-                <div className="slide_track"></div>
-                <div className="product_image"></div>
+                <div className="slide_track">
+                  <div className="slide_image">
+                    <img src={slideFirstImage} alt="product_image" />
+                  </div>
+                  <div className="slide_image">
+                    <img src={slideSecondImage} alt="product_image" />
+                  </div>
+                </div>
+                <div className="product_image">
+                  <Swiper
+                    navigation={true}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                  >
+                    <SwiperSlide>
+                      <div
+                        style={{
+                          backgroundImage: `url(${slideFirstImage})`,
+                        }}
+                        className="slide_item"
+                        onMouseMove={zoom}
+                      >
+                        <img src={slideFirstImage} alt="product_img" />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div
+                        style={{
+                          backgroundImage: `url(${slideSecondImage})`,
+                        }}
+                        className="slide_item"
+                        onMouseMove={zoom}
+                      >
+                        <img src={slideSecondImage} alt="product_img" />
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
               </div>
               <div className="product_info">
                 <h2 className="product_title">Men's Hoodie Grey/Purple Text</h2>
@@ -83,7 +139,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </section>
-      <section className="shopify_section">
+      <section className="description">
         <div className="container">
           <div className="row">
             <div className="title">
@@ -112,16 +168,16 @@ const ProductDetails = () => {
               <div className="diogonal_lines deg45"></div>
             </div>
             <div className="cards">
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -134,16 +190,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -156,16 +212,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -178,16 +234,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -200,16 +256,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -222,16 +278,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -244,16 +300,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
@@ -266,16 +322,16 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="card mw-1">
+              <div className="card mw-3 m-20">
                 <div className="card_image">
                   <img
                     className="first_image"
-                    src={cardFirstImage}
+                    src={slideFirstImage}
                     alt="first img"
                   />
                   <img
                     className="second_image"
-                    src={cardSecondImage}
+                    src={slideSecondImage}
                     alt="second img"
                   />
                 </div>
