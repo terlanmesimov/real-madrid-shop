@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState } from "react";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -17,17 +17,21 @@ import slideSecondImage from "../assets/images/card_image_second.jpeg";
 
 const ProductDetails = () => {
   // Sizes
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedSize, setSelectedSize] = useState("XS");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
   // Quantity
   const [productCount, setProductCount] = useState(1);
   // Slide-Track
+  const [productImages, setProductImages] = useState([
+    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-01_500x480.jpg?v=1686239948",
+    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-02_500x480.jpg?v=1686239948",
+  ]);
   const zoom = (e) => {
     let zoomer = e.currentTarget;
     let offsetX = e.nativeEvent.offsetX;
     let offsetY = e.nativeEvent.offsetY;
     let x, y;
-    if (!offsetX) {
+    if (!offsetX && !offsetY) {
       const touch = e.touches[0];
       offsetX = touch.pageX - zoomer.getBoundingClientRect().left;
       offsetY = touch.pageY - zoomer.getBoundingClientRect().top;
@@ -53,12 +57,13 @@ const ProductDetails = () => {
             <div className="product">
               <div className="media">
                 <div className="slide_track">
-                  <div className="slide_image">
-                    <img src={slideFirstImage} alt="product_image" />
-                  </div>
-                  <div className="slide_image">
-                    <img src={slideSecondImage} alt="product_image" />
-                  </div>
+                  {productImages.map((image) => {
+                    return (
+                      <div className="slide_image">
+                        <img src={image} alt="product_image" />
+                      </div>
+                    );
+                  })}
                 </div>
                 <div className="product_image">
                   <Swiper
@@ -66,28 +71,21 @@ const ProductDetails = () => {
                     modules={[Navigation]}
                     className="mySwiper"
                   >
-                    <SwiperSlide>
-                      <div
-                        style={{
-                          backgroundImage: `url(${slideFirstImage})`,
-                        }}
-                        className="slide_item"
-                        onMouseMove={zoom}
-                      >
-                        <img src={slideFirstImage} alt="product_img" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        style={{
-                          backgroundImage: `url(${slideSecondImage})`,
-                        }}
-                        className="slide_item"
-                        onMouseMove={zoom}
-                      >
-                        <img src={slideSecondImage} alt="product_img" />
-                      </div>
-                    </SwiperSlide>
+                    {productImages.map((image) => {
+                      return (
+                        <SwiperSlide>
+                          <div
+                            style={{
+                              backgroundImage: `url(${image})`,
+                            }}
+                            className="slide_item"
+                            onMouseMove={zoom}
+                          >
+                            <img src={image} alt="product_img" />
+                          </div>
+                        </SwiperSlide>
+                      );
+                    })}
                   </Swiper>
                 </div>
               </div>
