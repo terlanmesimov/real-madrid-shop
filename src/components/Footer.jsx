@@ -18,12 +18,11 @@ function AccordionItem({ title, content }) {
             aria-hidden="true"
             focusable="false"
             role="presentation"
-            class="icon icon-caret"
             viewBox="0 0 10 6"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd" 
+              clipRule="evenodd"  
               d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
               fill="currentColor"
             ></path>
@@ -34,6 +33,7 @@ function AccordionItem({ title, content }) {
     </div>
   );
 }
+
 
 const Footer = () => {
   return (
@@ -497,7 +497,7 @@ const Footer = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-twitter"
+                      className="icon icon-twitter"
                       viewBox="0 0 18 15"
                     >
                       <path
@@ -515,7 +515,7 @@ const Footer = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-facebook"
+                      className="icon icon-facebook"
                       viewBox="0 0 18 18"
                     >
                       <path
@@ -533,7 +533,7 @@ const Footer = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-instagram"
+                      className="icon icon-instagram"
                       viewBox="0 0 18 18"
                     >
                       <path

@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import "swiper/css/zoom";
+import "swiper/css/pagination";
+import { Navigation, Zoom, Pagination } from "swiper/modules";
 // CONTEXT
 import { HeaderContextProvider } from "../utils/HeaderContext";
 // COMPONENTS
@@ -25,20 +27,16 @@ const ProductDetails = () => {
   const [productImages, setProductImages] = useState([
     "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-01_500x480.jpg?v=1686239948",
     "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-02_500x480.jpg?v=1686239948",
+    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-04_500x480.jpg?v=1686239948",
+    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-03_500x480.jpg?v=1686239948",
   ]);
-  const zoom = (e) => {
-    let zoomer = e.currentTarget;
-    let offsetX = e.nativeEvent.offsetX;
-    let offsetY = e.nativeEvent.offsetY;
-    let x, y;
-    if (!offsetX && !offsetY) {
-      const touch = e.touches[0];
-      offsetX = touch.pageX - zoomer.getBoundingClientRect().left;
-      offsetY = touch.pageY - zoomer.getBoundingClientRect().top;
-    }
-    x = (offsetX / zoomer.offsetWidth) * 100;
-    y = (offsetY / zoomer.offsetHeight) * 100;
-    zoomer.style.backgroundPosition = `${x}% ${y}%`;
+  const [selectedImage, setSelectedImage] = useState(productImages[0]);
+  const [swiper, setSwiper] = useState(null);
+  const slideTo = (index) => {
+    swiper.slideTo(index);
+  };
+  const handleSlideChange = (e) => {
+    setSelectedImage(productImages[e.activeIndex]);
   };
   return (
     <>
@@ -57,10 +55,23 @@ const ProductDetails = () => {
             <div className="product">
               <div className="media">
                 <div className="slide_track">
-                  {productImages.map((image) => {
+                  {productImages.map((image, index) => {
                     return (
-                      <div className="slide_image">
-                        <img src={image} alt="product_image" />
+                      <div
+                        key={index}
+                        className={`slide_image ${
+                          selectedImage === image ? "active" : ""
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          id={index}
+                          alt="product_image"
+                          onClick={(e) => {
+                            setSelectedImage(image);
+                            slideTo(e.target.id);
+                          }}
+                        />
                       </div>
                     );
                   })}
@@ -68,18 +79,18 @@ const ProductDetails = () => {
                 <div className="product_image">
                   <Swiper
                     navigation={true}
-                    modules={[Navigation]}
+                    modules={[Zoom, Navigation, Pagination]}
                     className="mySwiper"
+                    zoom={true}
+                    onSwiper={setSwiper}
+                    onSlideChange={handleSlideChange}
                   >
-                    {productImages.map((image) => {
+                    {productImages.map((image, index) => {
                       return (
                         <SwiperSlide>
                           <div
-                            style={{
-                              backgroundImage: `url(${image})`,
-                            }}
-                            className="slide_item"
-                            onMouseMove={zoom}
+                            key={index}
+                            className="slide_item swiper-zoom-container"
                           >
                             <img src={image} alt="product_img" />
                           </div>
@@ -98,7 +109,6 @@ const ProductDetails = () => {
                     {sizes.map((size) => {
                       return (
                         <span
-                          key={size}
                           className={`size ${
                             selectedSize === size ? "active" : ""
                           }`}

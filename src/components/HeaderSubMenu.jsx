@@ -59,7 +59,7 @@ const HeaderSubMenu = () => {
               aria-hidden="true"
               focusable="false"
               role="presentation"
-              class="icon icon-close"
+              className="icon icon-close"
               fill="none"
               viewBox="0 0 18 17"
             >
@@ -78,7 +78,7 @@ const HeaderSubMenu = () => {
               aria-hidden="true"
               focusable="false"
               role="presentation"
-              class="icon icon-hamburger"
+              className="icon icon-hamburger"
               fill="none"
               viewBox="0 0 18 16"
             >
@@ -106,7 +106,7 @@ const HeaderSubMenu = () => {
                 <div className="arrow_icon">
                   <svg
                     viewBox="0 0 32 32"
-                    class="icon icon-arrow"
+                    className="icon icon-arrow"
                     aria-hidden="true"
                   >
                     <path d="M18.629 15.997l-7.083-7.081L13.462 7l8.997 8.997L13.457 25l-1.916-1.916z"></path>
@@ -121,7 +121,7 @@ const HeaderSubMenu = () => {
                 <div className="arrow_icon">
                   <svg
                     viewBox="0 0 32 32"
-                    class="icon icon-arrow"
+                    className="icon icon-arrow"
                     aria-hidden="true"
                   >
                     <path d="M18.629 15.997l-7.083-7.081L13.462 7l8.997 8.997L13.457 25l-1.916-1.916z"></path>
@@ -136,7 +136,7 @@ const HeaderSubMenu = () => {
                 <div className="arrow_icon">
                   <svg
                     viewBox="0 0 32 32"
-                    class="icon icon-arrow"
+                    className="icon icon-arrow"
                     aria-hidden="true"
                   >
                     <path d="M18.629 15.997l-7.083-7.081L13.462 7l8.997 8.997L13.457 25l-1.916-1.916z"></path>
@@ -151,7 +151,7 @@ const HeaderSubMenu = () => {
                 <div className="arrow_icon">
                   <svg
                     viewBox="0 0 32 32"
-                    class="icon icon-arrow"
+                    className="icon icon-arrow"
                     aria-hidden="true"
                   >
                     <path d="M18.629 15.997l-7.083-7.081L13.462 7l8.997 8.997L13.457 25l-1.916-1.916z"></path>
@@ -166,7 +166,7 @@ const HeaderSubMenu = () => {
                 <div className="arrow_icon">
                   <svg
                     viewBox="0 0 32 32"
-                    class="icon icon-arrow"
+                    className="icon icon-arrow"
                     aria-hidden="true"
                   >
                     <path d="M18.629 15.997l-7.083-7.081L13.462 7l8.997 8.997L13.457 25l-1.916-1.916z"></path>
@@ -196,7 +196,7 @@ const HeaderSubMenu = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-twitter"
+                      className="icon icon-twitter"
                       viewBox="0 0 18 15"
                     >
                       <path
@@ -214,7 +214,7 @@ const HeaderSubMenu = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-facebook"
+                      className="icon icon-facebook"
                       viewBox="0 0 18 18"
                     >
                       <path
@@ -232,7 +232,7 @@ const HeaderSubMenu = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-instagram"
+                      className="icon icon-instagram"
                       viewBox="0 0 18 18"
                     >
                       <path
