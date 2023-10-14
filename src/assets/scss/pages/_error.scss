@@ -1,0 +1,47 @@
+.error {
+  .container {
+    .row {
+      padding: 0 50px;
+      .breadcrumb {
+        display: flex;
+        gap: 2px;
+        margin: 7.5px 0;
+        a {
+          font-size: 10px;
+          color: #545454;
+          line-height: 1.8;
+          letter-spacing: 0.6px;
+        }
+      }
+      .error_message {
+        margin: 70px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h2 {
+          font-size: 49px;
+          color: #102341;
+          font-weight: 600;
+          letter-spacing: 0.6px;
+        }
+        p {
+          margin: 20px 0 16px;
+          font-size: 16px;
+          color: #102341;
+          line-height: 1.8;
+          font-weight: 400;
+          letter-spacing: 0.6px;
+          font-style: normal;
+          font-family: "Assistant", sans-serif;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

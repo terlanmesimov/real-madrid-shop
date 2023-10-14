@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 // IMAGES (Hero)
 import heroBg from "../assets/images/hero_bg.jpeg";
@@ -31,6 +32,10 @@ import Footer from "../components/Footer";
 import AnnoncementBar from "../components/AnnoncementBar";
 
 const Home = () => {
+  useEffect(() => {
+    document.title =
+      "The Official Online Store of Real Madrid CF - Real Madrid CF | EU Shop";
+  }, []);
   return (
     <>
       <AnnoncementBar />

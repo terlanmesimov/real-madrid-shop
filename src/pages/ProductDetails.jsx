@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -18,6 +18,9 @@ import slideFirstImage from "../assets/images/card_image_first.jpeg";
 import slideSecondImage from "../assets/images/card_image_second.jpeg";
 
 const ProductDetails = () => {
+  useEffect(() => {
+    document.title = "Product Details";
+  }, []);
   // Sizes
   const [selectedSize, setSelectedSize] = useState("XS");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { filters } from "../utils/filters";
+import { filters } from "../db/filters";
 // COMPONENTS
 import Product from "../components/Product";
 import Header from "../components/Header";
