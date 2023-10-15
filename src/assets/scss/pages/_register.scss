@@ -1,4 +1,7 @@
+@import "../mixin";
+
 .register {
+  font-family: "RMNeue", arial, helvetica;
   .register_header {
     width: 100%;
     position: fixed;
@@ -23,7 +26,6 @@
       .language {
         font-size: 18px;
         font-weight: 500;
-        font-family: "RMNeue", arial, helvetica;
         background: transparent;
         user-select: none;
         border: none;
@@ -46,9 +48,27 @@
   }
   .main {
     margin: 140px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .form_heading {
+      text-align: center;
+      h3 {
+        color: #0f2145;
+        font-size: 48px;
+        margin: 0 0 32px;
+      }
+      p {
+        color: #0f2145;
+        font-size: 20px;
+        margin: 0 0 32px;
+      }
     }
     .form {
+      user-select: none;
+      width: 400px;
+      @include input;
+      @include form-button;
     }
   }
   .register_footer {

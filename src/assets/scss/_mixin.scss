@@ -1,0 +1,89 @@
+@mixin input {
+  .input_content {
+    position: relative;
+    .input {
+      width: 100%;
+      background-color: #edeff2;
+      border-radius: 12px;
+      border: 2px solid #edeff2;
+      outline: none;
+      padding: 19.2px 64px 1px 18px;
+      font-size: 18px;
+      color: #14142b;
+      line-height: 2;
+      font-weight: 500;
+      transition: background-color 0.4s ease-in-out,
+        border-color 0.4s ease-in-out;
+      &:focus {
+        border-color: #3e31fa;
+        background-color: #fff;
+      }
+      &.error {
+        border-color: #ca024f;
+      }
+    }
+    .info_icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      height: calc(100% - 30px);
+      width: 64px;
+      opacity: 0;
+      color: #ca024f;
+      transition: opacity 0.4s ease-in;
+      &.active {
+        opacity: 1;
+      }
+    }
+    .label {
+      position: absolute;
+      transform: translateY(-60%);
+      transform-origin: left top;
+      pointer-events: none;
+      top: 32px;
+      left: 18px;
+      color: #5e6a83;
+      font-size: 16px;
+      transition: transform 0.3s ease-in-out;
+      &.active {
+        transform: translateY(-50%) translateY(calc(64px * 0.15 * -1))
+          scale(0.75);
+      }
+    }
+    .error {
+      padding: 0 0 0 5px;
+      display: block;
+      color: #ca024f;
+      font-size: 0.815rem;
+      height: 36px;
+      line-height: 2;
+    }
+  }
+}
+
+@mixin form-button {
+  .form_btn {
+    cursor: pointer;
+    height: 64px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-image: linear-gradient(8deg, #3e31fa 15.1%, #8760f6 100%);
+    transition: box-shadow 0.4s ease-in-out;
+    &:hover {
+      background-image: none;
+      background-color: #3e31fa;
+      box-shadow: 0 1rem 3rem -1rem rgb(84 77 183 / 78%);
+    }
+    span {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+}
