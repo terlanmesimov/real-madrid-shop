@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import Error from "./pages/Error";
-import Registration from "./pages/Registration";
+import Register from "./pages/Register";
 import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         <Route path="*" element={<Error />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/product_details" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,56 @@
+.register {
+  .register_header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(17px);
+    padding: 20px 48px;
+    margin: 0 0 48px;
+    display: flex;
+    justify-content: flex-end;
+    .language_select {
+      display: flex;
+      align-items: center;
+      .divider_vertical {
+        display: inline-block;
+        width: 0.63px;
+        min-height: 20px;
+        margin-bottom: -3px;
+        background-color: #788398;
+      }
+      .language {
+        font-size: 18px;
+        font-weight: 500;
+        font-family: "RMNeue", arial, helvetica;
+        background: transparent;
+        user-select: none;
+        border: none;
+        outline: none;
+        color: #788398;
+        transition: 0.4s ease-in;
+        padding: 0 24px;
+        line-height: 1.2;
+        height: 50px;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+          color: #3e31fa;
+        }
+        &.active {
+          color: #3e31fa;
+        }
+      }
+    }
+  }
+  .main {
+    margin: 140px 0 0;
+    .form_heading {
+    }
+    .form {
+    }
+  }
+  .register_footer {
+  }
+}
