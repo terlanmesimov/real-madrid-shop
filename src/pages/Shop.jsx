@@ -45,9 +45,10 @@ const Shop = () => {
         <div className="container">
           <div className="row">
             <div className="title">
-              <span>
-                <Link to="/">HOME</Link> ' ALL
-              </span>
+              <div className="breadcrumb">
+                <Link to="/">HOME</Link>
+                <Link>' ALL</Link>
+              </div>
               <h2>ALL</h2>
               <h3
                 onClick={() => {

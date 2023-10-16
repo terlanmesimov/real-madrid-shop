@@ -87,3 +87,17 @@
     }
   }
 }
+
+@mixin bread-crumb {
+  .breadcrumb {
+    display: flex;
+    gap: 2px;
+    margin: 7.5px 0;
+    a {
+      font-size: 10px;
+      color: #545454;
+      line-height: 1.8;
+      letter-spacing: 0.6px;
+    }
+  }
+}
