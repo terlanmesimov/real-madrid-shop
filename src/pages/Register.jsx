@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // ICON
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 
@@ -6,7 +7,6 @@ const Register = () => {
   const [focusInput, setFocusInput] = useState(false);
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
-    document.head.innerHTML += `<link rel="shortcut icon" href="favicon-2.ico" type="image/x-icon" />`;
   }, []);
 
   return (
@@ -48,8 +48,57 @@ const Register = () => {
             <span>Continue</span>
           </button>
         </form>
+        <button className="question">Can't log in?</button>
+        <div className="divider_content">
+          <div className="divider"></div>
+          <span className="word">OR</span>
+          <div className="divider"></div>
+        </div>
+        <div className="other">
+          <button className="register_google">
+            <span>Continue with Google</span>
+          </button>
+          <button className="register_apple">
+            <span>Continue with Apple ID</span>
+          </button>
+        </div>
+        <p className="privacy_text">
+          We will use your email address to check if you already have an
+          account. You can exercise your rights at
+          <Link className="email">oposicion@corp.realmadrid.com</Link>
+          and get more information
+          <br />
+          <Link
+            className="privacy_policy"
+            to="https://www.realmadrid.com/en/privacy-policy"
+          >
+            here
+          </Link>
+          .
+        </p>
       </div>
-      <div className="register_footer"></div>
+      <div className="register_footer">
+        <div className="footer_text">
+          <span>
+            Real Madrid © {new Date().getFullYear()}. All rights reserved.
+          </span>
+        </div>
+        <div className="footer_links">
+          <Link to="https://www.realmadrid.com/en/legal-notice">
+            Legal notice
+          </Link>
+          <span className="dot_separator"></span>
+          <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
+            Cookies policy
+          </Link>
+          <span className="dot_separator"></span>
+          <Link to="https://www.realmadrid.com/en/privacy-policy">
+            Privacy policy
+          </Link>
+          <span className="dot_separator"></span>
+          <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>
+        </div>
+      </div>
     </div>
   );
 };
