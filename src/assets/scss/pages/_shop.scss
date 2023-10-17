@@ -276,7 +276,10 @@
         justify-content: flex-end;
         background: rgba($color: #102341, $alpha: 0.5);
         &.open {
-          display: flex;
+          display: none;
+          @media (max-width: 750px) {
+            display: flex;
+          }
         }
         &.closed {
           display: none;
@@ -285,10 +288,14 @@
           display: flex;
         }
         .filter_sub_menu {
+          display: none;
           width: 90%;
           background: #fff;
           height: 100%;
           animation-duration: 100ms;
+          @media (max-width: 750px) {
+            display: block;
+          }
           .heading {
             position: relative;
             padding: 10px 25px;

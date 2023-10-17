@@ -82,13 +82,13 @@ const Shop = () => {
                             aria-hidden="true"
                             focusable="false"
                             role="presentation"
-                            class="icon icon-caret"
+                            className="icon icon-caret"
                             viewBox="0 0 10 6"
                           >
                             <path
                               id={item.id}
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
+                              fillRule="evenodd"
+                              clipRule="evenodd"
                               d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
                               fill="currentColor"
                             ></path>
@@ -100,9 +100,9 @@ const Shop = () => {
                           <span>Reset</span>
                         </div>
                         <ul id={item.id} className="options_list">
-                          {item.options.map((option) => {
+                          {item.options.map((option, index) => {
                             return (
-                              <li className="option">
+                              <li className="option" key={index}>
                                 <input type="checkbox" value={option} />
                                 <label htmlFor="checkbox">{option}</label>
                               </li>
@@ -138,7 +138,7 @@ const Shop = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-filter"
+                      className="icon icon-filter"
                       fill="none"
                       viewBox="0 0 20 41"
                     >
@@ -148,7 +148,7 @@ const Shop = () => {
                         x2="3.5"
                         y2="17.5"
                         stroke="#004996"
-                        stroke-linecap="round"
+                        strokeLinecap="round"
                       ></line>
                       <line
                         x1="16.5"
@@ -156,7 +156,7 @@ const Shop = () => {
                         x2="3.5"
                         y2="24.5"
                         stroke="#004996"
-                        stroke-linecap="round"
+                        strokeLinecap="round"
                       ></line>
                       <circle
                         cx="13"
@@ -217,16 +217,16 @@ const Shop = () => {
                       aria-hidden="true"
                       focusable="false"
                       role="presentation"
-                      class="icon icon-close"
+                      className="icon icon-close"
                       fill="none"
                       viewBox="0 0 18 17"
                     >
                       <path
                         d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"
                         stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="miter"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="miter"
                         fill="currentColor"
                       ></path>
                     </svg>
@@ -242,12 +242,12 @@ const Shop = () => {
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-arrow"
+                        className="icon icon-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
@@ -263,12 +263,12 @@ const Shop = () => {
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-arrow"
+                        className="icon icon-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
@@ -284,12 +284,12 @@ const Shop = () => {
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-arrow"
+                        className="icon icon-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
@@ -305,12 +305,12 @@ const Shop = () => {
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-arrow"
+                        className="icon icon-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
@@ -326,12 +326,12 @@ const Shop = () => {
                         aria-hidden="true"
                         focusable="false"
                         role="presentation"
-                        class="icon icon-arrow"
+                        className="icon icon-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
                           fill="currentColor"
                         ></path>
