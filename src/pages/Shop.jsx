@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { filters } from "../db/filters";
+import axios from "axios";
 // COMPONENTS
 import Product from "../components/Product";
 import Header from "../components/Header";
@@ -13,6 +14,7 @@ const Shop = () => {
   const [titleText, setTitleText] = useState("READ MORE");
   const [filtersData, setFiltersData] = useState(filters);
   const [openFilterMenu, setOpenFilterMenu] = useState(false);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     document.title = "All - Real Madrid CF | EU Shop";
@@ -35,6 +37,20 @@ const Shop = () => {
     setFiltersData(updatedFilters);
   };
 
+  const getProducts = async () => {
+    await axios
+      .get(process.env.REACT_APP_ALL_PRODUCTS)
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
   return (
     <>
       <AnnoncementBar />
@@ -178,17 +194,9 @@ const Shop = () => {
                 </div>
               </div>
               <div className="product_list">
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                {products.map((product) => {
+                  return <Product key={product.id} product={product} />;
+                })}
               </div>
             </div>
             <div

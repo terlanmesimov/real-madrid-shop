@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,11 +16,9 @@ import Header from "../components/Header";
 // IMAGES
 import slideFirstImage from "../assets/images/card_image_first.jpeg";
 import slideSecondImage from "../assets/images/card_image_second.jpeg";
+import axios from "axios";
 
 const ProductDetails = () => {
-  useEffect(() => {
-    document.title = "Product Details";
-  }, []);
   // Sizes
   const [selectedSize, setSelectedSize] = useState("XS");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
@@ -28,11 +26,8 @@ const ProductDetails = () => {
   const [productCount, setProductCount] = useState(1);
   // Slide-Track
   const [productImages, setProductImages] = useState([
-    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-01_500x480.jpg?v=1686239948",
-    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-02_500x480.jpg?v=1686239948",
-    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-04_500x480.jpg?v=1686239948",
-    "https://shop.realmadrid.com/cdn/shop/products/RMCFMO0011-03_500x480.jpg?v=1686239948",
-  ]);
+    "http://localhost:5000/item1.webp",
+  ]); 
   const [selectedImage, setSelectedImage] = useState(productImages[0]);
   const [swiper, setSwiper] = useState(null);
   const slideTo = (index) => {
@@ -41,6 +36,28 @@ const ProductDetails = () => {
   const handleSlideChange = (e) => {
     setSelectedImage(productImages[e.activeIndex]);
   };
+  // Get product data
+  const navigate = useNavigate();
+  const { productId } = useParams({
+    productImage: "uploads/item1.webp",
+  });
+  const [productData, setProductData] = useState({});
+  const getSingleProductData = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
+      .then((response) => {
+        setProductData(response.data);
+        console.log(productData);
+        document.title = `${response.data.name} - Real Madrid CF | EU Store`;
+      })
+      .catch((error) => {
+        console.warn(error);
+        navigate("/error");
+      });
+  };
+  useEffect(() => {
+    getSingleProductData();
+  }, []);
   return (
     <>
       <AnnoncementBar />
@@ -53,7 +70,7 @@ const ProductDetails = () => {
             <div className="breadcrumb">
               <Link to="/">HOME /</Link>
               <Link to="/shop">ALL /</Link>
-              <Link> MEN'S HOODED SWEATSHIRT TEXT GREY</Link>
+              <Link> {productData.name}</Link>
             </div>
             <div className="product">
               <div className="media">
@@ -104,8 +121,8 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className="product_info">
-                <h2 className="product_title">Men's Hoodie Grey/Purple Text</h2>
-                <p className="product_price">40.00€</p>
+                <h2 className="product_title">{productData.name}</h2>
+                <p className="product_price">{productData.price}€</p>
                 <div className="size_content">
                   <span className="size_title">SELECT SIZE</span>
                   <div className="sizes">
@@ -160,11 +177,7 @@ const ProductDetails = () => {
               <div className="diogonal_lines deg45"></div>
             </div>
             <div className="text">
-              <p>
-                We don't give it a second thought and simply want it to be
-                authentic. Two words that demonstrate a 120-year-old passion.
-                Sweatshirt Real Madrid.
-              </p>
+              <p>{productData.details}</p>
             </div>
           </div>
         </div>
