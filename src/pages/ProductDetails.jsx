@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,10 +14,7 @@ import { HeaderContextProvider } from "../utils/HeaderContext";
 import AnnoncementBar from "../components/AnnoncementBar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-// IMAGES
-import slideFirstImage from "../assets/images/card_image_first.jpeg";
-import slideSecondImage from "../assets/images/card_image_second.jpeg";
-import axios from "axios";
+import ShopifySection from "../components/sections/ShopifySection";
 
 const ProductDetails = () => {
   // Sizes
@@ -25,9 +23,7 @@ const ProductDetails = () => {
   // Quantity
   const [productCount, setProductCount] = useState(1);
   // Slide-Track
-  const [productImages, setProductImages] = useState([
-    "http://localhost:5000/item1.webp",
-  ]); 
+  const [productImages, setProductImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(productImages[0]);
   const [swiper, setSwiper] = useState(null);
   const slideTo = (index) => {
@@ -47,8 +43,10 @@ const ProductDetails = () => {
       .get(`${process.env.REACT_APP_ALL_PRODUCTS}/${productId}`)
       .then((response) => {
         setProductData(response.data);
-        console.log(productData);
         document.title = `${response.data.name} - Real Madrid CF | EU Store`;
+        const imageUrl =
+          `${process.env.REACT_APP_DOMAIN}/${response.data.productImage}`.toString();
+        setProductImages([...productImages, imageUrl]);
       })
       .catch((error) => {
         console.warn(error);
@@ -182,196 +180,11 @@ const ProductDetails = () => {
           </div>
         </div>
       </section>
-      <section className="shopify_section">
-        <div className="container">
-          <div className="row">
-            <div className="title">
-              <div className="title_text">
-                <h2 className="f-size-35">YOU MIGHT ALSO LIKE</h2>
-              </div>
-              <div className="diogonal_lines deg45"></div>
-            </div>
-            <div className="cards">
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-              <div className="card mw-3 m-20">
-                <div className="card_image">
-                  <img
-                    className="first_image"
-                    src={slideFirstImage}
-                    alt="first img"
-                  />
-                  <img
-                    className="second_image"
-                    src={slideSecondImage}
-                    alt="second img"
-                  />
-                </div>
-                <div className="card_features">
-                  <div className="content">
-                    <p className="card_info">
-                      Mens Away Authentic Shirt 23/24 Navy
-                    </p>
-                    <span className="price">A partir de 150.00€</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ShopifySection
+        title={"YOU MIGHT ALSO LIKE"}
+        id={"one"}
+        titleFontSize={"35"}
+      />
       <Footer />
     </>
   );

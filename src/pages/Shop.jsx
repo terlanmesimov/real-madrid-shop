@@ -37,7 +37,7 @@ const Shop = () => {
     setFiltersData(updatedFilters);
   };
 
-  const getProducts = async () => {
+  const getAllProducts = async () => {
     await axios
       .get(process.env.REACT_APP_ALL_PRODUCTS)
       .then((response) => {
@@ -49,7 +49,7 @@ const Shop = () => {
   };
 
   useEffect(() => {
-    getProducts();
+    getAllProducts();
   }, []);
   return (
     <>
