@@ -8,7 +8,6 @@ export const HeaderContextProvider = ({ children }) => {
   // Header Sub Menu Open Close
   const [openMenu, setOpenMenu] = useState(false);
   const [animateSubMenu, setAnimateSubMenu] = useState(false);
-
   // Header Animation On Scroll
   const [isHeaderOpen, setIsHeaderOpen] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);

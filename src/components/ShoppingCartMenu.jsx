@@ -1,6 +1,9 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+// PROVIDER
 import { HeaderContext } from "../utils/HeaderContext";
+// COMPONENTS
+import CartListItem from "./CartListItem";
 
 const ShoppingCartMenu = () => {
   const { openCart, setOpenCart, animateCartMenu, setAnimateCartMenu } =
@@ -11,9 +14,18 @@ const ShoppingCartMenu = () => {
       document.body.style.overflow = "auto";
     }
   }, [openCart]);
-  
+
   return (
     <div className={`cart_context ${animateCartMenu ? "open" : "close"}`}>
+      <div
+        className="overlay"
+        onClick={() => {
+          setAnimateCartMenu(!animateCartMenu);
+          setTimeout(() => {
+            setOpenCart(!openCart);
+          }, 500);
+        }}
+      ></div>
       <div
         className={`menu animate__animated animate__faster ${
           animateCartMenu ? "animate__fadeInRight" : "animate__fadeOutRight"
@@ -26,7 +38,7 @@ const ShoppingCartMenu = () => {
               setOpenCart(!openCart);
             }, 500);
           }}
-          class="menu_close"
+          className="menu_close"
         >
           ✕
         </span>
@@ -43,9 +55,12 @@ const ShoppingCartMenu = () => {
           <button className="cart_checkout">Pay order</button>
         </div>
         <ul className="product_list">
-          <li className="product"></li>
-          <li className="product"></li>
+          <CartListItem />
+          <CartListItem />
+          <CartListItem />
+          <CartListItem />
         </ul>
+        <div className="cart_checkout">Pay order</div>
       </div>
       <div
         className={
@@ -61,7 +76,7 @@ const ShoppingCartMenu = () => {
               setOpenCart(!openCart);
             }, 500);
           }}
-          class="menu_close"
+          className="menu_close"
         >
           ✕
         </span>

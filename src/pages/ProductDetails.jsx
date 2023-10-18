@@ -124,9 +124,10 @@ const ProductDetails = () => {
                 <div className="size_content">
                   <span className="size_title">SELECT SIZE</span>
                   <div className="sizes">
-                    {sizes.map((size) => {
+                    {sizes.map((size, index) => {
                       return (
                         <span
+                          key={index}
                           className={`size ${
                             selectedSize === size ? "active" : ""
                           }`}

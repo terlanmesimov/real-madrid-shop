@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ShopifySection = ({ title, id , titleFontSize}) => {
+const ShopifySection = ({ title, id, titleFontSize }) => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllProducts();
@@ -37,9 +39,11 @@ const ShopifySection = ({ title, id , titleFontSize}) => {
               return (
                 <div
                   key={product.id}
+                  id={product.id}
                   className={`card ${id === "one" ? "mw-1" : ""}${
                     id === "two" ? "mw-2" : ""
                   }${id === "three" ? "mw-1" : ""}`}
+                  onClick={() => navigate(`/product_details/${product.id}`)}
                 >
                   <div className="card_image">
                     <img
