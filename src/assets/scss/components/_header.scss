@@ -221,10 +221,19 @@
             justify-content: center;
             height: 100%;
             width: 44px;
+            position: relative;
             &:hover {
-              transform: scale(1.07);
+              .user_icon {
+                height: 22px;
+                width: 22px;
+              }
             }
             .user_icon {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 99;
               height: 20px;
               width: 20px;
               fill: none;
@@ -468,38 +477,40 @@
   .header_bottom {
     .search_bar {
       display: none;
-      .search {
+      .form_content {
         position: relative;
-        .search_input {
-          height: 2.5em;
-          width: 100%;
-          padding: 15px 50px 15px 15px;
-          text-align: left;
-          font-size: 1rem;
-          border: none;
-          color: #102341;
-          box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.35);
-          outline: none;
-          line-height: 1.5;
-          &:focus {
-            box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.55);
-            height: 2.6em;
-          }
-        }
-        .search_btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
-          background: transparent;
-          border: none;
-          outline: none;
-          .search_icon {
-            font-size: 14px;
+        .search {
+          .search_input {
+            height: 2.5em;
+            width: 100%;
+            padding: 15px 50px 15px 15px;
+            text-align: left;
+            font-size: 1rem;
+            border: none;
             color: #102341;
-            height: 18px;
-            width: 18px;
-            margin: 0 10px 0 0;
+            box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.35);
+            outline: none;
+            line-height: 1.5;
+            &:focus {
+              box-shadow: 0 0 0 0.1rem rgba(16, 35, 65, 0.55);
+              height: 2.6em;
+            }
+          }
+          .search_btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            background: transparent;
+            border: none;
+            outline: none;
+            .search_icon {
+              font-size: 14px;
+              color: #102341;
+              height: 18px;
+              width: 18px;
+              margin: 0 10px 0 0;
+            }
           }
         }
       }

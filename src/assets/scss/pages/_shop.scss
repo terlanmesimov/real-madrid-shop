@@ -272,9 +272,16 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 999999;
+        z-index: 999;
         justify-content: flex-end;
         background: rgba($color: #102341, $alpha: 0.5);
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10%;
+          height: 100%;
+        }
         &.open {
           display: none;
           @media (max-width: 750px) {

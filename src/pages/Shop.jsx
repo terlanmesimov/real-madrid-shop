@@ -205,6 +205,13 @@ const Shop = () => {
               }`}
             >
               <div
+                className="overlay"
+                onClick={() => {
+                  setOpenFilterMenu(false);
+                  document.body.style.overflow = "auto";
+                }}
+              ></div>
+              <div
                 className={`filter_sub_menu animate__animated${
                   openFilterMenu
                     ? "open animate__fadeInRight"

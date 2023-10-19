@@ -43,7 +43,10 @@ const ShopifySection = ({ title, id, titleFontSize }) => {
                   className={`card ${id === "one" ? "mw-1" : ""}${
                     id === "two" ? "mw-2" : ""
                   }${id === "three" ? "mw-1" : ""}`}
-                  onClick={() => navigate(`/product_details/${product.id}`)}
+                  onClick={() => {
+                    navigate(`/product_details/${product.id}`);
+                    window.location.reload();
+                  }}
                 >
                   <div className="card_image">
                     <img
