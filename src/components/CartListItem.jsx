@@ -1,17 +1,43 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MainContext } from "../utils/MainContext";
 
-import image from "../assets/images/card_image_first.jpeg";
-
-const CartListItem = () => {
+const CartListItem = ({ itemData }) => {
   // Quantity
-  const [productCount, setProductCount] = useState(1);
+  const [productCount, setProductCount] = useState(itemData.quantity);
+  const { cartListData, setCartListData } = useContext(MainContext);
+
+  useEffect(() => {
+    const updatedData = {
+      ...itemData,
+      quantity: productCount,
+    };
+    const updatedArray = cartListData.map((item) => {
+      if (item.id === updatedData.id) {
+        return updatedData;
+      } else {
+        return item;
+      }
+    });
+    setCartListData(updatedArray);
+  }, [productCount]);
+
+  const removeProduct = () => {
+    const updatedArray = cartListData.filter(
+      (product) => product.id !== itemData.id
+    );
+    setCartListData(updatedArray);
+  };
+
   return (
     <div className="list_item">
       <div className="product_image">
-        <img src={image} alt="cart item" />
+        <img
+          src={`${process.env.REACT_APP_DOMAIN}/${itemData.productImage}`}
+          alt="cart item"
+        />
       </div>
       <div className="product_details">
-        <h4 className="product_name">Men's T-shirt crest Broken White</h4>
+        <h4 className="product_name">{itemData.name}</h4>
         <div className="quantity_and_remove">
           <div className="quantity">
             <span
@@ -31,7 +57,11 @@ const CartListItem = () => {
               +
             </span>
           </div>
-          <span className="remove_icon">
+          <span
+            id={itemData.id}
+            onClick={removeProduct}
+            className="remove_icon"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -53,7 +83,7 @@ const CartListItem = () => {
         </div>
       </div>
       <div className="product_price">
-        <span className="price">35€</span>
+        <span className="price">{itemData.price * productCount}€</span>
       </div>
     </div>
   );

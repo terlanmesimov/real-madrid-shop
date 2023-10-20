@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,13 +10,17 @@ import "swiper/css/pagination";
 import { Navigation, Zoom, Pagination } from "swiper/modules";
 // CONTEXT
 import { HeaderContextProvider } from "../utils/HeaderContext";
+import { MainContext } from "../utils/MainContext";
 // COMPONENTS
 import AnnoncementBar from "../components/AnnoncementBar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ShopifySection from "../components/sections/ShopifySection";
+import Loader from "../components/Loader";
 
 const ProductDetails = () => {
+  // Loader
+  const [loader, setLoader] = useState(false);
   // Sizes
   const [selectedSize, setSelectedSize] = useState("XS");
   const sizes = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
@@ -44,9 +48,9 @@ const ProductDetails = () => {
       .then((response) => {
         setProductData(response.data);
         document.title = `${response.data.name} - Real Madrid CF | EU Store`;
-        const imageUrl =
-          `${process.env.REACT_APP_DOMAIN}/${response.data.productImage}`.toString();
+        const imageUrl = `/${response.data.productImage}`.toString();
         setProductImages([...productImages, imageUrl]);
+        setLoader(false);
       })
       .catch((error) => {
         console.warn(error);
@@ -54,139 +58,171 @@ const ProductDetails = () => {
       });
   };
   useEffect(() => {
+    setLoader(true);
     getSingleProductData();
   }, []);
+  // Add To Cart
+  const { cartListData, setCartListData } = useContext(MainContext);
+  const addToCart = () => {
+    const data = { ...productData, quantity: productCount };
+    const newArray = [...cartListData, data];
+    let updatedArray = newArray.reduce((acc, item) => {
+      if (!acc[item.id]) {
+        acc[item.id] = { ...item };
+      } else {
+        acc[item.id].quantity += item.quantity;
+      }
+      return acc;
+    }, {});
+    const combinedObjectsArray = Object.values(updatedArray);
+    setCartListData([...combinedObjectsArray]);
+  };
+
   return (
     <>
-      <AnnoncementBar />
-      <HeaderContextProvider>
-        <Header />
-      </HeaderContextProvider>
-      <section className="product_details">
-        <div className="container">
-          <div className="row">
-            <div className="breadcrumb">
-              <Link to="/">HOME /</Link>
-              <Link to="/shop">ALL /</Link>
-              <Link> {productData.name}</Link>
-            </div>
-            <div className="product">
-              <div className="media">
-                <div className="slide_track">
-                  {productImages.map((image, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className={`slide_image ${
-                          selectedImage === image ? "active" : ""
-                        }`}
-                      >
-                        <img
-                          src={image}
-                          id={index}
-                          alt="product_image"
-                          onClick={(e) => {
-                            setSelectedImage(image);
-                            slideTo(e.target.id);
-                          }}
-                        />
-                      </div>
-                    );
-                  })}
+      {loader && <Loader />}
+      {!loader && (
+        <>
+          <AnnoncementBar />
+          <HeaderContextProvider>
+            <Header />
+          </HeaderContextProvider>
+          <section className="product_details">
+            <div className="container">
+              <div className="row">
+                <div className="breadcrumb">
+                  <Link to="/">HOME /</Link>
+                  <Link to="/shop">ALL /</Link>
+                  <Link> {productData.name}</Link>
                 </div>
-                <div className="product_image">
-                  <Swiper
-                    navigation={true}
-                    modules={[Zoom, Navigation, Pagination]}
-                    className="mySwiper"
-                    zoom={true}
-                    onSwiper={setSwiper}
-                    onSlideChange={handleSlideChange}
-                  >
-                    {productImages.map((image, index) => {
-                      return (
-                        <SwiperSlide>
+                <div className="product">
+                  <div className="media">
+                    <div className="slide_track">
+                      {productImages.map((image, index) => {
+                        return (
                           <div
                             key={index}
-                            className="slide_item swiper-zoom-container"
+                            className={`slide_image ${
+                              selectedImage === image ? "active" : ""
+                            }`}
                           >
-                            <img src={image} alt="product_img" />
+                            <img
+                              src={process.env.REACT_APP_DOMAIN + image}
+                              id={index}
+                              alt="product_image"
+                              onClick={(e) => {
+                                setSelectedImage(image);
+                                slideTo(e.target.id);
+                              }}
+                            />
                           </div>
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                </div>
-              </div>
-              <div className="product_info">
-                <h2 className="product_title">{productData.name}</h2>
-                <p className="product_price">{productData.price}€</p>
-                <div className="size_content">
-                  <span className="size_title">SELECT SIZE</span>
-                  <div className="sizes">
-                    {sizes.map((size, index) => {
-                      return (
+                        );
+                      })}
+                    </div>
+                    <div className="product_image">
+                      <Swiper
+                        navigation={true}
+                        modules={[Zoom, Navigation, Pagination]}
+                        className="mySwiper"
+                        zoom={true}
+                        onSwiper={setSwiper}
+                        onSlideChange={handleSlideChange}
+                      >
+                        {productImages.map((image, index) => {
+                          return (
+                            <SwiperSlide>
+                              <div
+                                key={index}
+                                className="slide_item swiper-zoom-container"
+                              >
+                                <img
+                                  src={process.env.REACT_APP_DOMAIN + image}
+                                  alt="product_img"
+                                />
+                              </div>
+                            </SwiperSlide>
+                          );
+                        })}
+                      </Swiper>
+                    </div>
+                  </div>
+                  <div className="product_info">
+                    <h2 className="product_title">{productData.name}</h2>
+                    <p className="product_price">{productData.price}€</p>
+                    <div className="size_content">
+                      <span className="size_title">SELECT SIZE</span>
+                      <div className="sizes">
+                        {sizes.map((size, index) => {
+                          return (
+                            <span
+                              key={index}
+                              className={`size ${
+                                selectedSize === size ? "active" : ""
+                              }`}
+                              onClick={() => setSelectedSize(size)}
+                            >
+                              {size}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="quantity_content">
+                      <span className="title">QUANTITY</span>
+                      <div className="quantity">
                         <span
-                          key={index}
-                          className={`size ${
-                            selectedSize === size ? "active" : ""
-                          }`}
-                          onClick={() => setSelectedSize(size)}
+                          className="decrement"
+                          onClick={() => {
+                            if (productCount <= 1) return;
+                            setProductCount(productCount - 1);
+                          }}
                         >
-                          {size}
+                          -
                         </span>
-                      );
-                    })}
+                        <span className="count">{productCount}</span>
+                        <span
+                          className="increment"
+                          onClick={() => setProductCount(productCount + 1)}
+                        >
+                          +
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      className="add_to_cart"
+                      id={productData.id}
+                      onClick={addToCart}
+                    >
+                      ADD TO CART
+                    </button>
                   </div>
                 </div>
-                <div className="quantity_content">
-                  <span className="title">QUANTITY</span>
-                  <div className="quantity">
-                    <span
-                      className="decrement"
-                      onClick={() => {
-                        if (productCount <= 1) return;
-                        setProductCount(productCount - 1);
-                      }}
-                    >
-                      -
-                    </span>
-                    <span className="count">{productCount}</span>
-                    <span
-                      className="increment"
-                      onClick={() => setProductCount(productCount + 1)}
-                    >
-                      +
-                    </span>
+              </div>
+            </div>
+          </section>
+          <section className="description">
+            <div className="container">
+              <div className="row">
+                <div className="title">
+                  <div className="title_text">
+                    <h2 className="f-size-35">PRODUCT DESCRIPTION</h2>
                   </div>
+                  <div className="diogonal_lines deg45"></div>
                 </div>
-                <button className="add_to_cart">ADD TO CART</button>
+                <div className="text">
+                  <p>{productData.details}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="description">
-        <div className="container">
-          <div className="row">
-            <div className="title">
-              <div className="title_text">
-                <h2 className="f-size-35">PRODUCT DESCRIPTION</h2>
-              </div>
-              <div className="diogonal_lines deg45"></div>
-            </div>
-            <div className="text">
-              <p>{productData.details}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <ShopifySection
-        title={"YOU MIGHT ALSO LIKE"}
-        id={"one"}
-        titleFontSize={"35"}
-      />
-      <Footer />
+          </section>
+          <ShopifySection
+            title={"YOU MIGHT ALSO LIKE"}
+            id={"one"}
+            titleFontSize={"35"}
+          />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

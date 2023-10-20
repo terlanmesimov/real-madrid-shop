@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// COMPPNENTS
+// CONTEXT
 import { HeaderContext } from "../utils/HeaderContext";
+import { MainContext } from "../utils/MainContext";
 
 const ShoppingCart = () => {
   const {
@@ -14,6 +15,16 @@ const ShoppingCart = () => {
     animateSubMenu,
     setAnimateSubMenu,
   } = useContext(HeaderContext);
+  const { cartListData, setCartListData, totalCount, setTotalCount } =
+    useContext(MainContext);
+
+  useEffect(() => {
+    const count = cartListData.reduce(
+      (summary, current) => summary + current.quantity,
+      0
+    );
+    setTotalCount(count);
+  }, [cartListData]);
   return (
     <>
       <Link
@@ -49,7 +60,7 @@ const ShoppingCart = () => {
           </svg>
         </div>
         <div className="product_count">
-          <span>1</span>
+          <span>{totalCount}</span>
         </div>
       </Link>
     </>
