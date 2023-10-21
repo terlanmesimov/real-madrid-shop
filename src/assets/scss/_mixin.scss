@@ -38,6 +38,24 @@
         opacity: 1;
       }
     }
+    .visibility_icon {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      height: calc(100% - 30px);
+      width: 64px;
+      opacity: 0;
+      color: #5e6a83;
+      z-index: 99999;
+      transition: opacity 0.4s ease-in;
+      &.active {
+        opacity: 1;
+      }
+    }
     .label {
       position: absolute;
       transform: translateY(-60%);
@@ -54,12 +72,13 @@
       }
     }
     .error {
+      margin: 5px 0;
       padding: 0 0 0 5px;
       display: block;
+      visibility: hidden;
       color: #ca024f;
       font-size: 0.815rem;
-      min-height: 36px;
-      line-height: 2;
+      line-height: 1.2;
     }
   }
 }

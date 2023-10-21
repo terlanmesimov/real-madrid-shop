@@ -1,8 +1,8 @@
 @import "../mixin";
 
-.register {
+.login {
   font-family: "RMNeue", arial, helvetica;
-  .register_header {
+  .login_header {
     width: 100%;
     position: fixed;
     top: 0;
@@ -15,39 +15,6 @@
     justify-content: flex-end;
     @media (max-width: 768px) {
       padding: 7px 0;
-    }
-    .back_btn {
-      display: flex;
-      align-items: center;
-      margin-right: auto;
-      cursor: pointer;
-      &:hover {
-        .arrow_icon {
-          svg {
-            filter: invert(18%) sepia(70%) saturate(7497%) hue-rotate(247deg)
-              brightness(98%) contrast(100%);
-          }
-        }
-        .word {
-          color: #3e31fa;
-          text-decoration: underline;
-        }
-      }
-      .arrow_icon {
-        margin: 12px;
-        height: 19px;
-        svg {
-          transition: 0.4s ease;
-          height: 100%;
-          filter: invert(55%) sepia(14%) saturate(495%) hue-rotate(181deg)
-            brightness(91%) contrast(89%);
-        }
-      }
-      .word {
-        font-size: 18px;
-        color: #788398;
-        transition: 0.4s ease;
-      }
     }
     .language_select {
       display: flex;
@@ -207,7 +174,7 @@
       }
     }
   }
-  .register_footer {
+  .login_footer {
     background: #f3f5f8;
     padding: 0px 32px;
     display: flex;
