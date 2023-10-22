@@ -106,6 +106,13 @@ const Login = () => {
         <button className="question" onClick={() => navigate("/register")}>
           Can't log in?
         </button>
+        <button
+          className="question"
+          style={{ margin: 0 }}
+          onClick={() => navigate("/register")}
+        >
+          Change password now
+        </button>
         <div className="divider_content">
           <div className="divider"></div>
           <span className="word">OR</span>

@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+// CONTEXT
 import { MainContext } from "../utils/MainContext";
 
 const CartListItem = ({ itemData }) => {
   // Quantity
   const [productCount, setProductCount] = useState(itemData.quantity);
   const { cartListData, setCartListData } = useContext(MainContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updatedData = {
@@ -37,7 +40,15 @@ const CartListItem = ({ itemData }) => {
         />
       </div>
       <div className="product_details">
-        <h4 className="product_name">{itemData.name}</h4>
+        <h4
+          className="product_name"
+          onClick={() => {
+            navigate(`/product_details/${itemData.id}`);
+            window.location.reload();
+          }}
+        >
+          {itemData.name}
+        </h4>
         <div className="quantity_and_remove">
           <div className="quantity">
             <span
