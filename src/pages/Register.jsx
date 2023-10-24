@@ -1,11 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+// REACT-HOOK-FORM
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 // ICON
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+// CONTEXT
+import { Auth } from "../utils/AuthContext";
 
 const Register = () => {
+  useEffect(() => {
+    document.title = "Real Madrid CF | Log in or access";
+  }, []);
   const navigate = useNavigate();
+  // Toasty error message
+  const [toasty, setToasty] = useState(false);
   // Step
   const [step, setStep] = useState(1);
   // Input focus and blur
@@ -16,26 +28,105 @@ const Register = () => {
   const [focusInputSurname, setFocusInputSurname] = useState(false);
   // Visibility toggle
   const [passwordInputVisibility, setPasswordInputVisibility] = useState(false);
-
-  useEffect(() => {
-    document.title = "Real Madrid CF | Log in or access";
-  }, []);
-
-  const stepOneBtn = (e) => {
-    e.preventDefault();
+  // Authentication
+  const { newUserData, setNewUserData } = useContext(Auth);
+  const shemaOne = yup.object({
+    email: yup
+      .string()
+      .trim()
+      .required()
+      .matches(/^\S+@\S+\.\S+$/),
+  });
+  const {
+    register: registerOne,
+    handleSubmit: handleSubmitOne,
+    formState: { errors: errorsOne },
+  } = useForm({
+    resolver: yupResolver(shemaOne),
+  });
+  const stepOneBtn = (data) => {
+    setNewUserData({ ...newUserData, email: data.email });
     setStep(step + 1);
   };
-  const stepTwoBtn = (e) => {
-    e.preventDefault();
+
+  const shemaTwo = yup.object({
+    password: yup
+      .string()
+      .required()
+      .trim()
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),
+    birthDate: yup
+      .string()
+      .required()
+      .trim()
+      .matches(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/),
+  });
+  const {
+    register: registerTwo,
+    handleSubmit: handleSubmitTwo,
+    formState: { errors: errorsTwo },
+  } = useForm({
+    resolver: yupResolver(shemaTwo),
+  });
+  const stepTwoBtn = (data) => {
+    setNewUserData({ ...newUserData, password: data.password });
     setStep(step + 1);
   };
-  const stepThreeBtn = (e) => {
-    // e.preventDefault();
-    // setStep(step + 1);
+
+  const shemaThree = yup.object({
+    name: yup
+      .string()
+      .required()
+      .trim()
+      .matches(/^[A-Za-zğüşıöçĞÜŞİÖÇ]+$/),
+    surname: yup
+      .string()
+      .required()
+      .trim()
+      .matches(/^[A-Za-zğüşıöçĞÜŞİÖÇ]+$/),
+  });
+  const {
+    register: registerThree,
+    handleSubmit: handleSubmitThree,
+    formState: { errors: errorsThree },
+  } = useForm({
+    resolver: yupResolver(shemaThree),
+  });
+  const stepThreeBtn = (data) => {
+    setNewUserData({ ...newUserData, name: data.name, surname: data.surname });
+    register();
+  };
+  // Registration
+  const register = async () => {
+    await axios
+      .post(process.env.REACT_APP_NEW_USER, newUserData)
+      .then((response) => {
+        navigate("/login");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.warn(error);
+        setToasty(true);
+        setTimeout(() => {
+          setToasty(false);
+        }, 5200);
+      });
   };
 
   return (
     <div className="register">
+      <div
+        className={`toast_error ${
+          toasty
+            ? "animate__animated animate__delay-5s animate__fadeOutUp active"
+            : ""
+        }`}
+      >
+        <p className="error_message">
+          Sorry! This password is not correct. Please, rewrite it paying
+          attention to the uppercase and lowercase letters.
+        </p>
+      </div>
       <div className="register_header">
         {step !== 1 && (
           <div
@@ -115,11 +206,15 @@ const Register = () => {
             <h3>Welcome!</h3>
             <p>Sign in or create your account</p>
           </div>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmitOne(stepOneBtn)}>
             <div className="email input_content">
               <input
                 type="email"
-                className="email_input input"
+                className={`email_input input ${
+                  errorsOne.email ? "has_error" : ""
+                }`}
+                name="email"
+                {...registerOne("email")}
                 onFocus={(e) => {
                   if (e.target.value === "") {
                     setFocusInputEmail(!focusInputEmail);
@@ -133,7 +228,7 @@ const Register = () => {
                   return;
                 }}
               />
-              <span className="info_icon">
+              <span className={`info_icon ${errorsOne.email ? "active" : ""}`}>
                 <ErrorOutlineOutlinedIcon />
               </span>
               <label
@@ -144,11 +239,17 @@ const Register = () => {
               >
                 Email / Socio No. / Madridista No
               </label>
-              <span className="error error_email">
-                Please, enter a valid email (for example: you@example.com)
+              <span
+                className={`error error_email ${
+                  errorsOne.email ? "active" : ""
+                }`}
+              >
+                {errorsOne.email
+                  ? "Please, enter a valid email (for example: you@example.com)"
+                  : ""}
               </span>
             </div>
-            <button className="form_btn" onClick={stepOneBtn}>
+            <button className="form_btn">
               <span>Continue</span>
             </button>
           </form>
@@ -191,11 +292,15 @@ const Register = () => {
               Become a <br /> Madridista
             </h3>
           </div>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmitTwo(stepTwoBtn)}>
             <div className="password input_content">
               <input
                 type={passwordInputVisibility ? "text" : "password"}
-                className="password_input input"
+                className={`password_input input ${
+                  errorsTwo.password ? "has_error" : ""
+                }`}
+                name="password"
+                {...registerTwo("password")}
                 onFocus={(e) => {
                   if (e.target.value === "") {
                     setFocusInputPassword(!focusInputPassword);
@@ -225,15 +330,24 @@ const Register = () => {
               >
                 Create your password
               </label>
-              <span className="error error_password">
-                Your password must contain between 8 and 24 alphanumeric
-                characters and at least 1 letter
+              <span
+                className={`error error_password ${
+                  errorsTwo.password ? "active" : ""
+                }`}
+              >
+                {errorsTwo.password
+                  ? "Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter"
+                  : ""}
               </span>
             </div>
             <div className="birth_date input_content">
               <input
                 type="text"
-                className="birth_date_input input"
+                className={`birth_date_input input ${
+                  errorsTwo.birthDate ? "has_error" : ""
+                }`}
+                name="birthDate"
+                {...registerTwo("birthDate")}
                 onFocus={(e) => {
                   if (e.target.value === "") {
                     setFocusInputDate(!focusInputDate);
@@ -247,7 +361,9 @@ const Register = () => {
                   return;
                 }}
               />
-              <span className="info_icon">
+              <span
+                className={`info_icon ${errorsTwo.birthDate ? "active" : ""}`}
+              >
                 <ErrorOutlineOutlinedIcon />
               </span>
               <label
@@ -258,11 +374,17 @@ const Register = () => {
               >
                 Birth date (DD/MM/YYYY)
               </label>
-              <span className="error error_birth_date">
-                You must be at least 14 years old to create an account.
+              <span
+                className={`error error_birth_date ${
+                  errorsTwo.birthDate ? "active" : ""
+                }`}
+              >
+                {errorsTwo.birthDate
+                  ? "You must be at least 14 years old to create an account."
+                  : ""}
               </span>
             </div>
-            <button className="form_btn" onClick={stepTwoBtn}>
+            <button className="form_btn">
               <span>Accept and continue</span>
             </button>
           </form>
@@ -289,11 +411,15 @@ const Register = () => {
               Become a <br /> Madridista
             </h3>
           </div>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmitThree(stepThreeBtn)}>
             <div className="name input_content">
               <input
                 type="text"
-                className="name_input input"
+                className={`name_input input ${
+                  errorsThree.name ? "has_error" : ""
+                }`}
+                name="name"
+                {...registerThree("name")}
                 onFocus={(e) => {
                   if (e.target.value === "") {
                     setFocusInputName(!focusInputName);
@@ -307,7 +433,7 @@ const Register = () => {
                   return;
                 }}
               />
-              <span className="info_icon active visibility_icon">
+              <span className={`info_icon ${errorsThree.name ? "active" : ""}`}>
                 <ErrorOutlineOutlinedIcon />
               </span>
               <label
@@ -316,14 +442,24 @@ const Register = () => {
               >
                 Name
               </label>
-              <span className="error error_name">
-                The name you provided is not in the correct format.
+              <span
+                className={`error error_name ${
+                  errorsThree.name ? "active" : ""
+                }`}
+              >
+                {errorsThree.name
+                  ? "The name you provided is not in the correct format."
+                  : ""}
               </span>
             </div>
             <div className="surname input_content">
               <input
                 type="text"
-                className="surname_input input"
+                className={`surname_input input ${
+                  errorsThree.surname ? "has_error" : ""
+                }`}
+                name="surname"
+                {...registerThree("surname")}
                 onFocus={(e) => {
                   if (e.target.value === "") {
                     setFocusInputSurname(!focusInputSurname);
@@ -337,7 +473,9 @@ const Register = () => {
                   return;
                 }}
               />
-              <span className="info_icon">
+              <span
+                className={`info_icon ${errorsThree.surname ? "active" : ""}`}
+              >
                 <ErrorOutlineOutlinedIcon />
               </span>
               <label
@@ -348,8 +486,14 @@ const Register = () => {
               >
                 Surname
               </label>
-              <span className="error error_surname">
-                The surname you provided is not in the correct format.
+              <span
+                className={`error error_name ${
+                  errorsThree.surname ? "active" : ""
+                }`}
+              >
+                {errorsThree.surname
+                  ? " The surname you provided is not in the correct format."
+                  : ""}
               </span>
             </div>
             <button className="form_btn">

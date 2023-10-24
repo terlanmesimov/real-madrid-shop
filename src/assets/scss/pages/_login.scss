@@ -2,6 +2,7 @@
 
 .login {
   font-family: "RMNeue", arial, helvetica;
+  @include toast-error;
   .login_header {
     width: 100%;
     position: fixed;

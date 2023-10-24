@@ -2,6 +2,7 @@
 
 .register {
   font-family: "RMNeue", arial, helvetica;
+  @include toast-error;
   .register_header {
     width: 100%;
     position: fixed;

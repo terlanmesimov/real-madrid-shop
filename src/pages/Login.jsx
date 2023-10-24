@@ -1,23 +1,71 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+// REACT-HOOK-FORM
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 // ICON
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 const Login = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    document.title = "Real Madrid CF | Log in or access";
+  }, []);
+  // Toasty error message
+  const [toasty, setToasty] = useState(false);
   // Input focus and blur
   const [focusInputEmail, setFocusInputEmail] = useState(false);
   const [focusInputPassword, setFocusInputPassword] = useState(false);
   // Visibility toggle
   const [passwordInputVisibility, setPasswordInputVisibility] = useState(false);
-
-  useEffect(() => {
-    document.title = "Real Madrid CF | Log in or access";
-  }, []);
+  // Authentication
+  const shema = yup.object({
+    email: yup
+      .string()
+      .trim()
+      .required()
+      .matches(/^\S+@\S+\.\S+$/),
+    password: yup.string().trim().required(),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(shema),
+  });
+  const onSubmit = async (data) => {
+    await axios
+      .post(process.env.REACT_APP_LOGIN, data)
+      .then((response) => {
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+      })
+      .catch((error) => {
+        console.warn(error);
+        setToasty(true);
+        setTimeout(() => {
+          setToasty(false);
+        }, 5200);
+      });
+  };
 
   return (
     <div className="login">
+      <div
+        className={`toast_error ${
+          toasty
+            ? "animate__animated animate__delay-5s animate__fadeOutUp active"
+            : ""
+        }`}
+      >
+        <p className="error_message">
+          Sorry! This password is not correct. Please, rewrite it paying
+          attention to the uppercase and lowercase letters.
+        </p>
+      </div>
       <div className="login_header">
         <span className="language_select">
           <button className="language">ES</button>
@@ -30,11 +78,13 @@ const Login = () => {
           <h3>Welcome!</h3>
           <p>Sign in or create your account</p>
         </div>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="email input_content">
             <input
               type="email"
-              className="email_input input"
+              name="email"
+              className={`email_input input ${errors.email ? "has_error" : ""}`}
+              {...register("email")}
               onFocus={(e) => {
                 if (e.target.value === "") {
                   setFocusInputEmail(!focusInputEmail);
@@ -48,7 +98,7 @@ const Login = () => {
                 return;
               }}
             />
-            <span className="info_icon">
+            <span className={`info_icon ${errors.email ? "active" : ""}`}>
               <ErrorOutlineOutlinedIcon />
             </span>
             <label
@@ -57,14 +107,22 @@ const Login = () => {
             >
               Email / Socio No. / Madridista No
             </label>
-            <span className="error error_email">
-              Please, enter a valid email (for example: you@example.com)
+            <span
+              className={`error error_email ${errors.email ? "active" : ""}`}
+            >
+              {errors.email
+                ? "Please, enter a valid email (for example: you@example.com)"
+                : ""}
             </span>
           </div>
           <div className="password input_content">
             <input
               type={passwordInputVisibility ? "text" : "password"}
-              className="password_input input"
+              className={`password_input input ${
+                errors.password ? "has_error" : ""
+              }`}
+              name="password"
+              {...register("password")}
               onFocus={(e) => {
                 if (e.target.value === "") {
                   setFocusInputPassword(!focusInputPassword);
@@ -94,9 +152,12 @@ const Login = () => {
             >
               Password
             </label>
-            <span className="error error_password">
-              Sorry! This password is not correct. Please, rewrite it paying
-              attention to the uppercase and lowercase letters.
+            <span
+              className={`error error_password ${
+                errors.password ? "active" : ""
+              }`}
+            >
+              {errors.password ? "Password is required" : ""}
             </span>
           </div>
           <button className="form_btn">
@@ -106,11 +167,7 @@ const Login = () => {
         <button className="question" onClick={() => navigate("/register")}>
           Can't log in?
         </button>
-        <button
-          className="question"
-          style={{ margin: 0 }}
-          onClick={() => navigate("/register")}
-        >
+        <button className="question" style={{ margin: 0 }}>
           Change password now
         </button>
         <div className="divider_content">
