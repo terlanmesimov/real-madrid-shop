@@ -1,0 +1,211 @@
+{
+  "shopNow": "SHOP NOW",
+  "annoncementBar": {
+    "toRegister": "REGISTER AS A MADRIDISTA FOR FREE AND GET 5% OFF YOUR FIRST PURCHASE",
+    "toShop": "GET READY FOR THE COLD WITH OUR WINTER JACKETS - SHOP"
+  },
+  "header": {
+    "search": "Search",
+    "navbar": {
+      "kits": "KITS",
+      "shopByPlayer": "SHOP BY PLAYER",
+      "training": "TRAINING",
+      "fashion": "FASHION",
+      "accessories": "ACCESSORIES",
+      "sale": "SALE"
+    },
+    "shoppingCartMenu": {
+      "yourShoppingCart": "Your shopping cart",
+      "subTotal": "Subtotal",
+      "taxNote": "Tax included and shipping costs are calculated on the payment screen.",
+      "payOrder": "Pay order",
+      "yourCart": "Your Cart",
+      "emptyMessage": "Your shopping cart is empty",
+      "continueShopping": "Continue Shopping"
+    },
+    "headerSubMenu": {
+      "kits": "KITS",
+      "shopByPlayer": "SHOP BY PLAYER",
+      "training": "TRAINING",
+      "fashion": "FASHION",
+      "accessories": "ACCESSORIES",
+      "sale": "SALE"
+    }
+  },
+  "home": {
+    "locationTitle": "The Official Online Store of Real Madrid CF - Real Madrid CF | EU Shop",
+    "heroSection": {
+      "heroHeadingOne": "WE'RE PLAYING AWAY!",
+      "heroHeadingTwo": "SUPPORT THE TEAM WHEREVER THEY GO"
+    },
+    "shopifySection": {
+      "titleOne": "2ND AND THIRD KITS",
+      "titleTwo": "CHAMPİONS LEAGUE TRAİNİNG",
+      "titleThree": "COLLECTION SIGNATURE"
+    },
+    "collectionsSection": {
+      "titleOne": "KITS",
+      "titleTwo": "SCORE YOUR STYLE",
+      "shopNow": "SHOP NOW",
+      "homeKits": "23/24 REAL MADRID HOME KITS",
+      "awayKits": "23/24 REAL MADRID AWAY KITS",
+      "thirdKit": "THIRD KIT REAL MADRID 23/24",
+      "goolkeeperKits": "23/24 REAL MADRID GOALKEEPER KITS",
+      "lifeStyleMan": "LIFESTYLE MAN",
+      "essentialForWomen": "ESSENTIALS FOR WOMEN",
+      "essentialYouth": "ESSENTIALS YOUTH"
+    },
+    "contentSection": {
+      "sectionOne": {
+        "textOne": "CHAMPIONS LEAGUE TRAINING COLLECTION",
+        "textTwo": "TRAIN LIKE A PRO"
+      },
+      "sectionTwo": {
+        "textOne": "COLLECTİON SİGNATURE",
+        "textTwo": "GET READY FOR FALL"
+      }
+    }
+  },
+  "shopPage": {
+    "locationTitle": "All - Real Madrid CF | EU Shop",
+    "breadcrumb": {
+      "home": "HOME",
+      "all": "ALL"
+    },
+    "readMore": "READ MORE",
+    "readLess": "READ LESS"
+  },
+  "productDetailsPage": {
+    "locationTitle": "Real Madrid CF | EU Store",
+    "breadcrumb": {
+      "home": "HOME",
+      "all": "ALL"
+    },
+    "selectSize": "SELECT SIZE",
+    "quantity": "QUANTITY",
+    "addToCart": "ADD TO CART",
+    "descriptionSection": {
+      "title": "PRODUCT DESCRIPTION"
+    },
+    "shopifySection": {
+      "title": "YOU MIGHT ALSO LIKE"
+    }
+  },
+  "account": {
+    "locationTitle": "Account - Real Madrid CF - EU Shop",
+    "breadcrumb": {
+      "home": "HOME",
+      "account": "ACCOUNT"
+    },
+    "title": "Welcome back",
+    "logOut": "Log Out",
+    "changePassword": "Change Password",
+    "orderHistory": "Order history",
+    "orderHistoryText": "You have not yet placed an order.",
+    "accountDetails": "Account Details",
+    "seeAddresses": "See addresses"
+  },
+  "error": {
+    "breadcrumb": {
+      "home": "HOME",
+      "notFound": "404 NOT FOUND"
+    },
+    "errorMessage": "404 Page not found",
+    "pageNotFoundMessage": "The page you requested does not exist. Click <Link to='/shop'>here</Link> to continue shopping."
+  },
+  "register": {
+    "locationTitle": "Real Madrid CF | Log in or access",
+    "back": "Back",
+    "toastyErrorMessage": "Registration process has failed. Please check your information and try again.",
+    "form": {
+      "titleOne": "Welcome!",
+      "titleTwo": "Become a Madridista!",
+      "subTitle": "Sign in or create your account",
+      "emailLabel": "Email / Socio No. / Madridista No",
+      "emailErrorMessage": "Please, enter a valid email (for example: you@example.com)",
+      "passwordLabel": "Create your password",
+      "passwordErrorMessage": "Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter",
+      "birthDateLabel": "Birth date",
+      "birthDateErrorMessage": "You must be at least 14 years old to create an account.",
+      "nameLabel": "Name",
+      "nameErrorMessage": "The name you provided is not in the correct format.",
+      "surnameLabel": "Surname",
+      "surnameErrorMessage": "The surname you provided is not in the correct format.",
+      "btnOne": "Continue",
+      "btnTwo": "Accept and continue",
+      "btnThree": "Register",
+      "question": "Do you have a account?"
+    },
+    "registerFooter": {
+      "legalNotice": "Legal notice",
+      "cookiesPolicy": "Cookies policy",
+      "privacyPolicy": "Privacy policy",
+      "footerText": "All rights reserved"
+    }
+  },
+  "login": {
+    "locationTitle": "Real Madrid CF | Log in or access",
+    "toastyErrorMessage": "Sorry! This password is not correct. Please, rewrite it paying attention to the uppercase and lowercase letters.",
+    "form": {
+      "titleOne": "Welcome!",
+      "subTitle": "Sign in or create your account",
+      "emailLabel": "Email / Socio No. / Madridista No",
+      "emailErrorMessage": "Please, enter a valid email (for example: you@example.com)",
+      "passwordLabel": "Password",
+      "passwordErrorMessage": "Password is required",
+      "btn": "Login",
+      "question": "Can't log in?"
+    },
+    "loginFooter": {
+      "legalNotice": "Legal notice",
+      "cookiesPolicy": "Cookies policy",
+      "privacyPolicy": "Privacy policy",
+      "footerText": "All rights reserved"
+    }
+  },
+  "changePassword": {
+    "locationTitle": "Real Madrid CF | Log in or access",
+    "back": "Back",
+    "toastyErrorMessage": "Something went wrong!",
+    "form": {
+      "title": "Email sent to change your password!",
+      "subTitleOne": " We have just sent you an email with OTP to change yourpassword.",
+      "subTitleTwo": "Please, enter the verification code",
+      "subTitleThree": "Please, enter the new password you want to assign",
+      "emailLabel": "Email / Socio No. / Madridista No",
+      "emailErrorMessage": "Please, enter a valid email (for example: you@example.com)",
+      "otpLabel": "Code",
+      "otpErrorMessage": "Invalid OTP code. Please enter a valid one-time password.",
+      "passwordLabel": "Password",
+      "passwordErrorMessage": "Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter",
+      "rePasswordLabel": "Re-Password",
+      "rePasswordErrorMessage": "Passwords do not match",
+      "btnOne": "Send verification code",
+      "btnTwo": "Continue",
+      "btnThree": "Verify",
+      "question": "Send it again!"
+    },
+    "changePasswordFooter": {
+      "legalNotice": "Legal notice",
+      "cookiesPolicy": "Cookies policy",
+      "privacyPolicy": "Privacy policy",
+      "footerText": "All rights reserved"
+    }
+  },
+  "footer": {
+    "shop": "Shop",
+    "shopLocator": "SHOP LOCATOR",
+    "returnsAndReturns": "RETURNS AND REFUNDS",
+    "howToOrder": "HOW TO ORDER",
+    "trackMyOrder": "TRACK MY ORDER",
+    "myAccount": "MY ACCOUNT",
+    "about": "About",
+    "privacyPolicy": "PRIVACY POLICY",
+    "cookiePolicy": "COOKIE POLICY",
+    "termsAndConditions": "TERMS AND CONDITIONS",
+    "help": "Do you need to help?",
+    "contactUs": "CONTACT US",
+    "faq": "FREQUENTLY ASKED QUESTIONS",
+    "payment": "Payments Accepted"
+  }
+}

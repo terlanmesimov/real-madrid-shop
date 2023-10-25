@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { filters } from "../db/filters";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 // COMPONENTS
 import Product from "../components/Product";
 import Header from "../components/Header";
@@ -12,7 +13,7 @@ import Loader from "../components/Loader";
 import { HeaderContextProvider } from "../utils/HeaderContext";
 
 const Shop = () => {
-  const [titleText, setTitleText] = useState("READ MORE");
+  const { t } = useTranslation();
   const [filtersData, setFiltersData] = useState(filters);
   const [openFilterMenu, setOpenFilterMenu] = useState(false);
   const [products, setProducts] = useState([]);
@@ -71,21 +72,11 @@ const Shop = () => {
               <div className="row">
                 <div className="title">
                   <div className="breadcrumb">
-                    <Link to="/">HOME</Link>
-                    <Link>' ALL</Link>
+                    <Link to="/">{t("shopPage.breadcrumb.home")}</Link>
+                    <Link>' {t("shopPage.breadcrumb.all")}</Link>
                   </div>
-                  <h2>ALL</h2>
-                  <h3
-                    onClick={() => {
-                      if (titleText === "READ MORE") {
-                        setTitleText("READ LESS");
-                      } else if (titleText === "READ LESS") {
-                        setTitleText("READ MORE");
-                      }
-                    }}
-                  >
-                    {titleText}
-                  </h3>
+                  <h2>{t("shopPage.breadcrumb.all")}</h2>
+                  <h3>{t("shopPage.readMore")}</h3>
                 </div>
                 <div className="products">
                   <div className="filter_bar">

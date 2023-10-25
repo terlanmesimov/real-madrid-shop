@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import i18n from "../utils/i18n";
 // REACT-HOOK-FORM
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,6 +14,10 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import { Auth } from "../utils/AuthContext";
 
 const ChangePassword = () => {
+  // Language
+  const { t } = useTranslation();
+  const [lang, setLang] = useState("en");
+
   const navigate = useNavigate();
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
@@ -153,7 +159,9 @@ const ChangePassword = () => {
             : ""
         }`}
       >
-        <p className="error_message">Something went wrong!</p>
+        <p className="error_message">
+          {t("changePassword.toastyErrorMessage")}
+        </p>
       </div>
       <div className="change_password_header">
         <div
@@ -224,24 +232,35 @@ const ChangePassword = () => {
               </svg>
             </svg>
           </span>
-          <span className="word">Back</span>
+          <span className="word">{t("changePassword.back")}</span>
         </div>
         <span className="language_select">
-          <button className="language">ES</button>
+          <button
+            className={`language ${lang === "es" && "active"}`}
+            onClick={() => {
+              setLang("es");
+              i18n.changeLanguage("es");
+            }}
+          >
+            ES
+          </button>
           <span className="divider_vertical"></span>
-          <button className="language">EN</button>
+          <button
+            className={`language ${lang === "en" && "active"}`}
+            onClick={() => {
+              setLang("en");
+              i18n.changeLanguage("en");
+            }}
+          >
+            EN
+          </button>
         </span>
       </div>
       {step === 1 && (
         <div className="main step_one">
           <div className="form_heading">
-            <h3>
-              Email sent to <br /> change your <br /> password!
-            </h3>
-            <p>
-              We have just sent you an email with OTP <br /> to change your
-              password.
-            </p>
+            <h3>{t("changePassword.form.title")}</h3>
+            <p>{t("changePassword.form.subTitleOne")}</p>
           </div>
           <form className="form" onSubmit={handleSubmitOne(stepOneBtn)}>
             <div className="email input_content">
@@ -274,7 +293,7 @@ const ChangePassword = () => {
                   focusInputEmail ? "active" : ""
                 }`}
               >
-                Email
+                {t("changePassword.form.emailLabel")}
               </label>
               <span
                 className={`error error_email ${
@@ -282,11 +301,11 @@ const ChangePassword = () => {
                 }`}
               >
                 {errorsOne.email
-                  ? "Please, enter a valid email (for example: you@example.com)"
+                  ? `${t("changePassword.form.emailErrorMessage")}`
                   : ""}
               </span>
               <button className="form_btn">
-                <span>Send verification code</span>
+                <span>{t("changePassword.form.btnOne")}</span>
               </button>
             </div>
           </form>
@@ -309,10 +328,8 @@ const ChangePassword = () => {
       {step === 2 && (
         <div className="main step_two">
           <div className="form_heading">
-            <h3>
-              Email sent to <br /> change your <br /> password!
-            </h3>
-            <p>Please, enter the verification code</p>
+            <h3>{t("changePassword.form.title")}</h3>
+            <p>{t("changePassword.form.subTitleTwo")}</p>
           </div>
           <form className="form" onSubmit={handleSubmitTwo(stepTwoBtn)}>
             <div className="otp input_content">
@@ -343,22 +360,22 @@ const ChangePassword = () => {
                 htmlFor="otp"
                 className={`otp_label label ${focusInputOtp ? "active" : ""}`}
               >
-                Code
+                {t("changePassword.form.otpLabel")}
               </label>
               <span
                 className={`error error_email ${errorsTwo.otp ? "active" : ""}`}
               >
                 {errorsTwo.otp
-                  ? "Invalid OTP code. Please enter a valid one-time password."
+                  ? `${t("changePassword.form.otpErrorMessage")}`
                   : ""}
               </span>
               <button className="form_btn">
-                <span>Continue</span>
+                <span>{t("changePassword.form.btnTwo")}</span>
               </button>
             </div>
           </form>
           <button className="question" onClick={() => setStep(1)}>
-            Send it again!
+            {t("changePassword.form.question")}
           </button>
           <p className="privacy_text">
             We will use your email address to check if you already have an
@@ -379,10 +396,8 @@ const ChangePassword = () => {
       {step === 3 && (
         <div className="main step_three">
           <div className="form_heading">
-            <h3>
-              Email sent to <br /> change your <br /> password!
-            </h3>
-            <p>Please, enter the new password you want to assign</p>
+            <h3>{t("changePassword.form.title")}</h3>
+            <p>{t("changePassword.form.subTitleThree")}</p>
           </div>
           <form className="form" onClick={handleSubmitThree(stepThreeBtn)}>
             <div className="password input_content">
@@ -420,7 +435,7 @@ const ChangePassword = () => {
                   focusInputPassword ? "active" : ""
                 }`}
               >
-                Password
+                {t("changePassword.form.passwordLabel")}
               </label>
               <span
                 className={`error error_password ${
@@ -428,7 +443,7 @@ const ChangePassword = () => {
                 }`}
               >
                 {errorsThree.password
-                  ? "Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter"
+                  ? `${t("changePassword.form.passwordErrorMessage")}`
                   : ""}
               </span>
             </div>
@@ -464,18 +479,20 @@ const ChangePassword = () => {
                   focusInputRePassword ? "active" : ""
                 }`}
               >
-                Password
+                {t("changePassword.form.rePasswordLabel")}
               </label>
               <span
                 className={`error error_rePassword ${
                   errorsThree.rePassword ? "active" : ""
                 }`}
               >
-                {errorsThree.rePassword ? "Passwords do not match" : ""}
+                {errorsThree.rePassword
+                  ? `${t("changePassword.form.rePasswordErrorMessage")}`
+                  : ""}
               </span>
             </div>
             <button className="form_btn">
-              <span>Verify</span>
+              <span>{t("changePassword.form.btnThree")}</span>
             </button>
           </form>
           <p className="privacy_text">
@@ -497,20 +514,21 @@ const ChangePassword = () => {
       <div className="change_password_footer">
         <div className="footer_text">
           <span>
-            Real Madrid © {new Date().getFullYear()}. All rights reserved.
+            Real Madrid © {new Date().getFullYear()}.{" "}
+            {t("changePassword.changePasswordFooter.footerText")}.
           </span>
         </div>
         <div className="footer_links">
           <Link to="https://www.realmadrid.com/en/legal-notice">
-            Legal notice
+            {t("changePassword.changePasswordFooter.legalNotice")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
-            Cookies policy
+            {t("changePassword.changePasswordFooter.cookiesPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/privacy-policy">
-            Privacy policy
+            {t("changePassword.changePasswordFooter.privacyPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>

@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 //* IMAGES
 import homeKit from "../assets/images/nav-menu-home_kit_24_150x150.avif";
 import awayKit from "../assets/images/navegation_image-desktop_AWAY_150x150.avif";
@@ -14,12 +15,14 @@ import fashion from "../assets/images/fashion.jpeg";
 import accessories from "../assets/images/accesorioes.jpeg";
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   return (
     <nav className="navbar">
       <ul className="nav_list">
         <li className="nav_item kits">
           <NavLink className="nav_link" to="/shop">
-            KITS
+            {t("header.navbar.kits")}
           </NavLink>
           <div className="sub_menu kits_sub">
             <ul className="sub_menu_cards">
@@ -121,7 +124,7 @@ const Navbar = () => {
         </li>
         <li className="nav_item shop_by_player">
           <NavLink className="nav_link" to="/shop">
-            SHOP BY PLAYER
+            {t("header.navbar.shopByPlayer")}
           </NavLink>
           <div className="sub_menu shop_by_player_sub">
             <ul className="players_list">
@@ -218,7 +221,7 @@ const Navbar = () => {
         </li>
         <li className="nav_item training">
           <NavLink className="nav_link" to="/shop">
-            TRAINING
+            {t("header.navbar.training")}
           </NavLink>
           <div className="sub_menu training_sub">
             <ul className="items">
@@ -328,7 +331,7 @@ const Navbar = () => {
         </li>
         <li className="nav_item fashion">
           <NavLink className="nav_link" to="/shop">
-            FASHION
+            {t("header.navbar.fashion")}
           </NavLink>
           <div className="sub_menu fashion_sub">
             <ul className="items">
@@ -453,7 +456,7 @@ const Navbar = () => {
         </li>
         <li className="nav_item accessories">
           <NavLink className="nav_link" to="/shop">
-            ACCESSORIES
+            {t("header.navbar.accessories")}
           </NavLink>
           <div className="sub_menu accessories_sub">
             <ul className="items">
@@ -554,7 +557,7 @@ const Navbar = () => {
         </li>
         <li className="nav_item sale">
           <NavLink className="nav_link" to="/shop">
-            SALE
+            {t("header.navbar.sale")}
           </NavLink>
         </li>
       </ul>

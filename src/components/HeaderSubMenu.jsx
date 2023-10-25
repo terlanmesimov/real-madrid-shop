@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 //* IMAGES
 import kits from "../assets/images/sub_menu_kits.jpeg";
 import shopByPlayer from "../assets/images/sub_menu_Shop_by_player.jpeg";
@@ -14,9 +15,9 @@ import RegionSelector from "./RegionSelector";
 import { HeaderContext } from "../utils/HeaderContext";
 
 const HeaderSubMenu = () => {
+  const { t } = useTranslation();
   const { openMenu, setOpenMenu, animateSubMenu, setAnimateSubMenu } =
     useContext(HeaderContext);
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 990) {
@@ -104,7 +105,9 @@ const HeaderSubMenu = () => {
               <li className="sub_menu_item">
                 <div className="item_components">
                   <img className="item_image" src={kits} alt="sub menu" />
-                  <span className="item_name">KİTS</span>
+                  <span className="item_name">
+                    {t("header.headerSubMenu.kits")}
+                  </span>
                   <div className="arrow_icon">
                     <svg
                       viewBox="0 0 32 32"
@@ -123,7 +126,9 @@ const HeaderSubMenu = () => {
                     src={shopByPlayer}
                     alt="sub menu"
                   />
-                  <span className="item_name">SHOP BY PLAYER</span>
+                  <span className="item_name">
+                    {t("header.headerSubMenu.shopByPlayer")}
+                  </span>
                   <div className="arrow_icon">
                     <svg
                       viewBox="0 0 32 32"
@@ -138,7 +143,9 @@ const HeaderSubMenu = () => {
               <li className="sub_menu_item">
                 <div className="item_components">
                   <img className="item_image" src={training} alt="sub menu" />
-                  <span className="item_name">TRAİNİNG</span>
+                  <span className="item_name">
+                    {t("header.headerSubMenu.training")}
+                  </span>
                   <div className="arrow_icon">
                     <svg
                       viewBox="0 0 32 32"
@@ -153,7 +160,9 @@ const HeaderSubMenu = () => {
               <li className="sub_menu_item">
                 <div className="item_components">
                   <img className="item_image" src={fashion} alt="sub menu" />
-                  <span className="item_name">FASHİON</span>
+                  <span className="item_name">
+                    {t("header.headerSubMenu.fashion")}
+                  </span>
                   <div className="arrow_icon">
                     <svg
                       viewBox="0 0 32 32"
@@ -172,7 +181,9 @@ const HeaderSubMenu = () => {
                     src={accessories}
                     alt="sub menu"
                   />
-                  <span className="item_name">ACCESSORİES</span>
+                  <span className="item_name">
+                    {t("header.headerSubMenu.accessories")}
+                  </span>
                   <div className="arrow_icon">
                     <svg
                       viewBox="0 0 32 32"
@@ -188,7 +199,9 @@ const HeaderSubMenu = () => {
                 <div className="item_components">
                   <img className="item_image" src={sale} alt="sub menu" />
                   <Link to="/shop">
-                    <span className="item_name">SALE</span>
+                    <span className="item_name">
+                      {t("header.headerSubMenu.sale")}
+                    </span>
                   </Link>
                 </div>
               </li>

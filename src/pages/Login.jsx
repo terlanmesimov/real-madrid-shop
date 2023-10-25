@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import i18n from "../utils/i18n";
 // REACT-HOOK-FORM
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,9 +13,14 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 
 const Login = () => {
   const navigate = useNavigate();
+
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
   }, []);
+
+  // Language
+  const { t } = useTranslation();
+  const [lang, setLang] = useState("en");
   // Toasty error message
   const [toasty, setToasty] = useState(false);
   // Input focus and blur
@@ -63,22 +70,35 @@ const Login = () => {
             : ""
         }`}
       >
-        <p className="error_message">
-          Sorry! This password is not correct. Please, rewrite it paying
-          attention to the uppercase and lowercase letters.
-        </p>
+        <p className="error_message">{t("login.toastyErrorMessage")}</p>
       </div>
       <div className="login_header">
         <span className="language_select">
-          <button className="language">ES</button>
+          <button
+            className={`language ${lang === "es" && "active"}`}
+            onClick={() => {
+              setLang("es");
+              i18n.changeLanguage("es");
+            }}
+          >
+            ES
+          </button>
           <span className="divider_vertical"></span>
-          <button className="language">EN</button>
+          <button
+            className={`language ${lang === "en" && "active"}`}
+            onClick={() => {
+              setLang("en");
+              i18n.changeLanguage("en");
+            }}
+          >
+            EN
+          </button>
         </span>
       </div>
       <div className="main">
         <div className="form_heading">
-          <h3>Welcome!</h3>
-          <p>Sign in or create your account</p>
+          <h3>{t("login.form.titleOne")}</h3>
+          <p>{t("login.form.subTitle")}</p>
         </div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="email input_content">
@@ -107,14 +127,12 @@ const Login = () => {
               htmlFor="email"
               className={`email_label label ${focusInputEmail ? "active" : ""}`}
             >
-              Email / Socio No. / Madridista No
+              {t("login.form.emailLabel")}
             </label>
             <span
               className={`error error_email ${errors.email ? "active" : ""}`}
             >
-              {errors.email
-                ? "Please, enter a valid email (for example: you@example.com)"
-                : ""}
+              {errors.email ? `${t("login.form.emailErrorMessage")}` : ""}
             </span>
           </div>
           <div className="password input_content">
@@ -152,22 +170,22 @@ const Login = () => {
                 focusInputPassword ? "active" : ""
               }`}
             >
-              Password
+              {t("login.form.passwordLabel")}
             </label>
             <span
               className={`error error_password ${
                 errors.password ? "active" : ""
               }`}
             >
-              {errors.password ? "Password is required" : ""}
+              {errors.password ? `${t("login.form.passwordErrorMessage")}` : ""}
             </span>
           </div>
           <button className="form_btn">
-            <span>Login</span>
+            <span>{t("login.form.btn")}</span>
           </button>
         </form>
         <button className="question" onClick={() => navigate("/register")}>
-          Can't log in?
+          {t("login.form.question")}
         </button>
         <div className="divider_content">
           <div className="divider"></div>
@@ -200,20 +218,21 @@ const Login = () => {
       <div className="login_footer">
         <div className="footer_text">
           <span>
-            Real Madrid © {new Date().getFullYear()}. All rights reserved.
+            Real Madrid © {new Date().getFullYear()}.{" "}
+            {t("login.registerFooter.footerText")}.
           </span>
         </div>
         <div className="footer_links">
           <Link to="https://www.realmadrid.com/en/legal-notice">
-            Legal notice
+            {t("login.loginFooter.legalNotice")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
-            Cookies policy
+            {t("login.loginFooter.cookiesPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/privacy-policy">
-            Privacy policy
+            {t("login.loginFooter.privacyPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>

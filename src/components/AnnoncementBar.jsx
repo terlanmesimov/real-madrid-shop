@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 // MUI
 import EastIcon from "@mui/icons-material/East";
 // CONTEXT
@@ -7,6 +8,7 @@ import { Auth } from "../utils/AuthContext";
 
 const AnnoncementBar = () => {
   const { hasToken } = useContext(Auth);
+  const { t } = useTranslation();
   return (
     <div className="annoncement_bar">
       <Link
@@ -14,9 +16,8 @@ const AnnoncementBar = () => {
         className="annoncement_bar_link"
       >
         <p className="annoncement_bar_message">
-          {!hasToken &&
-            "REGISTER AS A MADRIDISTA FOR FREE AND GET 5% OFF YOUR FIRST PURCHASE"}
-          {hasToken && "GET READY FOR THE COLD WITH OUR WINTER JACKETS - SHOP"}
+          {!hasToken && `${t("annoncementBar.toRegister")}`}
+          {hasToken && `${t("annoncementBar.toShop")}`}
           <EastIcon className="annoncement_bar_icon" />
         </p>
       </Link>

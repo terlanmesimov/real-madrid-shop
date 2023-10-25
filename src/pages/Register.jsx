@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import i18n from "../utils/i18n";
 // REACT-HOOK-FORM
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,8 +11,12 @@ import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 // CONTEXT
 import { Auth } from "../utils/AuthContext";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
+  // Language
+  const { t } = useTranslation();
+  const [lang, setLang] = useState("en");
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
   }, []);
@@ -113,7 +118,7 @@ const Register = () => {
         }, 5200);
       });
   };
-  
+
   const autoLogIn = async () => {
     const data = {
       email: newUserData.email,
@@ -140,10 +145,7 @@ const Register = () => {
             : ""
         }`}
       >
-        <p className="error_message">
-          Registration process has failed. Please check your information and try
-          again.
-        </p>
+        <p className="error_message">{t("register.toastyErrorMessage")}</p>
       </div>
       <div className="register_header">
         {step !== 1 && (
@@ -209,20 +211,36 @@ const Register = () => {
                 </svg>
               </svg>
             </span>
-            <span className="word">Back</span>
+            <span className="word">{t("register.back")}</span>
           </div>
         )}
         <span className="language_select">
-          <button className="language">ES</button>
+          <button
+            className={`language ${lang === "es" && "active"}`}
+            onClick={() => {
+              setLang("es");
+              i18n.changeLanguage("es");
+            }}
+          >
+            ES
+          </button>
           <span className="divider_vertical"></span>
-          <button className="language">EN</button>
+          <button
+            className={`language ${lang === "en" && "active"}`}
+            onClick={() => {
+              setLang("en");
+              i18n.changeLanguage("en");
+            }}
+          >
+            EN
+          </button>
         </span>
       </div>
       {step === 1 && (
         <div className="main step_one">
           <div className="form_heading">
-            <h3>Welcome!</h3>
-            <p>Sign in or create your account</p>
+            <h3>{t("register.form.titleOne")}</h3>
+            <p>{t("register.form.subTitle")}</p>
           </div>
           <form className="form" onSubmit={handleSubmitOne(stepOneBtn)}>
             <div className="email input_content">
@@ -255,7 +273,7 @@ const Register = () => {
                   focusInputEmail ? "active" : ""
                 }`}
               >
-                Email / Socio No. / Madridista No
+                {t("register.form.emailLabel")}
               </label>
               <span
                 className={`error error_email ${
@@ -263,16 +281,16 @@ const Register = () => {
                 }`}
               >
                 {errorsOne.email
-                  ? "Please, enter a valid email (for example: you@example.com)"
+                  ? `${t("register.form.emailErrorMessage")}`
                   : ""}
               </span>
             </div>
             <button className="form_btn">
-              <span>Continue</span>
+              <span>{t("register.form.btnOne")}</span>
             </button>
           </form>
           <button className="question" onClick={() => navigate("/login")}>
-            Do you have a account?
+            {t("register.form.question")}
           </button>
           <div className="divider_content">
             <div className="divider"></div>
@@ -306,9 +324,7 @@ const Register = () => {
       {step === 2 && (
         <div className="main step_two">
           <div className="form_heading">
-            <h3>
-              Become a <br /> Madridista
-            </h3>
+            <h3>{t("register.form.titleTwo")}</h3>
           </div>
           <form className="form" onSubmit={handleSubmitTwo(stepTwoBtn)}>
             <div className="password input_content">
@@ -346,7 +362,7 @@ const Register = () => {
                   focusInputPassword ? "active" : ""
                 }`}
               >
-                Create your password
+                {t("register.form.paswordLabel")}
               </label>
               <span
                 className={`error error_password ${
@@ -354,7 +370,7 @@ const Register = () => {
                 }`}
               >
                 {errorsTwo.password
-                  ? "Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter"
+                  ? `${t("register.form.passwordErrorMessage")}`
                   : ""}
               </span>
             </div>
@@ -390,7 +406,7 @@ const Register = () => {
                   focusInputDate ? "active" : ""
                 }`}
               >
-                Birth date (DD/MM/YYYY)
+                {t("register.form.birthDatelabel")} (DD/MM/YYYY)
               </label>
               <span
                 className={`error error_birth_date ${
@@ -398,12 +414,12 @@ const Register = () => {
                 }`}
               >
                 {errorsTwo.birthDate
-                  ? "You must be at least 14 years old to create an account."
+                  ? `${t("register.form.birthDateErrorMessage")}`
                   : ""}
               </span>
             </div>
             <button className="form_btn">
-              <span>Accept and continue</span>
+              <span>{t("register.form.btnTwo")}</span>
             </button>
           </form>
           <p className="privacy_text">
@@ -426,7 +442,7 @@ const Register = () => {
         <div className="main step_three">
           <div className="form_heading">
             <h3>
-              Become a <br /> Madridista
+              <h3>{t("register.form.titleTwo")}</h3>
             </h3>
           </div>
           <form className="form" onSubmit={handleSubmitThree(stepThreeBtn)}>
@@ -458,7 +474,7 @@ const Register = () => {
                 htmlFor="text"
                 className={`name_label label ${focusInputName ? "active" : ""}`}
               >
-                Name
+                {t("register.form.nameLabel")}
               </label>
               <span
                 className={`error error_name ${
@@ -466,7 +482,7 @@ const Register = () => {
                 }`}
               >
                 {errorsThree.name
-                  ? "The name you provided is not in the correct format."
+                  ? `${t("register.form.nameErrorMessage")}`
                   : ""}
               </span>
             </div>
@@ -502,7 +518,7 @@ const Register = () => {
                   focusInputSurname ? "active" : ""
                 }`}
               >
-                Surname
+                {t("register.form.surnameLabel")}
               </label>
               <span
                 className={`error error_name ${
@@ -510,12 +526,12 @@ const Register = () => {
                 }`}
               >
                 {errorsThree.surname
-                  ? " The surname you provided is not in the correct format."
+                  ? `${t("register.form.surnameErrorMessage")}`
                   : ""}
               </span>
             </div>
             <button className="form_btn">
-              <span>Register</span>
+              <span>{t("register.form.btnThree")}</span>
             </button>
           </form>
           <p className="privacy_text">
@@ -537,20 +553,21 @@ const Register = () => {
       <div className="register_footer">
         <div className="footer_text">
           <span>
-            Real Madrid © {new Date().getFullYear()}. All rights reserved.
+            Real Madrid © {new Date().getFullYear()}.{" "}
+            {t("register.registerFooter.footerText")}.
           </span>
         </div>
         <div className="footer_links">
           <Link to="https://www.realmadrid.com/en/legal-notice">
-            Legal notice
+            {t("register.registerFooter.legalNotice")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
-            Cookies policy
+            {t("register.registerFooter.cookiesPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en/privacy-policy">
-            Privacy policy
+            {t("register.registerFooter.privacyPolicy")}
           </Link>
           <span className="dot_separator"></span>
           <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>

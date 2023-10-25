@@ -1,0 +1,132 @@
+{
+  "shopNow": "JETZT KAUFEN",
+  "annoncementBar": {
+    "toRegister": "REGISTRIEREN SIE SICH ALS MADRIDISTA GRATIS UND ERHALTEN SIE 5% RABATT AUF IHREN ERSTEN KAUF",
+    "toShop": "BEREITEN SIE SICH AUF DIE KÄLTE MIT UNSEREN WINTERJACKEN VOR - EINKAUFEN"
+  },
+  "header": {
+    "search": "Suchen",
+    "navbar": {
+      "kits": "AUSRÜSTUNG",
+      "shopByPlayer": "EINKAUF NACH SPIELER",
+      "training": "TRAINING",
+      "fashion": "MODE",
+      "accessories": "ZUBEHÖR",
+      "sale": "VERKAUF"
+    },
+    "shoppingCartMenu": {
+      "yourShoppingCart": "Ihr Einkaufswagen",
+      "subTotal": "Zwischensumme",
+      "taxNote": "Steuer inklusive und Versandkosten werden auf dem Zahlungsbildschirm berechnet.",
+      "payOrder": "Bestellung bezahlen",
+      "yourCart": "Ihr Warenkorb",
+      "emptyMessage": "Ihr Einkaufswagen ist leer",
+      "continueShopping": "Weiter einkaufen"
+    },
+    "headerSubMenu": {
+      "kits": "AUSRÜSTUNG",
+      "shopByPlayer": "EINKAUF NACH SPIELER",
+      "training": "TRAINING",
+      "fashion": "MODE",
+      "accessories": "ZUBEHÖR",
+      "sale": "VERKAUF"
+    }
+  },
+  "home": {
+    "locationTitle": "Der offizielle Online-Shop von Real Madrid CF - Real Madrid CF | EU Shop",
+    "heroSection": {
+      "heroHeadingOne": "WIR SPIELEN AUSWÄRTS!",
+      "heroHeadingTwo": "UNTERSTÜTZEN SIE DAS TEAM, WOHIN SIE AUCH GEHEN"
+    },
+    "shopifySection": {
+      "titleOne": "ZWEITE UND DRITTE AUSRÜSTUNG",
+      "titleTwo": "TRAINING DER CHAMPIONS LEAGUE",
+      "titleThree": "SIGNATURE KOLLEKTION"
+    },
+    "collectionsSection": {
+      "titleOne": "AUSRÜSTUNG",
+      "titleTwo": "MARKE IHREN STIL",
+      "shopNow": "JETZT KAUFEN",
+      "homeKits": "23/24 REAL MADRID HEIMAUSRÜSTUNG",
+      "awayKits": "23/24 REAL MADRID AUSWÄRTSAUSRÜSTUNG",
+      "thirdKit": "DRITTE AUSRÜSTUNG REAL MADRID 23/24",
+      "goolkeeperKits": "23/24 REAL MADRID TORWARTAUSRÜSTUNG",
+      "lifeStyleMan": "LIFESTYLE FÜR MÄNNER",
+      "essentialForWomen": "ESSENTIALS FÜR FRAUEN",
+      "essentialYouth": "ESSENTIALS FÜR JUGENDLICHE"
+    },
+    "contentSection": {
+      "sectionOne": {
+        "textOne": "TRAINING DER CHAMPIONS LEAGUE KOLLEKTION",
+        "textTwo": "TRAINIEREN SIE WIE EIN PROFIFUSSBALLER"
+      },
+      "sectionTwo": {
+        "textOne": "SIGNATURE KOLLEKTION",
+        "textTwo": "BEREITEN SIE SICH FÜR DEN HERBST VOR"
+      }
+    }
+  },
+  "shopPage": {
+    "locationTitle": "Alle - Real Madrid CF | EU Shop",
+    "breadcrumb": {
+      "home": "STARTSEITE",
+      "all": "ALLE"
+    },
+    "readMore": "MEHR LESEN",
+    "readLess": "WENIGER LESEN"
+  },
+  "productDetailsPage": {
+    "locationTitle": "EU Shop von Real Madrid CF",
+    "breadcrumb": {
+      "home": "STARTSEITE",
+      "all": "ALLE"
+    },
+    "selectSize": "GRÖSSE AUSWÄHLEN",
+    "quantity": "MENGE",
+    "addToCart": "IN DEN WARENKORB LEGEN",
+    "descriptionSection": {
+      "title": "PRODUKTBESCHREIBUNG"
+    },
+    "shopifySection": {
+      "title": "DAS KÖNNTE IHNEN AUCH GEFALLEN"
+    }
+  },
+  "account": {
+    "locationTitle": "Konto - Real Madrid CF - EU Shop",
+    "breadcrumb": {
+      "home": "STARTSEITE",
+      "account": "KONTO"
+    },
+    "title": "Willkommen zurück",
+    "logOut": "Abmelden",
+    "changePassword": "Passwort ändern",
+    "orderHistory": "Bestellverlauf",
+    "orderHistoryText": "Sie haben noch keine Bestellung aufgegeben.",
+    "accountDetails": "Kontodetails",
+    "seeAddresses": "Adressen anzeigen"
+  },
+  "error": {
+    "breadcrumb": {
+      "home": "STARTSEITE",
+      "notFound": "404 NICHT GEFUNDEN"
+    },
+    "errorMessage": "404 Seite nicht gefunden",
+    "pageNotFoundMessage": "Die von Ihnen angeforderte Seite existiert nicht. Klicken Sie <Link to='/shop'>hier</Link>, um mit dem Einkaufen fortzufahren."
+  },
+  "footer": {
+    "shop": "Einkauf",
+    "shopLocator": "GESCHÄFTSSTANDORT",
+    "returnsAndReturns": "RÜCKGABEN UND RÜCKERSTATTUNGEN",
+    "howToOrder": "BESTELLANLEITUNG",
+    "trackMyOrder": "MEINE BESTELLUNG VERFOLGEN",
+    "myAccount": "Mein Konto",
+    "about": "Über uns",
+    "privacyPolicy": "DATENSCHUTZRICHTLINIE",
+    "cookiePolicy": "COOKIE-RICHTLINIE",
+    "termsAndConditions": "ALLGEMEINE GESCHÄFTSBEDINGUNGEN",
+    "help": "Brauchen Sie Hilfe?",
+    "contactUs": "KONTAKTIEREN SIE UNS",
+    "faq": "HÄUFIG GESTELLTE FRAGEN",
+    "payment": "Akzeptierte Zahlungsmethoden"
+  }
+}

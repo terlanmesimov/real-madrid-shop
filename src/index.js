@@ -6,6 +6,8 @@ import App from "./App";
 import "../src/assets/scss/index.scss";
 // Animation CSS
 import "animate.css";
+// i18next
+import "./utils/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

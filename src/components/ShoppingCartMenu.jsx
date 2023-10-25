@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 // CONTEXT
 import { HeaderContext } from "../utils/HeaderContext";
 import { MainContext } from "../utils/MainContext";
@@ -8,11 +9,11 @@ import { Auth } from "../utils/AuthContext";
 import CartListItem from "./CartListItem";
 
 const ShoppingCartMenu = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { openCart, setOpenCart, animateCartMenu, setAnimateCartMenu } =
     useContext(HeaderContext);
   const { hasToken } = useContext(Auth);
-
   const {
     cartListData,
     setCartListData,
@@ -63,23 +64,24 @@ const ShoppingCartMenu = () => {
           >
             ✕
           </span>
-          <h2 className="menu_title">Your shopping cart ({totalCount})</h2>
+          <h2 className="menu_title">
+            {t("header.shoppingCartMenu.yourShoppingCart")} ({totalCount})
+          </h2>
           <div className="totals">
             <h3>
-              <span className="sub_total">Subtotal</span>
+              <span className="sub_total">
+                {t("header.shoppingCartMenu.subTotal")}
+              </span>
               <span className="total_price">€{totalPrice} EUR</span>
             </h3>
-            <p className="tax_note">
-              Tax included and shipping costs are calculated on the payment
-              screen.
-            </p>
+            <p className="tax_note">{t("header.shoppingCartMenu.taxNote")}</p>
             <button
               className="cart_checkout"
               onClick={() => {
                 navigate(hasToken ? "" : "/register");
               }}
             >
-              Pay order
+              {t("header.shoppingCartMenu.payOrder")}
             </button>
           </div>
           <ul className="product_list">
@@ -93,7 +95,7 @@ const ShoppingCartMenu = () => {
               navigate(hasToken ? "" : "/register");
             }}
           >
-            Pay order
+            {t("header.shoppingCartMenu.payOrder")}
           </div>
         </div>
       )}
@@ -104,7 +106,7 @@ const ShoppingCartMenu = () => {
               ? `empty_menu ${
                   openCart
                     ? ""
-                    : "animate__animated animate__fadeInRight animate__faster"
+                    : "animate__animated animate__fadeOutRight animate__faster"
                 }`
               : "empty_menu animate__animated animate__fadeOutRight animate__faster"
           }
@@ -120,10 +122,16 @@ const ShoppingCartMenu = () => {
           >
             ✕
           </span>
-          <h2 className="menu_title">Your Cart</h2>
+          <h2 className="menu_title">
+            {t("header.shoppingCartMenu.yourCart")}
+          </h2>
           <div className="menu_info">
-            <h2 className="empty_message">Your shopping cart is empty</h2>
-            <Link to="/shop">Continue Shopping</Link>
+            <h2 className="empty_message">
+              {t("header.shoppingCartMenu.emptyMessage")}
+            </h2>
+            <Link to="/shop">
+              {t("header.shoppingCartMenu.continueShopping")}
+            </Link>
           </div>
         </div>
       )}

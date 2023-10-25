@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
@@ -19,6 +20,7 @@ import ShopifySection from "../components/sections/ShopifySection";
 import Loader from "../components/Loader";
 
 const ProductDetails = () => {
+  const { t } = useTranslation();
   // Loader
   const [loader, setLoader] = useState(false);
   // Sizes
@@ -91,8 +93,12 @@ const ProductDetails = () => {
             <div className="container">
               <div className="row">
                 <div className="breadcrumb">
-                  <Link to="/">HOME /</Link>
-                  <Link to="/shop">ALL /</Link>
+                  <Link to="/">
+                    {t("productDetailsPage.breadcrumb.home")} /
+                  </Link>
+                  <Link to="/shop">
+                    {t("productDetailsPage.breadcrumb.all")} /
+                  </Link>
                   <Link> {productData.name}</Link>
                 </div>
                 <div className="product">
@@ -150,7 +156,9 @@ const ProductDetails = () => {
                     <h2 className="product_title">{productData.name}</h2>
                     <p className="product_price">{productData.price}€</p>
                     <div className="size_content">
-                      <span className="size_title">SELECT SIZE</span>
+                      <span className="size_title">
+                        {t("productDetailsPage.selectSize")}
+                      </span>
                       <div className="sizes">
                         {sizes.map((size, index) => {
                           return (
@@ -168,7 +176,9 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="quantity_content">
-                      <span className="title">QUANTITY</span>
+                      <span className="title">
+                        {t("productDetailsPage.quantity")}
+                      </span>
                       <div className="quantity">
                         <span
                           className="decrement"
@@ -193,7 +203,7 @@ const ProductDetails = () => {
                       id={productData.id}
                       onClick={addToCart}
                     >
-                      ADD TO CART
+                      {t("productDetailsPage.addToCart")}
                     </button>
                   </div>
                 </div>
@@ -205,7 +215,9 @@ const ProductDetails = () => {
               <div className="row">
                 <div className="title">
                   <div className="title_text">
-                    <h2 className="f-size-35">PRODUCT DESCRIPTION</h2>
+                    <h2 className="f-size-35">
+                      {t("productDetailsPage.descriptionSection.title")}
+                    </h2>
                   </div>
                   <div className="diogonal_lines deg45"></div>
                 </div>

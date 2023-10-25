@@ -1,0 +1,211 @@
+{
+  "shopNow": "COMPRAR AHORA",
+  "annoncementBar": {
+    "toRegister": "REGÍSTRESE COMO MADRIDISTA GRATIS Y OBTENGA UN 5% DE DESCUENTO EN SU PRIMERA COMPRA",
+    "toShop": "PREPÁRESE PARA EL FRÍO CON NUESTRAS CHAQUETAS DE INVIERNO - COMPRAR"
+  },
+  "header": {
+    "search": "Buscar",
+    "navbar": {
+      "kits": "KITS",
+      "shopByPlayer": "COMPRAR POR JUGADOR",
+      "training": "ENTRENAMIENTO",
+      "fashion": "MODA",
+      "accessories": "ACCESORIOS",
+      "sale": "OFERTA"
+    },
+    "shoppingCartMenu": {
+      "yourShoppingCart": "Su carrito de compras",
+      "subTotal": "Subtotal",
+      "taxNote": "Impuestos incluidos y los gastos de envío se calculan en la pantalla de pago.",
+      "payOrder": "Pagar pedido",
+      "yourCart": "Su carrito",
+      "emptyMessage": "Su carrito de compras está vacío",
+      "continueShopping": "Continuar comprando"
+    },
+    "headerSubMenu": {
+      "kits": "KITS",
+      "shopByPlayer": "COMPRAR POR JUGADOR",
+      "training": "ENTRENAMIENTO",
+      "fashion": "MODA",
+      "accessories": "ACCESORIOS",
+      "sale": "OFERTA"
+    }
+  },
+  "home": {
+    "locationTitle": "La Tienda Oficial en Línea del Real Madrid CF - Real Madrid CF | Tienda de la UE",
+    "heroSection": {
+      "heroHeadingOne": "¡ESTAMOS JUGANDO FUERA!",
+      "heroHeadingTwo": "APOYE AL EQUIPO DONDE QUIERA QUE VAYAN"
+    },
+    "shopifySection": {
+      "titleOne": "SEGUNDA Y TERCERA EQUIPACIÓN",
+      "titleTwo": "ENTRENAMIENTO DE LA LIGA DE CAMPEONES",
+      "titleThree": "COLECCIÓN FIRMA"
+    },
+    "collectionsSection": {
+      "titleOne": "KITS",
+      "titleTwo": "MARCA TU ESTILO",
+      "shopNow": "COMPRAR AHORA",
+      "homeKits": "EQUIPACIÓN LOCAL DEL REAL MADRID 23/24",
+      "awayKits": "EQUIPACIÓN VISITANTE DEL REAL MADRID 23/24",
+      "thirdKit": "TERCERA EQUIPACIÓN DEL REAL MADRID 23/24",
+      "goolkeeperKits": "EQUIPACIÓN DE PORTERO DEL REAL MADRID 23/24",
+      "lifeStyleMan": "ESTILO DE VIDA PARA HOMBRE",
+      "essentialForWomen": "ESSENTIALS PARA MUJERES",
+      "essentialYouth": "ESSENTIALS JUVENIL"
+    },
+    "contentSection": {
+      "sectionOne": {
+        "textOne": "COLECCIÓN DE ENTRENAMIENTO DE LA LIGA DE CAMPEONES",
+        "textTwo": "ENTRENA COMO UN PROFESIONAL"
+      },
+      "sectionTwo": {
+        "textOne": "COLECCIÓN FIRMA",
+        "textTwo": "PREPÁRATE PARA EL OTOÑO"
+      }
+    }
+  },
+  "shopPage": {
+    "locationTitle": "Todo - Real Madrid CF | Tienda de la UE",
+    "breadcrumb": {
+      "home": "INICIO",
+      "all": "TODO"
+    },
+    "readMore": "LEER MÁS",
+    "readLess": "LEER MENOS"
+  },
+  "productDetailsPage": {
+    "locationTitle": "Tienda de la UE del Real Madrid CF",
+    "breadcrumb": {
+      "home": "INICIO",
+      "all": "TODO"
+    },
+    "selectSize": "SELECCIONAR TALLA",
+    "quantity": "CANTIDAD",
+    "addToCart": "AGREGAR AL CARRITO",
+    "descriptionSection": {
+      "title": "DESCRIPCIÓN DEL PRODUCTO"
+    },
+    "shopifySection": {
+      "title": "TAMBIÉN TE PUEDE GUSTAR"
+    }
+  },
+  "account": {
+    "locationTitle": "Cuenta - Real Madrid CF - Tienda de la UE",
+    "breadcrumb": {
+      "home": "INICIO",
+      "account": "CUENTA"
+    },
+    "title": "Bienvenido de nuevo",
+    "logOut": "Cerrar sesión",
+    "changePassword": "Cambiar contraseña",
+    "orderHistory": "Historial de pedidos",
+    "orderHistoryText": "Todavía no ha realizado ningún pedido.",
+    "accountDetails": "Detalles de la cuenta",
+    "seeAddresses": "Ver direcciones"
+  },
+  "error": {
+    "breadcrumb": {
+      "home": "INICIO",
+      "notFound": "404 NO ENCONTRADO"
+    },
+    "errorMessage": "404 Página no encontrada",
+    "pageNotFoundMessage": "La página que solicitó no existe. Haga clic <Link to='/shop'>aquí</Link> para continuar comprando."
+  },
+  "register": {
+    "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
+    "back": "Volver",
+    "toastyErrorMessage": "El proceso de registro ha fallado. Por favor, verifique su información y vuelva a intentarlo.",
+    "form": {
+      "titleOne": "¡Hola!",
+      "titleTwo": "¡Conviértete en un Madridista!",
+      "subTitle": "Inicie sesión o cree su cuenta",
+      "emailLabel": "Email / Nº Socio / Nº Madridista",
+      "emailErrorMessage": "Por favor, ingrese un correo electrónico válido (por ejemplo: you@example.com)",
+      "passwordLabel": "Crear contraseña",
+      "passwordErrorMessage": "Su contraseña debe contener entre 8 y 24 caracteres alfanuméricos y al menos 1 letra",
+      "birthDateLabel": "Fecha de nacimiento",
+      "birthDateErrorMessage": "Debe tener al menos 14 años para crear una cuenta.",
+      "nameLabel": "Nombre",
+      "nameErrorMessage": "El nombre que proporcionó no está en el formato correcto.",
+      "surnameLabel": "Apellido",
+      "surnameErrorMessage": "El apellido que proporcionó no está en el formato correcto.",
+      "btnOne": "Continuar",
+      "btnTwo": "Aceptar y continuar",
+      "btnThree": "Registrarse",
+      "question": "¿Ya tiene una cuenta?"
+    },
+    "registerFooter": {
+      "legalNotice": "Aviso legal",
+      "cookiesPolicy": "Política de cookies",
+      "privacyPolicy": "Política de privacidad",
+      "footerText": "Todos los derechos reservados"
+    }
+  },
+  "login": {
+    "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
+    "toastyErrorMessage": "¡Lo siento! Esta contraseña no es correcta. Por favor, vuelva a escribirla prestando atención a las letras mayúsculas y minúsculas.",
+    "form": {
+      "titleOne": "¡Bienvenido!",
+      "subTitle": "Inicie sesión o cree su cuenta",
+      "emailLabel": "Email / Nº Socio / Nº Madridista",
+      "emailErrorMessage": "Por favor, ingrese un correo electrónico válido (por ejemplo: you@example.com)",
+      "passwordLabel": "Contraseña",
+      "passwordErrorMessage": "Se requiere contraseña",
+      "btn": "Iniciar sesión",
+      "question": "¿No puede iniciar sesión?"
+    },
+    "loginFooter": {
+      "legalNotice": "Aviso legal",
+      "cookiesPolicy": "Política de cookies",
+      "privacyPolicy": "Política de privacidad",
+      "footerText": "Todos los derechos reservados"
+    }
+  },
+  "changePassword": {
+    "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
+    "back": "Volver",
+    "toastyErrorMessage": "¡Algo salió mal!",
+    "form": {
+      "title": "¡Correo electrónico enviado para cambiar su contraseña!",
+      "subTitleOne": "Acabamos de enviarle un correo electrónico con OTP para cambiar su contraseña.",
+      "subTitleTwo": "Por favor, introduzca el código de verificación",
+      "subTitleThree": "Por favor, introduzca la nueva contraseña que desea asignar",
+      "emailLabel": "Email / Nº Socio / Nº Madridista",
+      "emailErrorMessage": "Por favor, ingrese un correo electrónico válido (por ejemplo: you@example.com)",
+      "otpLabel": "Código",
+      "otpErrorMessage": "Código OTP no válido. Por favor ingrese un código válido de un solo uso.",
+      "passwordLabel": "Contraseña",
+      "passwordErrorMessage": "Su contraseña debe contener entre 8 y 24 caracteres alfanuméricos y al menos 1 letra",
+      "rePasswordLabel": "Repetir contraseña",
+      "rePasswordErrorMessage": "Las contraseñas no coinciden",
+      "btnOne": "Enviar código de verificación",
+      "btnTwo": "Continuar",
+      "btnThree": "Verificar",
+      "question": "¡Envíalo de nuevo!"
+    },
+    "changePasswordFooter": {
+      "legalNotice": "Aviso legal",
+      "cookiesPolicy": "Política de cookies",
+      "política de privacidad": "Política de privacidad",
+      "footerText": "Todos los derechos reservados"
+    }
+  },
+  "footer": {
+    "shop": "Tienda",
+    "shopLocator": "LOCALIZADOR DE TIENDA",
+    "returnsAndReturns": "DEVOLUCIONES Y REEMBOLSOS",
+    "howToOrder": "CÓMO PEDIR",
+    "trackMyOrder": "SEGUIMIENTO DE MI PEDIDO",
+    "myAccount": "MI CUENTA",
+    "about": "Acerca de",
+    "privacyPolicy": "POLÍTICA DE PRIVACIDAD",
+    "cookiePolicy": "POLÍTICA DE COOKIES",
+    "termsAndConditions": "TÉRMINOS Y CONDICIONES",
+    "help": "¿Necesita ayuda?",
+    "contactUs": "CONTÁCTENOS",
+    "faq": "PREGUNTAS FRECUENTES",
+    "payment": "Métodos de pago aceptados"
+  }
+}

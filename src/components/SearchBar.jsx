@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 // IMAGES
 import searchIcon from "../assets/images/icons8-search-50.png";
 
 const SearchBar = () => {
+  const { t } = useTranslation();
   return (
     <div className="search_bar">
       <div className="form_content">
@@ -9,7 +11,7 @@ const SearchBar = () => {
           <input
             type="text"
             className="search_input"
-            placeholder="Search"
+            placeholder={t("header.search")}
             onFocus={(e) => {
               e.target.placeholder = "";
             }}

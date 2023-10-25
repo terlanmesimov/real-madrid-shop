@@ -1,0 +1,132 @@
+{
+  "shopNow": "ACHETER MAINTENANT",
+  "annoncementBar": {
+    "toRegister": "INSCRIVEZ-VOUS GRATUITEMENT EN TANT QUE MADRIDISTA ET OBTENEZ 5% DE RÉDUCTION SUR VOTRE PREMIÈRE ACHAT",
+    "toShop": "PRÉPAREZ-VOUS POUR LE FROID AVEC NOS VESTES D'HIVER - ACHETER"
+  },
+  "header": {
+    "search": "Rechercher",
+    "navbar": {
+      "kits": "KITS",
+      "shopByPlayer": "ACHETER PAR JOUEUR",
+      "training": "ENTRAÎNEMENT",
+      "fashion": "MODE",
+      "accessories": "ACCESSOIRES",
+      "sale": "SOLDE"
+    },
+    "shoppingCartMenu": {
+      "yourShoppingCart": "Votre panier",
+      "subTotal": "Sous-total",
+      "taxNote": "Taxes incluses et frais d'expédition calculés sur l'écran de paiement.",
+      "payOrder": "Payer la commande",
+      "yourCart": "Votre panier",
+      "emptyMessage": "Votre panier d'achats est vide",
+      "continueShopping": "Continuer les achats"
+    },
+    "headerSubMenu": {
+      "kits": "KITS",
+      "shopByPlayer": "ACHETER PAR JOUEUR",
+      "training": "ENTRAÎNEMENT",
+      "fashion": "MODE",
+      "accessories": "ACCESSOIRES",
+      "sale": "SOLDE"
+    }
+  },
+  "home": {
+    "locationTitle": "La boutique officielle en ligne du Real Madrid CF - Real Madrid CF | Boutique de l'UE",
+    "heroSection": {
+      "heroHeadingOne": "NOUS JOUONS À L'EXTÉRIEUR !",
+      "heroHeadingTwo": "SOUTENEZ L'ÉQUIPE OÙ QU'ELLE AILLE"
+    },
+    "shopifySection": {
+      "titleOne": "DEUXIÈME ET TROISIÈME TENUES",
+      "titleTwo": "ENTRAÎNEMENT DE LA LIGUE DES CHAMPIONS",
+      "titleThree": "COLLECTION SIGNATURE"
+    },
+    "collectionsSection": {
+      "titleOne": "KITS",
+      "titleTwo": "AFFIRMEZ VOTRE STYLE",
+      "shopNow": "ACHETER MAINTENANT",
+      "homeKits": "MAILLOTS DOMICILE DU REAL MADRID 23/24",
+      "awayKits": "MAILLOTS EXTÉRIEUR DU REAL MADRID 23/24",
+      "thirdKit": "TROISIÈME MAILLOT DU REAL MADRID 23/24",
+      "goolkeeperKits": "TENUES DE GARDIEN DU REAL MADRID 23/24",
+      "lifeStyleMan": "STYLE DE VIE HOMME",
+      "essentialForWomen": "ESSENTIELS POUR LES FEMMES",
+      "essentialYouth": "ESSENTIELS JEUNES"
+    },
+    "contentSection": {
+      "sectionOne": {
+        "textOne": "COLLECTION D'ENTRAÎNEMENT DE LA LIGUE DES CHAMPIONS",
+        "textTwo": "ENTRAÎNEZ-VOUS COMME UN PROFESSIONNEL"
+      },
+      "sectionTwo": {
+        "textOne": "COLLECTION SIGNATURE",
+        "textTwo": "PRÉPAREZ-VOUS POUR L'AUTOMNE"
+      }
+    }
+  },
+  "shopPage": {
+    "locationTitle": "Tout - Real Madrid CF | Boutique de l'UE",
+    "breadcrumb": {
+      "home": "ACCUEIL",
+      "all": "TOUT"
+    },
+    "readMore": "EN SAVOIR PLUS",
+    "readLess": "EN SAVOIR MOINS"
+  },
+  "productDetailsPage": {
+    "locationTitle": "Boutique de l'UE du Real Madrid CF",
+    "breadcrumb": {
+      "home": "ACCUEIL",
+      "all": "TOUT"
+    },
+    "selectSize": "SÉLECTIONNER LA TAILLE",
+    "quantity": "QUANTITÉ",
+    "addToCart": "AJOUTER AU PANIER",
+    "descriptionSection": {
+      "title": "DESCRIPTION DU PRODUIT"
+    },
+    "shopifySection": {
+      "title": "VOUS POURRIEZ AUSSI AIMER"
+    }
+  },
+  "account": {
+    "locationTitle": "Compte - Real Madrid CF - Boutique de l'UE",
+    "breadcrumb": {
+      "home": "ACCUEIL",
+      "account": "COMPTE"
+    },
+    "title": "Bienvenue de retour",
+    "logOut": "Se déconnecter",
+    "changePassword": "Changer le mot de passe",
+    "orderHistory": "Historique des commandes",
+    "orderHistoryText": "Vous n'avez pas encore passé de commande.",
+    "accountDetails": "Détails du compte",
+    "seeAddresses": "Voir les adresses"
+  },
+  "error": {
+    "breadcrumb": {
+      "home": "ACCUEIL",
+      "notFound": "404 NON TROUVÉ"
+    },
+    "errorMessage": "404 Page non trouvée",
+    "pageNotFoundMessage": "La page que vous avez demandée n'existe pas. Cliquez <Link to='/shop'>ici</Link> pour continuer vos achats."
+  },
+  "footer": {
+    "shop": "Boutique",
+    "shopLocator": "LOCALISATEUR DE BOUTIQUE",
+    "returnsAndReturns": "RETOURS ET REMBOURSEMENTS",
+    "howToOrder": "COMMENT COMMANDER",
+    "trackMyOrder": "SUIVRE MA COMMANDE",
+    "myAccount": "MON COMPTE",
+    "about": "À propos de",
+    "privacyPolicy": "POLITIQUE DE CONFIDENTIALITÉ",
+    "cookiePolicy": "POLITIQUE DE COOKIES",
+    "termsAndConditions": "CONDITIONS GÉNÉRALES",
+    "help": "Besoin d'aide ?",
+    "contactUs": "NOUS CONTACTER",
+    "faq": "FOIRE AUX QUESTIONS",
+    "payment": "Moyens de paiement acceptés"
+  }
+}

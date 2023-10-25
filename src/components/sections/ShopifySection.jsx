@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ShopifySection = ({ title, id, titleFontSize }) => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -44,7 +44,7 @@ const ShopifySection = ({ title, id, titleFontSize }) => {
                     id === "two" ? "mw-2" : ""
                   }${id === "three" ? "mw-1" : ""}`}
                   onClick={() => {
-                    navigate(`/product_details/${product.id}`);
+                    navigate(`/product-details/${product.id}`);
                     window.location.reload();
                   }}
                 >

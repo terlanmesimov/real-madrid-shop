@@ -5,7 +5,7 @@ const Product = ({ product }) => {
   return (
     <div
       className="card"
-      onClick={() => navigate(`/product_details/${product.id}`)}
+      onClick={() => navigate(`/product-details/${product.id}`)}
     >
       <div className="card_image">
         <img

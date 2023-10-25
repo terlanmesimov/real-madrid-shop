@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 // PROVIDER
 import { HeaderContextProvider } from "../utils/HeaderContext";
 import { Auth } from "../utils/AuthContext";
@@ -9,6 +10,7 @@ import Footer from "../components/Footer";
 import AnnoncementBar from "../components/AnnoncementBar";
 
 const Account = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   useEffect(() => {
     document.title = "Account - Real Madrid CF - EU Shop";
@@ -32,11 +34,13 @@ const Account = () => {
         <div className="container">
           <div className="row">
             <div className="breadcrumb">
-              <Link to="/">HOME</Link>
-              <Link>/ ACCOUNT</Link>
+              <Link to="/">{t("account.breadcrumb.home")}</Link>
+              <Link>/ {t("account.breadcrumb.account")}</Link>
             </div>
             <div className="costumer_account">
-              <h2 className="title">Welcome back, {userData.name}</h2>
+              <h2 className="title">
+                {t("account.title")}, {userData.name}
+              </h2>
               <button className="log_out">
                 <span className="icon">
                   <svg
@@ -55,23 +59,23 @@ const Account = () => {
                   </svg>
                 </span>
                 <span className="word" onClick={logOut}>
-                  Log Out
+                  {t("account.logOut")}
                 </span>
                 <span
                   className="word"
                   onClick={() => navigate("/change-password")}
                 >
-                  Change Password
+                  {t("account.changePassword")}
                 </span>
               </button>
               <div className="account_info">
                 <div>
-                  <h3>Order history</h3>
-                  <p>You have not yet placed an order.</p>
+                  <h3>{t("account.orderHistory")}</h3>
+                  <p>{t("account.orderHistoryText")}</p>
                 </div>
                 <div>
-                  <h3>Account details</h3>
-                  <Link>See addresses (0)</Link>
+                  <h3>{t("account.accountDetails")}</h3>
+                  <Link>{t("account.seeAddresses")} (0)</Link>
                 </div>
               </div>
             </div>

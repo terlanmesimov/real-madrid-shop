@@ -1,0 +1,132 @@
+{
+  "shopNow": "COMPRAR AGORA",
+  "annoncementBar": {
+    "toRegister": "REGISTRE-SE COMO UM MADRIDISTA GRATUITAMENTE E OBTENHA 5% DE DESCONTO NA SUA PRIMEIRA COMPRA",
+    "toShop": "PREPARE-SE PARA O FRIO COM OS NOSSOS CASACOS DE INVERNO - COMPRAR"
+  },
+  "header": {
+    "search": "Pesquisar",
+    "navbar": {
+      "kits": "EQUIPAMENTO",
+      "shopByPlayer": "COMPRAR POR JOGADOR",
+      "training": "TREINO",
+      "fashion": "MODA",
+      "accessories": "ACESSÓRIOS",
+      "sale": "PROMOÇÃO"
+    },
+    "shoppingCartMenu": {
+      "yourShoppingCart": "Seu carrinho de compras",
+      "subTotal": "Subtotal",
+      "taxNote": "Impostos incluídos e custos de envio são calculados na tela de pagamento.",
+      "payOrder": "Pagar pedido",
+      "yourCart": "Seu carrinho",
+      "emptyMessage": "Seu carrinho de compras está vazio",
+      "continueShopping": "Continuar comprando"
+    },
+    "headerSubMenu": {
+      "kits": "EQUIPAMENTO",
+      "shopByPlayer": "COMPRAR POR JOGADOR",
+      "training": "TREINO",
+      "fashion": "MODA",
+      "accessories": "ACESSÓRIOS",
+      "sale": "PROMOÇÃO"
+    }
+  },
+  "home": {
+    "locationTitle": "A Loja Oficial Online do Real Madrid CF - Real Madrid CF | Loja da UE",
+    "heroSection": {
+      "heroHeadingOne": "ESTAMOS JOGANDO FORA DE CASA!",
+      "heroHeadingTwo": "APOIE A EQUIPE ONDE QUER QUE ELA VÁ"
+    },
+    "shopifySection": {
+      "titleOne": "SEGUNDO E TERCEIRO UNIFORME",
+      "titleTwo": "TREINAMENTO DA LIGA DOS CAMPEÕES",
+      "titleThree": "COLEÇÃO DE ASSINATURA"
+    },
+    "collectionsSection": {
+      "titleOne": "EQUIPAMENTO",
+      "titleTwo": "MARQUE SEU ESTILO",
+      "shopNow": "COMPRAR AGORA",
+      "homeKits": "23/24 REAL MADRID UNIFORME DE CASA",
+      "awayKits": "23/24 REAL MADRID UNIFORME FORA DE CASA",
+      "thirdKit": "TERCEIRO UNIFORME REAL MADRID 23/24",
+      "goolkeeperKits": "23/24 REAL MADRID UNIFORME DE GOLEIRO",
+      "lifeStyleMan": "ESTILO DE VIDA PARA HOMENS",
+      "essentialForWomen": "ESSENCIAIS PARA MULHERES",
+      "essentialYouth": "ESSENCIAIS PARA JOVENS"
+    },
+    "contentSection": {
+      "sectionOne": {
+        "textOne": "COLEÇÃO DE TREINAMENTO DA LIGA DOS CAMPEÕES",
+        "textTwo": "TREINE COMO UM PROFISSIONAL"
+      },
+      "sectionTwo": {
+        "textOne": "COLEÇÃO DE ASSINATURA",
+        "textTwo": "PREPARE-SE PARA O OUTONO"
+      }
+    }
+  },
+  "shopPage": {
+    "locationTitle": "Tudo - Real Madrid CF | Loja da UE",
+    "breadcrumb": {
+      "home": "INÍCIO",
+      "all": "TUDO"
+    },
+    "readMore": "LER MAIS",
+    "readLess": "LER MENOS"
+  },
+  "productDetailsPage": {
+    "locationTitle": "Loja da UE do Real Madrid CF",
+    "breadcrumb": {
+      "home": "INÍCIO",
+      "all": "TUDO"
+    },
+    "selectSize": "SELECIONAR TAMANHO",
+    "quantity": "QUANTIDADE",
+    "addToCart": "ADICIONAR AO CARRINHO",
+    "descriptionSection": {
+      "title": "DESCRIÇÃO DO PRODUTO"
+    },
+    "shopifySection": {
+      "title": "VOCÊ TAMBÉM PODE GOSTAR"
+    }
+  },
+  "account": {
+    "locationTitle": "Conta - Real Madrid CF - Loja da UE",
+    "breadcrumb": {
+      "home": "INÍCIO",
+      "account": "CONTA"
+    },
+    "title": "Bem-vindo de volta",
+    "logOut": "Sair",
+    "changePassword": "Alterar senha",
+    "orderHistory": "Histórico de pedidos",
+    "orderHistoryText": "Você ainda não fez nenhum pedido.",
+    "accountDetails": "Detalhes da conta",
+    "seeAddresses": "Ver endereços"
+  },
+  "error": {
+    "breadcrumb": {
+      "home": "INÍCIO",
+      "notFound": "404 NÃO ENCONTRADO"
+    },
+    "errorMessage": "404 Página não encontrada",
+    "pageNotFoundMessage": "A página que você solicitou não existe. Clique <Link to='/shop'>aqui</Link> para continuar comprando."
+  },
+  "footer": {
+    "shop": "Loja",
+    "shopLocator": "LOCALIZADOR DE LOJA",
+    "returnsAndReturns": "DEVOLUÇÕES E REEMBOLSOS",
+    "howToOrder": "COMO ENCOMENDAR",
+    "trackMyOrder": "RASPAR MEU PEDIDO",
+    "myAccount": "Minha Conta",
+    "about": "Sobre",
+    "privacyPolicy": "POLÍTICA DE PRIVACIDADE",
+    "cookiePolicy": "POLÍTICA DE COOKIES",
+    "termsAndConditions": "TERMOS E CONDIÇÕES",
+    "help": "Precisa de ajuda?",
+    "contactUs": "CONTATE-NOS",
+    "faq": "PERGUNTAS FREQUENTES",
+    "payment": "Formas de pagamento aceitas"
+  }
+}

@@ -7,9 +7,10 @@ import AnnoncementBar from "../components/AnnoncementBar";
 import ShopifySection from "../components/sections/ShopifySection";
 // PROVIDER
 import { HeaderContextProvider } from "../utils/HeaderContext";
-
+import { useTranslation } from "react-i18next";
 
 const Error = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = "404 Not found - Real Madrid CF | EU";
   }, []);
@@ -24,11 +25,11 @@ const Error = () => {
         <div className="container">
           <div className="row">
             <div className="breadcrumb">
-              <Link to="/">HOME /</Link>
-              <Link> 404 NOT FOUND</Link>
+              <Link to="/">{t("error.breadcrumb.home")} /</Link>
+              <Link> {t("error.breadcrumb.notFound")}</Link>
             </div>
             <div className="error_message">
-              <h2>404 Page not found</h2>
+              <h2>{t("error.errorMessage")}</h2>
               <p>
                 The page you requested does not exist. Click{" "}
                 <Link to="/shop">here</Link> to continue shopping.
