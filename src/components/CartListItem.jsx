@@ -43,7 +43,7 @@ const CartListItem = ({ itemData }) => {
         <h4
           className="product_name"
           onClick={() => {
-            navigate(`/product_details/${itemData.id}`);
+            navigate(`/product-details/${itemData.id}`);
             window.location.reload();
           }}
         >
