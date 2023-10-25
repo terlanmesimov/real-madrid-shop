@@ -33,7 +33,7 @@ const ChangePassword = () => {
   // Toasty error message
   const [toasty, setToasty] = useState(false);
   // Step
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   // Change Password
   const shemaOne = yup.object({
     email: yup

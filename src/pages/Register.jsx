@@ -362,7 +362,7 @@ const Register = () => {
                   focusInputPassword ? "active" : ""
                 }`}
               >
-                {t("register.form.paswordLabel")}
+                {t("register.form.passwordLabel")}
               </label>
               <span
                 className={`error error_password ${
@@ -406,7 +406,7 @@ const Register = () => {
                   focusInputDate ? "active" : ""
                 }`}
               >
-                {t("register.form.birthDatelabel")} (DD/MM/YYYY)
+                {t("register.form.birthDateLabel")} (DD/MM/YYYY)
               </label>
               <span
                 className={`error error_birth_date ${
