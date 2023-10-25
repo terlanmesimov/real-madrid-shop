@@ -42,6 +42,8 @@ const Login = () => {
       .post(process.env.REACT_APP_LOGIN, data)
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.token));
+        navigate("/");
+        window.location.reload();
       })
       .catch((error) => {
         console.warn(error);
@@ -166,9 +168,6 @@ const Login = () => {
         </form>
         <button className="question" onClick={() => navigate("/register")}>
           Can't log in?
-        </button>
-        <button className="question" style={{ margin: 0 }}>
-          Change password now
         </button>
         <div className="divider_content">
           <div className="divider"></div>

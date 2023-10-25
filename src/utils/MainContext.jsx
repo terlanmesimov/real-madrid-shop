@@ -1,8 +1,10 @@
+
 import { createContext, useEffect, useState } from "react";
 
 export const MainContext = createContext();
 
 export const MainContextProvider = ({ children }) => {
+
   const cartData = JSON.parse(localStorage.getItem("cartData"));
   const [cartListData, setCartListData] = useState(cartData ? cartData : []);
   const [totalCount, setTotalCount] = useState(0);

@@ -4,8 +4,12 @@ import ShoppingCart from "./ShoppingCart";
 import HeaderSubMenu from "./HeaderSubMenu";
 import RegionSelector from "./RegionSelector";
 import LanguageSelector from "./LanguageSelector";
+// CONTEXT
+import { useContext } from "react";
+import { Auth } from "../utils/AuthContext";
 
 const SelectorsAndMenus = () => {
+  const { hasToken } = useContext(Auth);
   return (
     <div className="selector_and_options">
       <div className="language_and_region">
@@ -13,7 +17,7 @@ const SelectorsAndMenus = () => {
         <RegionSelector />
       </div>
       <div className="cart_and_user">
-        <Link className="user" to="/account">
+        <Link className="user" to={hasToken ? "/account" : "/login"}>
           <div className="user_icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,16 +1,27 @@
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 // PROVIDER
 import { HeaderContextProvider } from "../utils/HeaderContext";
+import { Auth } from "../utils/AuthContext";
 // COMPONENTS
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnnoncementBar from "../components/AnnoncementBar";
 
 const Account = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "Account - Real Madrid CF - EU Shop";
   }, []);
+  const { userData, setHasToken } = useContext(Auth);
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    setHasToken(false);
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <>
       <AnnoncementBar />
@@ -25,7 +36,7 @@ const Account = () => {
               <Link>/ ACCOUNT</Link>
             </div>
             <div className="costumer_account">
-              <h2 className="title">Welcome back, Terlan</h2>
+              <h2 className="title">Welcome back, {userData.name}</h2>
               <button className="log_out">
                 <span className="icon">
                   <svg
@@ -43,7 +54,15 @@ const Account = () => {
                     ></path>
                   </svg>
                 </span>
-                <span className="word">Log Out</span>
+                <span className="word" onClick={logOut}>
+                  Log Out
+                </span>
+                <span
+                  className="word"
+                  onClick={() => navigate("/change-password")}
+                >
+                  Change Password
+                </span>
               </button>
               <div className="account_info">
                 <div>

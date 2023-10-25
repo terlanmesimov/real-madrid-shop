@@ -8,9 +8,12 @@ import Error from "./pages/Error";
 import Register from "./pages/Register";
 import ProductDetails from "./pages/ProductDetails";
 import Account from "./pages/Account";
+import ChangePassword from "./pages/ChangePassword";
 // PROVIDER
 import { MainContextProvider } from "./utils/MainContext";
 import { AuthContextProvider } from "./utils/AuthContext";
+import PrivateRoutes from "./routers/PrivateRoutes";
+
 const App = () => {
   return (
     <AuthContextProvider>
@@ -19,7 +22,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<Error />} />
-            <Route path="/account" element={<Account />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/account" element={<Account />} />
+              <Route path="change-password" element={<ChangePassword />} />
+            </Route>
             <Route path="/shop" element={<Shop />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

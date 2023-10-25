@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // CONTEXT
 import { HeaderContext } from "../utils/HeaderContext";
 import { MainContext } from "../utils/MainContext";
+import { Auth } from "../utils/AuthContext";
 // COMPONENTS
 import CartListItem from "./CartListItem";
 
 const ShoppingCartMenu = () => {
+  const navigate = useNavigate();
   const { openCart, setOpenCart, animateCartMenu, setAnimateCartMenu } =
     useContext(HeaderContext);
+  const { hasToken } = useContext(Auth);
+
   const {
     cartListData,
     setCartListData,
@@ -69,14 +73,28 @@ const ShoppingCartMenu = () => {
               Tax included and shipping costs are calculated on the payment
               screen.
             </p>
-            <button className="cart_checkout">Pay order</button>
+            <button
+              className="cart_checkout"
+              onClick={() => {
+                navigate(hasToken ? "" : "/register");
+              }}
+            >
+              Pay order
+            </button>
           </div>
           <ul className="product_list">
             {cartListData.map((item) => {
               return <CartListItem key={item.id} itemData={item} />;
             })}
           </ul>
-          <div className="cart_checkout">Pay order</div>
+          <div
+            className="cart_checkout"
+            onClick={() => {
+              navigate(hasToken ? "" : "/register");
+            }}
+          >
+            Pay order
+          </div>
         </div>
       )}
       {cartListData.length === 0 && (

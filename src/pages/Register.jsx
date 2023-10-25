@@ -94,15 +94,16 @@ const Register = () => {
   });
   const stepThreeBtn = (data) => {
     setNewUserData({ ...newUserData, name: data.name, surname: data.surname });
-    register();
+    if (newUserData.name && newUserData.name) {
+      register();
+    }
   };
   // Registration
   const register = async () => {
     await axios
       .post(process.env.REACT_APP_NEW_USER, newUserData)
       .then((response) => {
-        navigate("/login");
-        window.location.reload();
+        autoLogIn();
       })
       .catch((error) => {
         console.warn(error);
@@ -110,6 +111,23 @@ const Register = () => {
         setTimeout(() => {
           setToasty(false);
         }, 5200);
+      });
+  };
+  
+  const autoLogIn = async () => {
+    const data = {
+      email: newUserData.email,
+      password: newUserData.password,
+    };
+    await axios
+      .post(process.env.REACT_APP_LOGIN, data)
+      .then((response) => {
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+        navigate("/");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.warn(error);
       });
   };
 
@@ -123,8 +141,8 @@ const Register = () => {
         }`}
       >
         <p className="error_message">
-          Sorry! This password is not correct. Please, rewrite it paying
-          attention to the uppercase and lowercase letters.
+          Registration process has failed. Please check your information and try
+          again.
         </p>
       </div>
       <div className="register_header">
