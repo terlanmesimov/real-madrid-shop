@@ -45,8 +45,7 @@ const ShopifySection = () => {
                     <div className="content">
                       <p className="card_info">{product.name}</p>
                       <span className="price">
-                        {"A partir de"}
-                        {product.price}€
+                        {"A partir de"} {product.price}€
                       </span>
                     </div>
                   </div>
