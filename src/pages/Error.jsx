@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 
 const Error = () => {
   const { t } = useTranslation();
+
   useEffect(() => {
     document.title = "404 Not found - Real Madrid CF | EU";
   }, []);
@@ -38,7 +39,7 @@ const Error = () => {
           </div>
         </div>
       </div>
-      <ShopifySection title={"FEATURED COLLECTION"} id={"one"} />
+      <ShopifySection />
       <Footer />
     </>
   );

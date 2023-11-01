@@ -10,10 +10,15 @@ import * as yup from "yup";
 // ICON
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import { Auth } from "../utils/AuthContext";
+// COMPONENTS
+import Loader from "../components/Loader";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const { setHasToken } = useContext(Auth);
+  // Loader
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
   }, []);
@@ -45,12 +50,14 @@ const Login = () => {
     resolver: yupResolver(shema),
   });
   const onSubmit = async (data) => {
+    setLoader(true);
     await axios
       .post(process.env.REACT_APP_LOGIN, data)
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.token));
         navigate("/");
-        window.location.reload();
+        setHasToken(true);
+        setLoader(false);
       })
       .catch((error) => {
         console.warn(error);
@@ -62,183 +69,192 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <div
-        className={`toast_error ${
-          toasty
-            ? "animate__animated animate__delay-5s animate__fadeOutUp active"
-            : ""
-        }`}
-      >
-        <p className="error_message">{t("login.toastyErrorMessage")}</p>
-      </div>
-      <div className="login_header">
-        <span className="language_select">
-          <button
-            className={`language ${lang === "es" && "active"}`}
-            onClick={() => {
-              setLang("es");
-              i18n.changeLanguage("es");
-            }}
-          >
-            ES
-          </button>
-          <span className="divider_vertical"></span>
-          <button
-            className={`language ${lang === "en" && "active"}`}
-            onClick={() => {
-              setLang("en");
-              i18n.changeLanguage("en");
-            }}
-          >
-            EN
-          </button>
-        </span>
-      </div>
-      <div className="main">
-        <div className="form_heading">
-          <h3>{t("login.form.titleOne")}</h3>
-          <p>{t("login.form.subTitle")}</p>
+    <>
+      {loader && <Loader />}
+      <div className="login">
+        <div
+          className={`toast_error ${
+            toasty
+              ? "animate__animated animate__delay-5s animate__fadeOutUp active"
+              : ""
+          }`}
+        >
+          <p className="error_message">{t("login.toastyErrorMessage")}</p>
         </div>
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <div className="email input_content">
-            <input
-              type="email"
-              name="email"
-              className={`email_input input ${errors.email ? "has_error" : ""}`}
-              {...register("email")}
-              onFocus={(e) => {
-                if (e.target.value === "") {
-                  setFocusInputEmail(!focusInputEmail);
-                }
-                return;
-              }}
-              onBlur={(e) => {
-                if (e.target.value === "") {
-                  setFocusInputEmail(!focusInputEmail);
-                }
-                return;
-              }}
-            />
-            <span className={`info_icon ${errors.email ? "active" : ""}`}>
-              <ErrorOutlineOutlinedIcon />
-            </span>
-            <label
-              htmlFor="email"
-              className={`email_label label ${focusInputEmail ? "active" : ""}`}
-            >
-              {t("login.form.emailLabel")}
-            </label>
-            <span
-              className={`error error_email ${errors.email ? "active" : ""}`}
-            >
-              {errors.email ? `${t("login.form.emailErrorMessage")}` : ""}
-            </span>
-          </div>
-          <div className="password input_content">
-            <input
-              type={passwordInputVisibility ? "text" : "password"}
-              className={`password_input input ${
-                errors.password ? "has_error" : ""
-              }`}
-              name="password"
-              {...register("password")}
-              onFocus={(e) => {
-                if (e.target.value === "") {
-                  setFocusInputPassword(!focusInputPassword);
-                }
-                return;
-              }}
-              onBlur={(e) => {
-                if (e.target.value === "") {
-                  setFocusInputPassword(!focusInputPassword);
-                }
-                return;
-              }}
-            />
-            <span
-              className="visibility_icon active"
+        <div className="login_header">
+          <span className="language_select">
+            <button
+              className={`language ${lang === "es" && "active"}`}
               onClick={() => {
-                setPasswordInputVisibility(!passwordInputVisibility);
+                setLang("es");
+                i18n.changeLanguage("es");
               }}
             >
-              <VisibilityOffOutlinedIcon />
-            </span>
-            <label
-              htmlFor="password"
-              className={`password_label label ${
-                focusInputPassword ? "active" : ""
-              }`}
+              ES
+            </button>
+            <span className="divider_vertical"></span>
+            <button
+              className={`language ${lang === "en" && "active"}`}
+              onClick={() => {
+                setLang("en");
+                i18n.changeLanguage("en");
+              }}
             >
-              {t("login.form.passwordLabel")}
-            </label>
-            <span
-              className={`error error_password ${
-                errors.password ? "active" : ""
-              }`}
-            >
-              {errors.password ? `${t("login.form.passwordErrorMessage")}` : ""}
-            </span>
-          </div>
-          <button className="form_btn">
-            <span>{t("login.form.btn")}</span>
-          </button>
-        </form>
-        <button className="question" onClick={() => navigate("/register")}>
-          {t("login.form.question")}
-        </button>
-        <div className="divider_content">
-          <div className="divider"></div>
-          <span className="word">OR</span>
-          <div className="divider"></div>
-        </div>
-        <div className="other">
-          <button className="login_google">
-            <span>Continue with Google</span>
-          </button>
-          <button className="login_apple">
-            <span>Continue with Apple ID</span>
-          </button>
-        </div>
-        <p className="privacy_text">
-          We will use your email address to check if you already have an
-          account. You can exercise your rights at
-          <Link className="email">oposicion@corp.realmadrid.com</Link>
-          and get more information
-          <br />
-          <Link
-            className="privacy_policy"
-            to="https://www.realmadrid.com/en/privacy-policy"
-          >
-            here
-          </Link>
-          .
-        </p>
-      </div>
-      <div className="login_footer">
-        <div className="footer_text">
-          <span>
-            Real Madrid © {new Date().getFullYear()}.{" "}
-            {t("login.registerFooter.footerText")}.
+              EN
+            </button>
           </span>
         </div>
-        <div className="footer_links">
-          <Link to="https://www.realmadrid.com/en/legal-notice">
-            {t("login.loginFooter.legalNotice")}
-          </Link>
-          <span className="dot_separator"></span>
-          <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
-            {t("login.loginFooter.cookiesPolicy")}
-          </Link>
-          <span className="dot_separator"></span>
-          <Link to="https://www.realmadrid.com/en/privacy-policy">
-            {t("login.loginFooter.privacyPolicy")}
-          </Link>
-          <span className="dot_separator"></span>
-          <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>
+        <div className="main">
+          <div className="form_heading">
+            <h3>{t("login.form.titleOne")}</h3>
+            <p>{t("login.form.subTitle")}</p>
+          </div>
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <div className="email input_content">
+              <input
+                type="email"
+                name="email"
+                className={`email_input input ${
+                  errors.email ? "has_error" : ""
+                }`}
+                {...register("email")}
+                onFocus={(e) => {
+                  if (e.target.value === "") {
+                    setFocusInputEmail(!focusInputEmail);
+                  }
+                  return;
+                }}
+                onBlur={(e) => {
+                  if (e.target.value === "") {
+                    setFocusInputEmail(!focusInputEmail);
+                  }
+                  return;
+                }}
+              />
+              <span className={`info_icon ${errors.email ? "active" : ""}`}>
+                <ErrorOutlineOutlinedIcon />
+              </span>
+              <label
+                htmlFor="email"
+                className={`email_label label ${
+                  focusInputEmail ? "active" : ""
+                }`}
+              >
+                {t("login.form.emailLabel")}
+              </label>
+              <span
+                className={`error error_email ${errors.email ? "active" : ""}`}
+              >
+                {errors.email ? `${t("login.form.emailErrorMessage")}` : ""}
+              </span>
+            </div>
+            <div className="password input_content">
+              <input
+                type={passwordInputVisibility ? "text" : "password"}
+                className={`password_input input ${
+                  errors.password ? "has_error" : ""
+                }`}
+                name="password"
+                {...register("password")}
+                onFocus={(e) => {
+                  if (e.target.value === "") {
+                    setFocusInputPassword(!focusInputPassword);
+                  }
+                  return;
+                }}
+                onBlur={(e) => {
+                  if (e.target.value === "") {
+                    setFocusInputPassword(!focusInputPassword);
+                  }
+                  return;
+                }}
+              />
+              <span
+                className="visibility_icon active"
+                onClick={() => {
+                  setPasswordInputVisibility(!passwordInputVisibility);
+                }}
+              >
+                <VisibilityOffOutlinedIcon />
+              </span>
+              <label
+                htmlFor="password"
+                className={`password_label label ${
+                  focusInputPassword ? "active" : ""
+                }`}
+              >
+                {t("login.form.passwordLabel")}
+              </label>
+              <span
+                className={`error error_password ${
+                  errors.password ? "active" : ""
+                }`}
+              >
+                {errors.password
+                  ? `${t("login.form.passwordErrorMessage")}`
+                  : ""}
+              </span>
+            </div>
+            <button className="form_btn">
+              <span>{t("login.form.btn")}</span>
+            </button>
+          </form>
+          <button className="question" onClick={() => navigate("/register")}>
+            {t("login.form.question")}
+          </button>
+          <div className="divider_content">
+            <div className="divider"></div>
+            <span className="word">OR</span>
+            <div className="divider"></div>
+          </div>
+          <div className="other">
+            <button className="login_google">
+              <span>Continue with Google</span>
+            </button>
+            <button className="login_apple">
+              <span>Continue with Apple ID</span>
+            </button>
+          </div>
+          <p className="privacy_text">
+            We will use your email address to check if you already have an
+            account. You can exercise your rights at
+            <Link className="email">oposicion@corp.realmadrid.com</Link>
+            and get more information
+            <br />
+            <Link
+              className="privacy_policy"
+              to="https://www.realmadrid.com/en/privacy-policy"
+            >
+              here
+            </Link>
+            .
+          </p>
+        </div>
+        <div className="login_footer">
+          <div className="footer_text">
+            <span>
+              Real Madrid © {new Date().getFullYear()}.{" "}
+              {t("login.registerFooter.footerText")}.
+            </span>
+          </div>
+          <div className="footer_links">
+            <Link to="https://www.realmadrid.com/en/legal-notice">
+              {t("login.loginFooter.legalNotice")}
+            </Link>
+            <span className="dot_separator"></span>
+            <Link to="https://www.realmadrid.com/en/legal/cookies-policy">
+              {t("login.loginFooter.cookiesPolicy")}
+            </Link>
+            <span className="dot_separator"></span>
+            <Link to="https://www.realmadrid.com/en/privacy-policy">
+              {t("login.loginFooter.privacyPolicy")}
+            </Link>
+            <span className="dot_separator"></span>
+            <Link to="https://www.realmadrid.com/en">realmadrid.com</Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

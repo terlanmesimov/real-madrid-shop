@@ -196,15 +196,13 @@
           cursor: pointer;
           margin: 30px;
           box-shadow: 0 3px 10px #0003;
-          &.mw-1 {
-            min-width: calc(30% - 50px);
-            @media (max-width: 990px) {
-              min-width: calc(50% - 50px);
-            }
-            @media (max-width: 750px) {
-              min-width: 80%;
-              margin: 30px 30px 30px 5px;
-            }
+          min-width: calc(30% - 50px);
+          @media (max-width: 990px) {
+            min-width: calc(50% - 50px);
+          }
+          @media (max-width: 750px) {
+            min-width: 80%;
+            margin: 30px 30px 30px 5px;
           }
           &.mw-2 {
             min-width: calc(25% - 60px);

@@ -11,10 +11,12 @@ import CollectionsSection from "../components/sections/CollectionsSection";
 import ContentSection from "../components/sections/ContentSection";
 
 const Home = () => {
+
   useEffect(() => {
     document.title =
       "The Official Online Store of Real Madrid CF - Real Madrid CF | EU Shop";
   }, []);
+
   return (
     <>
       <AnnoncementBar />
@@ -23,7 +25,7 @@ const Home = () => {
       </HeaderContextProvider>
       <main>
         <HeroSection />
-        <ShopifySection title={"2ND AND THIRD KITS"} id={"one"} />
+        <ShopifySection />
         <CollectionsSection
           title={"KITS"}
           collections={[
@@ -38,7 +40,7 @@ const Home = () => {
           text={["CHAMPIONS LEAGUE TRAINING COLLECTION", "TRAIN LIKE A PRO"]}
           id={"one"}
         />
-        <ShopifySection title={"CHAMPİONS LEAGUE TRAİNİNG"} id={"two"} />
+        <ShopifySection/>
         <CollectionsSection
           title={"SCORE YOUR STYLE"}
           collections={[
@@ -52,7 +54,7 @@ const Home = () => {
           text={["COLLECTİON SİGNATURE", "GET READY FOR FALL"]}
           id={"two"}
         />
-        <ShopifySection title={"COLLECTION SIGNATURE"} id={"three"} />
+        <ShopifySection />
       </main>
       <Footer />
     </>

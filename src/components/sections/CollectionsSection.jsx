@@ -8,8 +8,10 @@ import collectionImageFour from "../../assets/images/collections_image_4.jpeg";
 import collectionTwoImageOne from "../../assets/images/collections2_image_1.jpeg";
 import collectionTwoImageTwo from "../../assets/images/collections2_image_2.jpeg";
 import collectionTwoImageThree from "../../assets/images/collections2_image_3.jpeg";
+import { useTranslation } from "react-i18next";
 
 const CollectionsSection = ({ title, id, collections }) => {
+  const { t } = useTranslation();
   return (
     <section className="collections_section">
       <div className="container">
@@ -36,7 +38,7 @@ const CollectionsSection = ({ title, id, collections }) => {
                 >
                   <h2>{collections[0]}</h2>
                   <Link to="/">
-                    <span>SHOP NOW</span>
+                    <span>{t("shopNow")}</span>
                   </Link>
                 </div>
               </div>
@@ -56,7 +58,7 @@ const CollectionsSection = ({ title, id, collections }) => {
                 >
                   <h2>{collections[1]}</h2>
                   <Link to="/">
-                    <span>SHOP NOW</span>
+                    <span>{t("shopNow")}</span>
                   </Link>
                 </div>
               </div>
@@ -78,7 +80,7 @@ const CollectionsSection = ({ title, id, collections }) => {
                 >
                   <h2>{collections[2]}</h2>
                   <Link to="/">
-                    <span>SHOP NOW</span>
+                    <span>{t("shopNow")}</span>
                   </Link>
                 </div>
               </div>
@@ -94,7 +96,7 @@ const CollectionsSection = ({ title, id, collections }) => {
                   >
                     <h2>{collections[3]}</h2>
                     <Link to="/">
-                      <span>SHOP NOW</span>
+                      <span>{t("shopNow")}</span>
                     </Link>
                   </div>
                 </div>

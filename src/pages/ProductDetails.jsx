@@ -83,158 +83,150 @@ const ProductDetails = () => {
   return (
     <>
       {loader && <Loader />}
-      {!loader && (
-        <>
-          <AnnoncementBar />
-          <HeaderContextProvider>
-            <Header />
-          </HeaderContextProvider>
-          <section className="product_details">
-            <div className="container">
-              <div className="row">
-                <div className="breadcrumb">
-                  <Link to="/">
-                    {t("productDetailsPage.breadcrumb.home")} /
-                  </Link>
-                  <Link to="/shop">
-                    {t("productDetailsPage.breadcrumb.all")} /
-                  </Link>
-                  <Link> {productData.name}</Link>
-                </div>
-                <div className="product">
-                  <div className="media">
-                    <div className="slide_track">
+      <>
+        <AnnoncementBar />
+        <HeaderContextProvider>
+          <Header />
+        </HeaderContextProvider>
+        <section className="product_details">
+          <div className="container">
+            <div className="row">
+              <div className="breadcrumb">
+                <Link to="/">{t("productDetailsPage.breadcrumb.home")} /</Link>
+                <Link to="/shop">
+                  {t("productDetailsPage.breadcrumb.all")} /
+                </Link>
+                <Link> {productData.name}</Link>
+              </div>
+              <div className="product">
+                <div className="media">
+                  <div className="slide_track">
+                    {productImages.map((image, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className={`slide_image ${
+                            selectedImage === image ? "active" : ""
+                          }`}
+                        >
+                          <img
+                            src={process.env.REACT_APP_DOMAIN + image}
+                            id={index}
+                            alt="product_image"
+                            onClick={(e) => {
+                              setSelectedImage(image);
+                              slideTo(e.target.id);
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="product_image">
+                    <Swiper
+                      navigation={true}
+                      modules={[Zoom, Navigation, Pagination]}
+                      className="mySwiper"
+                      zoom={true}
+                      onSwiper={setSwiper}
+                      onSlideChange={handleSlideChange}
+                    >
                       {productImages.map((image, index) => {
                         return (
-                          <div
+                          <SwiperSlide>
+                            <div
+                              key={index}
+                              className="slide_item swiper-zoom-container"
+                            >
+                              <img
+                                src={process.env.REACT_APP_DOMAIN + image}
+                                alt="product_img"
+                              />
+                            </div>
+                          </SwiperSlide>
+                        );
+                      })}
+                    </Swiper>
+                  </div>
+                </div>
+                <div className="product_info">
+                  <h2 className="product_title">{productData.name}</h2>
+                  <p className="product_price">{productData.price}€</p>
+                  <div className="size_content">
+                    <span className="size_title">
+                      {t("productDetailsPage.selectSize")}
+                    </span>
+                    <div className="sizes">
+                      {sizes.map((size, index) => {
+                        return (
+                          <span
                             key={index}
-                            className={`slide_image ${
-                              selectedImage === image ? "active" : ""
+                            className={`size ${
+                              selectedSize === size ? "active" : ""
                             }`}
+                            onClick={() => setSelectedSize(size)}
                           >
-                            <img
-                              src={process.env.REACT_APP_DOMAIN + image}
-                              id={index}
-                              alt="product_image"
-                              onClick={(e) => {
-                                setSelectedImage(image);
-                                slideTo(e.target.id);
-                              }}
-                            />
-                          </div>
+                            {size}
+                          </span>
                         );
                       })}
                     </div>
-                    <div className="product_image">
-                      <Swiper
-                        navigation={true}
-                        modules={[Zoom, Navigation, Pagination]}
-                        className="mySwiper"
-                        zoom={true}
-                        onSwiper={setSwiper}
-                        onSlideChange={handleSlideChange}
+                  </div>
+                  <div className="quantity_content">
+                    <span className="title">
+                      {t("productDetailsPage.quantity")}
+                    </span>
+                    <div className="quantity">
+                      <span
+                        className="decrement"
+                        onClick={() => {
+                          if (productCount <= 1) return;
+                          setProductCount(productCount - 1);
+                        }}
                       >
-                        {productImages.map((image, index) => {
-                          return (
-                            <SwiperSlide>
-                              <div
-                                key={index}
-                                className="slide_item swiper-zoom-container"
-                              >
-                                <img
-                                  src={process.env.REACT_APP_DOMAIN + image}
-                                  alt="product_img"
-                                />
-                              </div>
-                            </SwiperSlide>
-                          );
-                        })}
-                      </Swiper>
+                        -
+                      </span>
+                      <span className="count">{productCount}</span>
+                      <span
+                        className="increment"
+                        onClick={() => setProductCount(productCount + 1)}
+                      >
+                        +
+                      </span>
                     </div>
                   </div>
-                  <div className="product_info">
-                    <h2 className="product_title">{productData.name}</h2>
-                    <p className="product_price">{productData.price}€</p>
-                    <div className="size_content">
-                      <span className="size_title">
-                        {t("productDetailsPage.selectSize")}
-                      </span>
-                      <div className="sizes">
-                        {sizes.map((size, index) => {
-                          return (
-                            <span
-                              key={index}
-                              className={`size ${
-                                selectedSize === size ? "active" : ""
-                              }`}
-                              onClick={() => setSelectedSize(size)}
-                            >
-                              {size}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
-                    <div className="quantity_content">
-                      <span className="title">
-                        {t("productDetailsPage.quantity")}
-                      </span>
-                      <div className="quantity">
-                        <span
-                          className="decrement"
-                          onClick={() => {
-                            if (productCount <= 1) return;
-                            setProductCount(productCount - 1);
-                          }}
-                        >
-                          -
-                        </span>
-                        <span className="count">{productCount}</span>
-                        <span
-                          className="increment"
-                          onClick={() => setProductCount(productCount + 1)}
-                        >
-                          +
-                        </span>
-                      </div>
-                    </div>
-                    <button
-                      className="add_to_cart"
-                      id={productData.id}
-                      onClick={addToCart}
-                    >
-                      {t("productDetailsPage.addToCart")}
-                    </button>
-                  </div>
+                  <button
+                    className="add_to_cart"
+                    id={productData.id}
+                    onClick={addToCart}
+                  >
+                    {t("productDetailsPage.addToCart")}
+                  </button>
                 </div>
               </div>
             </div>
-          </section>
-          <section className="description">
-            <div className="container">
-              <div className="row">
-                <div className="title">
-                  <div className="title_text">
-                    <h2 className="f-size-35">
-                      {t("productDetailsPage.descriptionSection.title")}
-                    </h2>
-                  </div>
-                  <div className="diogonal_lines deg45"></div>
+          </div>
+        </section>
+        <section className="description">
+          <div className="container">
+            <div className="row">
+              <div className="title">
+                <div className="title_text">
+                  <h2 className="f-size-35">
+                    {t("productDetailsPage.descriptionSection.title")}
+                  </h2>
                 </div>
-                <div className="text">
-                  <p>{productData.details}</p>
-                </div>
+                <div className="diogonal_lines deg45"></div>
+              </div>
+              <div className="text">
+                <p>{productData.details}</p>
               </div>
             </div>
-          </section>
-          <ShopifySection
-            title={"YOU MIGHT ALSO LIKE"}
-            id={"one"}
-            titleFontSize={"35"}
-          />
-          <Footer />
-        </>
-      )}
+          </div>
+        </section>
+        <ShopifySection />
+        <Footer />
+      </>
     </>
   );
 };

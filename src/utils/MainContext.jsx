@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 export const MainContext = createContext();
 
@@ -11,9 +12,26 @@ export const MainContextProvider = ({ children }) => {
   const [totalCount, setTotalCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("cartData", JSON.stringify(cartListData));
   }, [cartListData]);
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  const getAllProducts = async () => {
+    await axios
+      .get(process.env.REACT_APP_ALL_PRODUCTS)
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
 
   const globalStates = {
     cartListData,
@@ -24,6 +42,7 @@ export const MainContextProvider = ({ children }) => {
     setTotalPrice,
     currentLang,
     setCurrentLang,
+    products,
   };
 
   return (
