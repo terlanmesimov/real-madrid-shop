@@ -111,7 +111,11 @@
       "notFound": "404 NO ENCONTRADO"
     },
     "errorMessage": "404 Página no encontrada",
-    "pageNotFoundMessage": "La página que solicitó no existe. Haga clic <Link to='/shop'>aquí</Link> para continuar comprando."
+    "pageNotFoundMessage": {
+      "link": "aquí",
+      "sliceBeforeLink": "La página solicitada no existe. Haga clic",
+      "sliceAfterLink": "para continuar comprando."
+    }
   },
   "register": {
     "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
@@ -141,7 +145,14 @@
       "cookiesPolicy": "Política de cookies",
       "privacyPolicy": "Política de privacidad",
       "footerText": "Todos los derechos reservados"
-    }
+    },
+    "registerPrivacyText": {
+      "link": "aquí",
+      "sliceBeforeMail": "Usaremos su dirección de correo electrónico para verificar si ya tiene una cuenta. Puede ejercer sus derechos en",
+      "sliceAfterMail": "y obtener más información"
+    },
+    "withGoogle": "Continuar con Google",
+    "withAppleId": "Continuar con Apple ID"
   },
   "login": {
     "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
@@ -161,7 +172,14 @@
       "cookiesPolicy": "Política de cookies",
       "privacyPolicy": "Política de privacidad",
       "footerText": "Todos los derechos reservados"
-    }
+    },
+    "loginPrivacyText": {
+      "link": "aquí",
+      "sliceBeforeMail": "Usaremos su dirección de correo electrónico para verificar si ya tiene una cuenta. Puede ejercer sus derechos en",
+      "sliceAfterMail": "y obtener más información"
+    },
+    "withGoogle": "Continuar con Google",
+    "withAppleId": "Continuar con Apple ID"
   },
   "changePassword": {
     "locationTitle": "Real Madrid CF | Iniciar sesión o acceder",
@@ -190,6 +208,11 @@
       "cookiesPolicy": "Política de cookies",
       "política de privacidad": "Política de privacidad",
       "footerText": "Todos los derechos reservados"
+    },
+    "changePasswordPrivacyText": {
+      "link": "aquí",
+      "sliceBeforeMail": "Usaremos su dirección de correo electrónico para verificar si ya tiene una cuenta. Puede ejercer sus derechos en",
+      "sliceAfterMail": "y obtener más información"
     }
   },
   "footer": {

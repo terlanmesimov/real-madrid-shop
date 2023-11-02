@@ -321,16 +321,15 @@ const ChangePassword = () => {
               </div>
             </form>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("changePassword.changePasswordPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("changePassword.changePasswordPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("changePassword.changePasswordPrivacyText.link")}
               </Link>
               .
             </p>
@@ -391,16 +390,15 @@ const ChangePassword = () => {
               {t("changePassword.form.question")}
             </button>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("changePassword.changePasswordPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("changePassword.changePasswordPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("changePassword.changePasswordPrivacyText.link")}
               </Link>
               .
             </p>
@@ -511,16 +509,15 @@ const ChangePassword = () => {
               </button>
             </form>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("changePassword.changePasswordPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("changePassword.changePasswordPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("changePassword.changePasswordPrivacyText.link")}
               </Link>
               .
             </p>

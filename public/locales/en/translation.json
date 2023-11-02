@@ -111,7 +111,11 @@
       "notFound": "404 NOT FOUND"
     },
     "errorMessage": "404 Page not found",
-    "pageNotFoundMessage": "The page you requested does not exist. Click <Link to='/shop'>here</Link> to continue shopping."
+    "pageNotFoundMessage": {
+      "link": "here",
+      "sliceBeforeLink": "The page you requested does not exist. Click",
+      "sliceAfterLink": "to continue shopping."
+    }
   },
   "register": {
     "locationTitle": "Real Madrid CF | Log in or access",
@@ -141,7 +145,14 @@
       "cookiesPolicy": "Cookies policy",
       "privacyPolicy": "Privacy policy",
       "footerText": "All rights reserved"
-    }
+    },
+    "registerPrivacyText": {
+      "link": "here",
+      "sliceBeforeMail": "We will use your email address to check if you already have an account. You can exercise your rights at",
+      "sliceAfterMail": "and get more information"
+    },
+    "withGoogle": "Continue with Google",
+    "withAppleId": "Continue with Apple ID"
   },
   "login": {
     "locationTitle": "Real Madrid CF | Log in or access",
@@ -161,7 +172,14 @@
       "cookiesPolicy": "Cookies policy",
       "privacyPolicy": "Privacy policy",
       "footerText": "All rights reserved"
-    }
+    },
+    "loginPrivacyText": {
+      "link": "here",
+      "sliceBeforeMail": "We will use your email address to check if you already have an account. You can exercise your rights at",
+      "sliceAfterMail": "and get more information"
+    },
+    "withGoogle": "Continue with Google",
+    "withAppleId": "Continue with Apple ID"
   },
   "changePassword": {
     "locationTitle": "Real Madrid CF | Log in or access",
@@ -190,6 +208,11 @@
       "cookiesPolicy": "Cookies policy",
       "privacyPolicy": "Privacy policy",
       "footerText": "All rights reserved"
+    },
+    "changePasswordPrivacyText": {
+      "link": "here",
+      "sliceBeforeMail": "We will use your email address to check if you already have an account. You can exercise your rights at",
+      "sliceAfterMail": "and get more information"
     }
   },
   "footer": {

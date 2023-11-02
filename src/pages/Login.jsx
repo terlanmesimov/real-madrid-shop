@@ -209,23 +209,22 @@ const Login = () => {
           </div>
           <div className="other">
             <button className="login_google">
-              <span>Continue with Google</span>
+              <span>{t("login.withGoogle")}</span>
             </button>
             <button className="login_apple">
-              <span>Continue with Apple ID</span>
+              <span>{t("login.withAppleId")}</span>
             </button>
           </div>
           <p className="privacy_text">
-            We will use your email address to check if you already have an
-            account. You can exercise your rights at
+            {t("login.loginPrivacyText.sliceBeforeMail")}
             <Link className="email">oposicion@corp.realmadrid.com</Link>
-            and get more information
+            {t("login.loginPrivacyText.sliceAfterMail")}
             <br />
             <Link
               className="privacy_policy"
               to="https://www.realmadrid.com/en/privacy-policy"
             >
-              here
+              {t("login.loginPrivacyText.link")}
             </Link>
             .
           </p>

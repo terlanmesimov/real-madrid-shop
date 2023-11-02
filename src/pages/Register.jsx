@@ -310,23 +310,22 @@ const Register = () => {
             </div>
             <div className="other">
               <button className="register_google">
-                <span>Continue with Google</span>
+                <span>{t("register.withGoogle")}</span>
               </button>
               <button className="register_apple">
-                <span>Continue with Apple ID</span>
+                <span>{t("register.withAppleId")}</span>
               </button>
             </div>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("register.registerPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("register.registerPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("register.registerPrivacyText.link")}
               </Link>
               .
             </p>
@@ -434,16 +433,15 @@ const Register = () => {
               </button>
             </form>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("register.registerPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("register.registerPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("register.registerPrivacyText.link")}
               </Link>
               .
             </p>
@@ -550,16 +548,15 @@ const Register = () => {
               </button>
             </form>
             <p className="privacy_text">
-              We will use your email address to check if you already have an
-              account. You can exercise your rights at
+              {t("register.registerPrivacyText.sliceBeforeMail")}
               <Link className="email">oposicion@corp.realmadrid.com</Link>
-              and get more information
+              {t("register.registerPrivacyText.sliceAfterMail")}
               <br />
               <Link
                 className="privacy_policy"
                 to="https://www.realmadrid.com/en/privacy-policy"
               >
-                here
+                {t("register.registerPrivacyText.link")}
               </Link>
               .
             </p>

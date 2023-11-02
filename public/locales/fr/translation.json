@@ -111,7 +111,11 @@
       "notFound": "404 NON TROUVÉ"
     },
     "errorMessage": "404 Page non trouvée",
-    "pageNotFoundMessage": "La page que vous avez demandée n'existe pas. Cliquez <Link to='/shop'>ici</Link> pour continuer vos achats."
+    "pageNotFoundMessage": {
+      "link": "ici",
+      "sliceBeforeLink": "La page que vous avez demandée n'existe pas. Cliquer",
+      "sliceAfterLink": "pour poursuivre vos achats"
+    }
   },
   "footer": {
     "shop": "Boutique",

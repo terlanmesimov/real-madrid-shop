@@ -32,8 +32,9 @@ const Error = () => {
             <div className="error_message">
               <h2>{t("error.errorMessage")}</h2>
               <p>
-                The page you requested does not exist. Click{" "}
-                <Link to="/shop">here</Link> to continue shopping.
+                {t("error.pageNotFoundMessage.sliceBeforeLink")}{" "}
+                <Link to="/shop">{t("error.pageNotFoundMessage.link")}</Link>{" "}
+                {t("error.pageNotFoundMessage.sliceAfterLink")}
               </p>
             </div>
           </div>
