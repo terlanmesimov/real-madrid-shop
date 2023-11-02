@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import i18n from "../utils/i18n";
@@ -11,7 +12,7 @@ import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 // CONTEXT
 import { Auth } from "../utils/AuthContext";
-import { useTranslation } from "react-i18next";
+import { MainContext } from "../utils/MainContext";
 // COMPONENTS
 import Loader from "../components/Loader";
 
@@ -21,8 +22,12 @@ const Register = () => {
   // Language
   const { t } = useTranslation();
   const [lang, setLang] = useState("en");
+  const { currentLang } = useContext(MainContext);
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
+    if (currentLang === "es") {
+      setLang("es");
+    }
   }, []);
   const navigate = useNavigate();
   // Toasty error message

@@ -43,6 +43,7 @@ export const MainContextProvider = ({ children }) => {
     currentLang,
     setCurrentLang,
     products,
+    currentLang,
   };
 
   return (

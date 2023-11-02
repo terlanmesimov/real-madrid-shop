@@ -11,6 +11,7 @@ import * as yup from "yup";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { Auth } from "../utils/AuthContext";
+import { MainContext } from "../utils/MainContext";
 // COMPONENTS
 import Loader from "../components/Loader";
 
@@ -19,8 +20,12 @@ const Login = () => {
   const { setHasToken } = useContext(Auth);
   // Loader
   const [loader, setLoader] = useState(false);
+  const { currentLang } = useContext(MainContext);
   useEffect(() => {
     document.title = "Real Madrid CF | Log in or access";
+    if (currentLang === "es") {
+      setLang("es");
+    }
   }, []);
 
   // Language
