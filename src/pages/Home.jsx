@@ -9,8 +9,10 @@ import HeroSection from "../components/sections/HeroSection";
 import ShopifySection from "../components/sections/ShopifySection";
 import CollectionsSection from "../components/sections/CollectionsSection";
 import ContentSection from "../components/sections/ContentSection";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title =
@@ -27,31 +29,37 @@ const Home = () => {
         <HeroSection />
         <ShopifySection />
         <CollectionsSection
-          title={"KITS"}
+          title={t("home.collectionsSection.titleOne")}
           collections={[
-            "23/24 REAL MADRID HOME KITS",
-            "23/24 REAL MADRID AWAY KITS",
-            "THIRD KIT REAL MADRID 23/24",
-            "23/24 REAL MADRID GOALKEEPER KITS",
+            `${t("home.collectionsSection.homeKits")}`,
+            `${t("home.collectionsSection.awayKits")}`,
+            `${t("home.collectionsSection.thirdKit")}`,
+            `${t("home.collectionsSection.goolkeeperKits")}`,
           ]}
           id={"one"}
         />
         <ContentSection
-          text={["CHAMPIONS LEAGUE TRAINING COLLECTION", "TRAIN LIKE A PRO"]}
+          text={[
+            `${t("home.contentSection.sectionOne.textOne")}`,
+            `${t("home.contentSection.sectionOne.textTwo")}`,
+          ]}
           id={"one"}
         />
-        <ShopifySection/>
+        <ShopifySection />
         <CollectionsSection
-          title={"SCORE YOUR STYLE"}
+          title={t("home.collectionsSection.titleTwo")}
           collections={[
-            "LIFESTYLE MAN",
-            "ESSENTIALS FOR WOMEN",
-            "ESSENTIALS YOUTH",
+            `${t("home.collectionsSection.lifeStyleMan")}`,
+            `${t("home.collectionsSection.essentialForWomen")}`,
+            `${t("home.collectionsSection.essentialYouth")}`,
           ]}
           id={"two"}
         />
         <ContentSection
-          text={["COLLECTİON SİGNATURE", "GET READY FOR FALL"]}
+          text={[
+            `${t("home.contentSection.sectionTwo.textOne")}`,
+            `${t("home.contentSection.sectionTwo.textTwo")}`,
+          ]}
           id={"two"}
         />
         <ShopifySection />

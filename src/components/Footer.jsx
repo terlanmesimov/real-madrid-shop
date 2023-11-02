@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 function AccordionItem({ title, content }) {
@@ -21,8 +22,8 @@ function AccordionItem({ title, content }) {
             viewBox="0 0 10 6"
           >
             <path
-              fillRule="evenodd" 
-              clipRule="evenodd"  
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
               fill="currentColor"
             ></path>
@@ -34,8 +35,8 @@ function AccordionItem({ title, content }) {
   );
 }
 
-
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="container">
@@ -44,51 +45,51 @@ const Footer = () => {
             <div className="footer_block">
               <ul className="block_list">
                 <li className="list_title">
-                  <span>Shop</span>
+                  <span>{t("footer.shop")}</span>
                 </li>
                 <li className="list_item ">
-                  <Link>SHOP LOCATOR</Link>
+                  <Link>{t("footer.shopLocator")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>RETURNS AND REFUNDS</Link>
+                  <Link>{t("footer.returnsAndReturns")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>HOW TO ORDER</Link>
+                  <Link>{t("footer.howToOrder")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>TRACK MY ORDER</Link>
+                  <Link>{t("footer.trackMyOrder")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>MY ACCOUNT</Link>
+                  <Link>{t("footer.myAccount")}</Link>
                 </li>
               </ul>
             </div>
             <div className="footer_block">
               <ul className="block_list">
                 <li className="list_title">
-                  <span>About</span>
+                  <span>{t("footer.about")}</span>
                 </li>
                 <li className="list_item ">
-                  <Link>PRIVACY POLICY</Link>
+                  <Link>{t("footer.privacyPolicy")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>COOKIE POLICY</Link>
+                  <Link>{t("footer.cookiePolicy")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>TERMS AND CONDITIONS</Link>
+                  <Link>{t("footer.termsAndConditions")}</Link>
                 </li>
               </ul>
             </div>
             <div className="footer_block">
               <ul className="block_list">
                 <li className="list_title">
-                  <span>Do you need to help?</span>
+                  <span>{t("footer.help")}</span>
                 </li>
                 <li className="list_item ">
-                  <Link>CONTACT US</Link>
+                  <Link>{t("footer.contactUs")}</Link>
                 </li>
                 <li className="list_item ">
-                  <Link>FREQUENTLY ASKED QUESTIONS</Link>
+                  <Link>{t("footer.faq")}</Link>
                 </li>
               </ul>
             </div>
@@ -96,59 +97,59 @@ const Footer = () => {
           </div>
           <div className="accordion">
             <AccordionItem
-              title="Shop"
+              title={t("footer.shop")}
               content={
                 <ul className="block_list">
                   <li className="list_item ">
-                    <Link>SHOP LOCATOR</Link>
+                    <Link>{t("footer.shopLocator")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>RETURNS AND REFUNDS</Link>
+                    <Link>{t("footer.returnsAndReturns")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>HOW TO ORDER</Link>
+                    <Link>{t("footer.howToOrder")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>TRACK MY ORDER</Link>
+                    <Link>{t("footer.trackMyOrder")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>MY ACCOUNT</Link>
+                    <Link>{t("footer.myAccount")}</Link>
                   </li>
                 </ul>
               }
             />
             <AccordionItem
-              title="About"
+              title={t("footer.about")}
               content={
                 <ul className="block_list">
                   <li className="list_item ">
-                    <Link>PRIVACY POLICY</Link>
+                    <Link>{t("footer.privacyPolicy")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>COOKIE POLICY</Link>
+                    <Link>{t("footer.cookiePolicy")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>TERMS AND CONDITIONS</Link>
+                    <Link>{t("footer.termsAndConditions")}</Link>
                   </li>
                 </ul>
               }
             />
             <AccordionItem
-              title="Do you need to help?"
+              title={t("footer.help")}
               content={
                 <ul className="block_list">
                   <li className="list_item ">
-                    <Link>CONTACT US</Link>
+                    <Link>{t("footer.contactUs")}</Link>
                   </li>
                   <li className="list_item ">
-                    <Link>FREQUENTLY ASKED QUESTIONS</Link>
+                    <Link>{t("footer.faq")}</Link>
                   </li>
                 </ul>
               }
             />
           </div>
           <div className="footer_payment">
-            <h2 className="title">Payments Accepted</h2>
+            <h2 className="title">{t("footer.payment")}</h2>
             <ul className="payment_list">
               <li className="list_item">
                 <svg

@@ -47,94 +47,86 @@ const ShoppingCartMenu = () => {
           }, 500);
         }}
       ></div>
-      {cartListData.length !== 0 && (
-        <div
-          className={`menu animate__animated animate__faster ${
-            animateCartMenu ? "animate__fadeInRight" : "animate__fadeOutRight"
-          }`}
-        >
-          <span
-            onClick={() => {
-              setAnimateCartMenu(!animateCartMenu);
-              setTimeout(() => {
-                setOpenCart(!openCart);
-              }, 500);
-            }}
-            className="menu_close"
-          >
-            ✕
-          </span>
-          <h2 className="menu_title">
-            {t("header.shoppingCartMenu.yourShoppingCart")} ({totalCount})
-          </h2>
-          <div className="totals">
-            <h3>
-              <span className="sub_total">
-                {t("header.shoppingCartMenu.subTotal")}
-              </span>
-              <span className="total_price">€{totalPrice} EUR</span>
-            </h3>
-            <p className="tax_note">{t("header.shoppingCartMenu.taxNote")}</p>
-            <button
+      <div
+        className={`cart_content animate__animated animate__faster ${
+          animateCartMenu ? "animate__fadeInRight" : "animate__fadeOutRight"
+        }`}
+      >
+        {cartListData.length !== 0 && (
+          <div className="menu">
+            <span
+              onClick={() => {
+                setAnimateCartMenu(!animateCartMenu);
+                setTimeout(() => {
+                  setOpenCart(!openCart);
+                }, 500);
+              }}
+              className="menu_close"
+            >
+              ✕
+            </span>
+            <h2 className="menu_title">
+              {t("header.shoppingCartMenu.yourShoppingCart")} ({totalCount})
+            </h2>
+            <div className="totals">
+              <h3>
+                <span className="sub_total">
+                  {t("header.shoppingCartMenu.subTotal")}
+                </span>
+                <span className="total_price">€{totalPrice} EUR</span>
+              </h3>
+              <p className="tax_note">{t("header.shoppingCartMenu.taxNote")}</p>
+              <button
+                className="cart_checkout"
+                onClick={() => {
+                  navigate(hasToken ? "" : "/register");
+                }}
+              >
+                {t("header.shoppingCartMenu.payOrder")}
+              </button>
+            </div>
+            <ul className="product_list">
+              {cartListData.map((item) => {
+                return <CartListItem key={item.id} itemData={item} />;
+              })}
+            </ul>
+            <div
               className="cart_checkout"
               onClick={() => {
                 navigate(hasToken ? "" : "/register");
               }}
             >
               {t("header.shoppingCartMenu.payOrder")}
-            </button>
+            </div>
           </div>
-          <ul className="product_list">
-            {cartListData.map((item) => {
-              return <CartListItem key={item.id} itemData={item} />;
-            })}
-          </ul>
-          <div
-            className="cart_checkout"
-            onClick={() => {
-              navigate(hasToken ? "" : "/register");
-            }}
-          >
-            {t("header.shoppingCartMenu.payOrder")}
-          </div>
-        </div>
-      )}
-      {cartListData.length === 0 && (
-        <div
-          className={
-            animateCartMenu
-              ? `empty_menu ${
-                  openCart
-                    ? ""
-                    : "animate__animated animate__fadeOutRight animate__faster"
-                }`
-              : "empty_menu animate__animated animate__fadeOutRight animate__faster"
-          }
-        >
-          <span
-            onClick={() => {
-              setAnimateCartMenu(!animateCartMenu);
-              setTimeout(() => {
-                setOpenCart(!openCart);
-              }, 500);
-            }}
-            className="menu_close"
-          >
-            ✕
-          </span>
-          <h2 className="menu_title">
-            {t("header.shoppingCartMenu.yourCart")}
-          </h2>
-          <div className="menu_info">
-            <h2 className="empty_message">
-              {t("header.shoppingCartMenu.emptyMessage")}
+        )}
+        {cartListData.length === 0 && (
+          <div className="empty_menu">
+            <span
+              onClick={() => {
+                setAnimateCartMenu(!animateCartMenu);
+                setTimeout(() => {
+                  setOpenCart(!openCart);
+                }, 500);
+              }}
+              className="menu_close"
+            >
+              ✕
+            </span>
+            <h2 className="menu_title">
+              {t("header.shoppingCartMenu.yourCart")}
             </h2>
-            <Link to="/shop">
-              {t("header.shoppingCartMenu.continueShopping")}
-            </Link>
+            <div className="menu_info">
+              <h2 className="empty_message">
+                {t("header.shoppingCartMenu.emptyMessage")}
+              </h2>
+              <Link to="/shop">
+                {t("header.shoppingCartMenu.continueShopping")}
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
