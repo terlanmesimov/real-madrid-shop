@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { filters } from "../db/filters";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 // COMPONENTS
 import Product from "../components/Product";
@@ -10,14 +11,12 @@ import AnnoncementBar from "../components/AnnoncementBar";
 import Loader from "../components/Loader";
 // PROVIDER
 import { HeaderContextProvider } from "../utils/HeaderContext";
-import { MainContext } from "../utils/MainContext";
 
 const Shop = () => {
-  const { products } = useContext(MainContext);
-
   const { t } = useTranslation();
   const [filtersData, setFiltersData] = useState(filters);
   const [openFilterMenu, setOpenFilterMenu] = useState(false);
+  const [products, setProducts] = useState([]);
   // Loader
   const [loader, setLoader] = useState(false);
 
@@ -41,6 +40,23 @@ const Shop = () => {
     });
     setFiltersData(updatedFilters);
   };
+
+  const getAllProducts = async () => {
+    setLoader(true);
+    await axios
+      .get(process.env.REACT_APP_ALL_PRODUCTS)
+      .then((response) => {
+        setProducts(response.data);
+        setLoader(false);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   return (
     <>
