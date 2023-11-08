@@ -24,7 +24,6 @@ const SearchBar = () => {
       item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setResults(filteredResults);
-    console.log(results);
   };
 
   const handleInputChange = (event) => {
