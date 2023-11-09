@@ -193,6 +193,7 @@
           border-radius: 4px;
         }
         .card {
+          user-select: none;
           cursor: pointer;
           margin: 30px;
           box-shadow: 0 3px 10px #0003;
