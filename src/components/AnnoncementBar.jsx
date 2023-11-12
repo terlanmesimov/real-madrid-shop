@@ -6,6 +6,7 @@ import EastIcon from "@mui/icons-material/East";
 import { useContext } from "react";
 import { Auth } from "../utils/AuthContext";
 
+
 const AnnoncementBar = () => {
   const { hasToken } = useContext(Auth);
   const { t } = useTranslation();
